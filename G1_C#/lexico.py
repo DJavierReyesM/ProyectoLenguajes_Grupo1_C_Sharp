@@ -12,9 +12,55 @@ reserved = {
 
 # Tokens
 tokens = [
-    "DOS_PUNTOS"
+    "DOS_PUNTOS",
+    "FLOAT",
+    "DOUBLE"
 ] + list(reserved.values())
 # Expresiones Regulares / Funciones
+
+# Expresiones regulares para tokens simples (Simbolos)
+t_SUMA = r'\+'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Fin de seccion de simbolos
 
 t_DOS_PUNTOS = ":"
 # Conteo de Lineas
@@ -28,6 +74,16 @@ t_ignore_SingleLineComments = r'//.*'
 def t_error(t):
     print("Caracter no permitido: '%s'" %t.value[0])
     t.lexer.skip(1)
+
+def t_FLOAT(t):
+  r'\d+\.(\d){1,7}(f|F){1}'
+  t.value = float(t.value)
+  return t
+
+def t_DOUBLE(t):
+  r'\d+\.(\d){1,15}(\s|d|D){1}'
+  t.value = float(t.value)
+  return t
 
 lexer = lex.lex()
 

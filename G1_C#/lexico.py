@@ -38,6 +38,33 @@ tokens = [
 
     #Operadores aritmenticos
     "SUMA",
+    "RESTA", 
+    "MULTIPLICACION", 
+    "DIVISION", 
+    "MODULO", 
+    "SIMPLE_AND", 
+    "SIMPLE_OR", 
+    "IR", 
+    "NOR", 
+    "NEGACION", 
+    "AND", 
+    "OR", 
+    "INCREMENTO", 
+    "DECREMENTO", 
+    "SHIFT_MENOR", 
+    "SHIFT_MAYOR", 
+    "IGUAL_IGUAL", 
+    "NO_IGUAL", 
+    "MENOR_QUE", 
+    "MENOR_O_IGUAL_QUE", 
+    "MAYOR_QUE", 
+    "MAYOR_O_IGUAL_QUE", 
+    "IGUAL", "AUMENTADO", 
+    "DECREMENTADO", 
+    "MULTIPLICADO_POR", 
+    "DIVIDIDO_POR", 
+    "MODULO_DE",
+    "IDENTIFICADOR",
 
 ] + list(reserved.values())
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,31 +73,31 @@ tokens = [
 
 
 #~~~~~~~~~~~~~~~~~~ Expresiones Regulares usando funciones para tokens complejos ~~~~~~~~~~~~~~~~~~~
-# -------------------------------------------- CHEVEZ ----------------------------------------------
+# -------------------------------------------- VEINTIMILLA ----------------------------------------------
+def t_FLOAT(t):
+  r'\d+\.(\d){1,7}(f|F){1}'
+  t.value = reserved.get(t.value, "FLOAT")
+  return t
+
+def t_DOUBLE(t):
+  r'\d+\.(\d){1,15}(d|D)?'
+  t.value = reserved.get(t.value, "DOUBLE")
+  return t
+# --------------------------------------------------------------------------------------------------
+
+# -------------------------------------------- CHEVEZ -----------------------------------------------
 def t_INT(t):             
   r'\d+'
   t.value = int(t.value)    
   return t
-# --------------------------------------------------------------------------------------------------
-
-# -------------------------------------------- REYES -----------------------------------------------
-def t_FLOAT(t):
-    r"\d+\.(\d){1,7}(f|F){1}"
-    t.value = float(t.value)
-    return t
-
-def t_DOUBLE(t):
-    r"\d+\.(\d){1,15}(\s|d|D){1}"
-    t.value = float(t.value)
-    return t
 
 # --------------------------------------------------------------------------------------------------
 
-# ----------------------------------------- VEINTIMILLA --------------------------------------------
-# def t_INT(t):             
-#   r'\d+'
-#   t.value = int(t.value)    
-#   return t
+# ----------------------------------------- REYES --------------------------------------------
+def t_IDENTIFICADOR(t):
+    r'(@)?[a-zA-Z_][a-zA-Z0-9]*'
+    t.type = reserved.get(t.value, "IDENTIFICADOR")
+    return t
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -90,8 +117,33 @@ t_DOS_PUNTOS = ":"
 # --------------------------------------------------------------------------------------------------
 
 # ----------------------------------------- VEINTIMILLA --------------------------------------------
-# t_SUMA = r"\+"
-
+t_RESTA = r'\-'
+t_MULTIPLICACION = r'\*'
+t_DIVISION = r'/'
+t_MODULO = r'\%'
+t_SIMPLE_AND = r'&'
+t_SIMPLE_OR = r'\|'
+t_IR = r'\^'
+t_NOR = r'\!'
+t_NEGACION = r'\~'
+t_AND = r'&&'
+t_OR = r'\|\|'
+t_INCREMENTO = r'\+\+'
+t_DECREMENTO = r'\-\-'
+t_SHIFT_MENOR = r'<<'
+t_SHIFT_MAYOR = r'>>'
+t_IGUAL_IGUAL = r'=='
+t_NO_IGUAL = r'\!\='
+t_MENOR_QUE = r'<'
+t_MENOR_O_IGUAL_QUE = r'<='
+t_MAYOR_QUE = r'>'
+t_MAYOR_O_IGUAL_QUE = r'>='
+t_IGUAL = r'='
+t_AUMENTADO = r'\+='
+t_DECREMENTADO = r'\-='
+t_MULTIPLICADO_POR = r'\*='
+t_DIVIDIDO_POR = r'/='
+t_MODULO_DE = r'\%='
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -150,7 +202,7 @@ def showMenuAnalizadorLexico():
     elif(resp_opcion == "2"):
         rutaFileTest = "./tests/analizador_lexico/testReyes.txt"
     elif(resp_opcion == "3"):
-        rutaFileTest = "./tests/analizador_lexico/testVeintimilla.txt"
+        rutaFileTest = "G1_C#/tests/analizador_lexico/testVeintimilla.txt"
     elif(resp_opcion == "4"):
         rutaFileTest = "consola"
     else:

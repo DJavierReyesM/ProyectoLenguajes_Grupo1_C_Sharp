@@ -1,0 +1,12 @@
+// Archivo de prueba para revisar que el analizador 
+// lexico este correcto segun las implementaciones de Kevin Chevez
+
+"Hola como estas 89"
+"Soy kevin, como."
+"Realizando pruebas, @3$&*()(*&^%$[]['.."
+
+"invalid'
+'no valida'
+
+64
+2883

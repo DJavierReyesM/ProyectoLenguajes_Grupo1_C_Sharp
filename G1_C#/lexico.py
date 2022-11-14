@@ -17,10 +17,12 @@ tokens = [
     "DOS_PUNTOS",
     "FLOAT", "SUMA", "RESTA", "MULTIPLICACION", "DIVISION", "MODULO", "SIMPLE_AND", "SIMPLE_OR", "IR", "NOR", "NEGACION", "AND", "OR",
     "DOUBLE", "INCREMENTO", "DECREMENTO", "SHIFT_MENOR", "SHIFT_MAYOR", "IGUAL_IGUAL", "NO_IGUAL", "MENOR_QUE", "MENOR_O_IGUAL_QUE", "MAYOR_QUE", "MAYOR_O_IGUAL_QUE", "IGUAL", "AUMENTADO", "DECREMENTADO", "MULTIPLICADO_POR", "DIVIDIDO_POR", "MODULO_DE",
+    "IDENTIFICADOR",
 ] + list(reserved.values())
 # Expresiones Regulares / Funciones
 
 # Expresiones regulares para tokens simples (Simbolos)
+#Guillermo Veintimilla (Simbolos)
 t_SUMA = r'\+'
 t_RESTA = r'\-'
 t_MULTIPLICACION = r'\*'
@@ -38,18 +40,17 @@ t_DECREMENTO = r'\-\-'
 t_SHIFT_MENOR = r'<<'
 t_SHIFT_MAYOR = r'>>'
 t_IGUAL_IGUAL = r'=='
-t_NO_IGUAL = r'!='
+t_NO_IGUAL = r'\!\='
 t_MENOR_QUE = r'<'
 t_MENOR_O_IGUAL_QUE = r'<='
 t_MAYOR_QUE = r'>'
 t_MAYOR_O_IGUAL_QUE = r'>='
 t_IGUAL = r'='
 t_AUMENTADO = r'\+='
-t_DECREMENTADO = r'-='
+t_DECREMENTADO = r'\-='
 t_MULTIPLICADO_POR = r'\*='
 t_DIVIDIDO_POR = r'/='
-t_MODULO_DE = r'%='
-
+t_MODULO_DE = r'\%='
 
 
 
@@ -75,21 +76,62 @@ def t_error(t):
     print("Caracter no permitido: '%s'" %t.value[0])
     t.lexer.skip(1)
 
+# Guillermo Veintimilla: Tipo de datos float y double
 def t_FLOAT(t):
   r'\d+\.(\d){1,7}(f|F){1}'
-  t.value = float(t.value)
+  t.value = reserved.get(t.value, "FLOAT")
   return t
 
 def t_DOUBLE(t):
-  r'\d+\.(\d){1,15}(\s|d|D){1}'
-  t.value = float(t.value)
+  r'\d+\.(\d){1,15}(d|D)?'
+  t.value = reserved.get(t.value, "DOUBLE")
   return t
+
+def t_IDENTIFICADOR(t):
+    r'(@)?[a-zA-Z_][a-zA-Z0-9]*'
+    t.type = reserved.get(t.value, "IDENTIFICADOR")
+    return t
 
 lexer = lex.lex()
 
 print('Analizador Léxico: C#'+"\n")
 
-content = ':::'
+content = '''
+float num = 3.1f;
+float num = 3.1F; 
+double valor = 10.4; 
+double valor = 10.4d; 
+double valor = 10.4D; 
++
+-
+*
+/
+%
+&
+|
+^
+!
+~
+&&
+||
+++
+--
+<<
+>>
+==
+!=
+<
+<=
+>
+>=
+=
++=
+-=
+*=
+/=
+%=
+
+'''
 
 #file_source = open("source.txt")
 #content = file_source.read()

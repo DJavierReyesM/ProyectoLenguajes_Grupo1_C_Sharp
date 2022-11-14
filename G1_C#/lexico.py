@@ -10,12 +10,14 @@ import ply.lex as lex
 reserved = {
   'true': 'TRUE',
   'false': 'FALSE',
+  'float': 'FLOAT',
+  'double': 'DOUBLE',
 }
 
 # Tokens
 tokens = [
     "DOS_PUNTOS",
-    "FLOAT", "SUMA", "RESTA", "MULTIPLICACION", "DIVISION", "MODULO", "SIMPLE_AND", "SIMPLE_OR", "IR", "NOR", "NEGACION", "AND", "OR",
+    "FLOAT",  "SUMA", "RESTA", "MULTIPLICACION", "DIVISION", "MODULO", "SIMPLE_AND", "SIMPLE_OR", "IR", "NOR", "NEGACION", "AND", "OR",
     "DOUBLE", "INCREMENTO", "DECREMENTO", "SHIFT_MENOR", "SHIFT_MAYOR", "IGUAL_IGUAL", "NO_IGUAL", "MENOR_QUE", "MENOR_O_IGUAL_QUE", "MAYOR_QUE", "MAYOR_O_IGUAL_QUE", "IGUAL", "AUMENTADO", "DECREMENTADO", "MULTIPLICADO_POR", "DIVIDIDO_POR", "MODULO_DE",
     "IDENTIFICADOR",
 ] + list(reserved.values())

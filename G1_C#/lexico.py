@@ -14,32 +14,33 @@ reserved = {
 tokens = [
     "DOS_PUNTOS",
     "FLOAT",
-    "DOUBLE"
+    "DOUBLE", "SUMA", "RESTA", "MULTIPLICACION", "DIVISION", "MODULO", "SIMPLEAND", "SIMPLEOR", "IR"
 ] + list(reserved.values())
 # Expresiones Regulares / Funciones
 
 # Expresiones regulares para tokens simples (Simbolos)
 t_SUMA = r'\+'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+t_RESTA = r'\-'
+t_MULTIPLICACION = r'\*'
+t_DIVISION = r'/'
+t_MODULO = r'\%'
+t_SIMPLEAND = r'&'
+t_SIMPLEOR = r'\|'
+t_IR = r'\^'
+t_NOR = r'\!'
+t_NEGACION = r'\~'
+t_IGUALIGUAL = r'=='
+t_NOIGUAL = r'!='
+t_MENOR_QUE = r'<'
+t_MENOR_O_IGUAL_QUE = r'<='
+t_MAYOR_QUE = r'>'
+t_MAYOR_O_IGUAL_QUE = r'>='
+t_IGUAL = r'='
+t_AUMENTO = r'+='
+t_DECREMENTO = r'-='
+t_MULTIPLICADO_POR = r'*='
+t_DIVIDIDO_POR = r'/='
+t_MODULO_DE = r'%='
 
 
 

@@ -43,6 +43,7 @@ tokens = [
     "MULTIPLICACION", 
     "DIVISION", 
     "MODULO", 
+    #Operadores logicos
     "SIMPLE_AND", 
     "SIMPLE_OR", 
     "IR", 
@@ -50,17 +51,22 @@ tokens = [
     "NEGACION", 
     "AND", 
     "OR", 
+    #Incremento y decremento
     "INCREMENTO", 
     "DECREMENTO", 
+    #Shift
     "SHIFT_MENOR", 
     "SHIFT_MAYOR", 
+    #Relacional
     "IGUAL_IGUAL", 
     "NO_IGUAL", 
     "MENOR_QUE", 
     "MENOR_O_IGUAL_QUE", 
     "MAYOR_QUE", 
-    "MAYOR_O_IGUAL_QUE", 
-    "IGUAL", "AUMENTADO", 
+    "MAYOR_O_IGUAL_QUE",
+    #Asignacion 
+    "IGUAL", 
+    "AUMENTADO", 
     "DECREMENTADO", 
     "MULTIPLICADO_POR", 
     "DIVIDIDO_POR", 

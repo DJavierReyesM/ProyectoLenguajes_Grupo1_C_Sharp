@@ -18,6 +18,7 @@ reserved = {
     "private": "PRIVATE",   "protected": "PROTECTED",   "public": "PUBLIC",         "return": "RETURN",
     "this": "THIS",         "void": "VOID",             "global": "GLOBAL",         "let": "LET",
     "on": "ON",             "orderby": "ORDERBY",       "var": "VAR",               "when": "WHEN",
+    "float": "FLOAT",       "double": "DOUBLE",
 }
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -198,9 +199,9 @@ def showMenuAnalizadorLexico():
     rutaFileTest = ""
     resp_opcion = input(" >> ")
     if(resp_opcion == "1"):
-        rutaFileTest = "./tests/analizador_lexico/testChevez.txt"
+        rutaFileTest = "G1_C#/tests/analizador_lexico/testChevez.txt"
     elif(resp_opcion == "2"):
-        rutaFileTest = "./tests/analizador_lexico/testReyes.txt"
+        rutaFileTest = "G1_C#/tests/analizador_lexico/testReyes.txt"
     elif(resp_opcion == "3"):
         rutaFileTest = "G1_C#/tests/analizador_lexico/testVeintimilla.txt"
     elif(resp_opcion == "4"):

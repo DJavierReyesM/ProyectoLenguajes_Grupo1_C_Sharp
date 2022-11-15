@@ -18,8 +18,8 @@ reserved = {
     "private": "PRIVATE",   "protected": "PROTECTED",   "public": "PUBLIC",         "return": "RETURN",
     "this": "THIS",         "void": "VOID",             "global": "GLOBAL",         "let": "LET",
     "on": "ON",             "orderby": "ORDERBY",       "var": "VAR",               "when": "WHEN",
-    "float": "FLOAT_TYPE",  "double": "DOUBLE_TYPE",    "int" : "INT_TYPE",         "char" : "CHAR_TYPE",
-    "bool" : "BOOL_TYPE",   "string": "STRING_TYPE",
+    "break" : "BREAK",      "float": "FLOAT_TYPE",      "double": "DOUBLE_TYPE",    "int" : "INT_TYPE",
+    "char" : "CHAR_TYPE",   "bool" : "BOOL_TYPE",       "string": "STRING_TYPE",
     #Palabras Reservadas para las funciones (para su uso en reglas semánticas)
     "Stack":"STACK",        "ToUpper":"TO_UPPER",       "Push": "PUSH",
 

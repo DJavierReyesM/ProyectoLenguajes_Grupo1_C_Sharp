@@ -18,7 +18,12 @@ reserved = {
     "private": "PRIVATE",   "protected": "PROTECTED",   "public": "PUBLIC",         "return": "RETURN",
     "this": "THIS",         "void": "VOID",             "global": "GLOBAL",         "let": "LET",
     "on": "ON",             "orderby": "ORDERBY",       "var": "VAR",               "when": "WHEN",
-    "float": "FLOAT",       "double": "DOUBLE",
+    "float": "FLOAT_TYPE",  "double": "DOUBLE_TYPE",    "int" : "INT_TYPE",         "char" : "CHAR_TYPE",
+    "bool" : "BOOL_TYPE",   "string": "STRING_TYPE",
+    #Palabras Reservadas para las funciones (para su uso en reglas semánticas)
+    "Stack":"STACK",        "ToUpper":"TO_UPPER",       "Push": "PUSH",
+
+
 }
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,15 +33,27 @@ reserved = {
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Tokens ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tokens = [
-    # Simbolos
+    # Simbolos / Caracteres Especiales
     "DOS_PUNTOS",
-
+    "OP_TERNARIO",
+    "C_IDENT_TEXTUAL",
+    "C_CADENA_INTERPOLADA",
+    "END_OF_LINE",
+    "PAR_IZQ",
+    "PAR_DER",
+    "LLAVE_IZQ",
+    "LLAVE_DER",
+    "COR_IZQ",
+    "COR_DER",
+    "PUNTO",
+    "COMA",
     # Tipos de datos        # Grupo
     "FLOAT",                # Veintimilla
     "DOUBLE",               # Veintimilla
     "STRING",               # Chevez
     "INT",                  # Chevez
-
+    "BOOL",                 # Reyes
+    "CHAR",                 # Reyes
     #Operadores aritmenticos
     "SUMA",
     "RESTA", 
@@ -71,8 +88,18 @@ tokens = [
     "MULTIPLICADO_POR", 
     "DIVIDIDO_POR", 
     "MODULO_DE",
+    "AND_EQUAL",
+    "OR_EQUAL",
+    "EXC_OREQUAL",
+    "RIGHTSHIFT_EQUAL",
+    "LEFTSHIFT_EQUAL",
+    "NULL_EQUAL",
+    "LAMBDA",
+    #Tokens para las funciones (para su uso en reglas semánticas)
+    "CONSOLE_READLINE",
+    "CONSOLE_WRITELINE",
+    # IDENTIFICADOR
     "IDENTIFICADOR",
-
 ] + list(reserved.values())
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -93,14 +120,28 @@ def t_DOUBLE(t):
 # --------------------------------------------------------------------------------------------------
 
 # -------------------------------------------- CHEVEZ -----------------------------------------------
-def t_INT(t):             
+def t_INT(t):
   r'\d+'
   t.value = int(t.value)    
   return t
 
 # --------------------------------------------------------------------------------------------------
 
-# ----------------------------------------- REYES --------------------------------------------
+# ----------------------------------------- REYES --------------------------------------------------
+def t_CONSOLE_READLINE(t):
+    r"Console\.ReadLine"
+    return t
+def t_CONSOLE_WRITELINE(t):
+    r"Console\.WriteLine"
+    return t
+def t_BOOL(t):
+    r'(true|false)'
+    t.value = True if (t.value == "true") else False
+    return t
+def t_CHAR(t):
+    r"'[^']'"
+    return t
+
 def t_IDENTIFICADOR(t):
     r'(@)?[a-zA-Z_][a-zA-Z0-9]*'
     t.type = reserved.get(t.value, "IDENTIFICADOR")
@@ -113,14 +154,32 @@ def t_IDENTIFICADOR(t):
 
 #~~~~~~~~~~~~~~~~~~~~~~~ Expresiones regulares para tokens simples (Simbolos) ~~~~~~~~~~~~~~~~~~~~~~
 # -------------------------------------------- CHEVEZ ----------------------------------------------
-t_STRING = r'".*"'
+t_STRING_TYPE = r'".*"'
 
 # --------------------------------------------------------------------------------------------------
 
 # -------------------------------------------- REYES -----------------------------------------------
 t_SUMA = r"\+"
 t_DOS_PUNTOS = ":"
-
+t_AND_EQUAL= r'&='
+t_OR_EQUAL=r'\|='
+t_EXC_OREQUAL= r'\^='
+t_NULL_EQUAL= r"\?\?="
+t_LEFTSHIFT_EQUAL=r"<<="
+t_RIGHTSHIFT_EQUAL=r">>="
+t_LAMBDA=r"=>"
+t_OP_TERNARIO=r"\?"
+t_C_IDENT_TEXTUAL=r"@"
+t_C_CADENA_INTERPOLADA=r"\$"
+t_END_OF_LINE = r";"
+t_PAR_IZQ=r"\("
+t_PAR_DER=r"\)"
+t_LLAVE_IZQ=r"\{"
+t_LLAVE_DER=r"\}"
+t_COR_IZQ=r"\["
+t_COR_DER=r"\]"
+t_PUNTO=r"\."
+t_COMA=r","
 # --------------------------------------------------------------------------------------------------
 
 # ----------------------------------------- VEINTIMILLA --------------------------------------------

@@ -28,6 +28,6 @@ numeros.Push('A');
 cadena.ToUpper();
 Console.ReadLine();
 while(true){
-    Console.WriteLine(12);
+    Console.WriteLine('B');
     break;
 }

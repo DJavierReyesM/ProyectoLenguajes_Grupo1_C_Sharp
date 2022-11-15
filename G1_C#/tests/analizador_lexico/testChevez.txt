@@ -1,12 +1,36 @@
 // Archivo de prueba para revisar que el analizador 
 // lexico este correcto segun las implementaciones de Kevin Chevez
 
+// Prueba de palabras reservadas
+"----------------------------- Prueba de palabras reservadas ------------------------------"
+float double default switch struct null for private protected
+
+// Prueba de cadenas
+"----------------------------------- Prueba de cadenas ------------------------------------"
 "Hola como estas 89"
 "Soy kevin, como."
-"Realizando pruebas, @3$&*()(*&^%$[]['.."
-
+"Realizando pruebas, @3$&*()(*&^%$[]['.. Prueba de cadena"
 "invalid'
 'no valida'
 
+// Prueba de numeros
+"----------------------------------- Prueba de numeros ------------------------------------"
+
 64
 2883
+
+// Prueba de algoritmo que use numeros y cadenas
+"----------------------- Prueba de algoritmo que use numeros y cadenas --------------------"
+int day = 4;
+switch (day)
+{
+    case 1:
+        Console.WriteLine("Monday");
+        break;
+    case 2:
+        Console.WriteLine("Tuesday");
+        break;
+    default:
+        Console.WriteLine("Wednesday");
+        break;
+}

@@ -47,6 +47,8 @@ tokens = [
     "COR_DER",
     "PUNTO",
     "COMA",
+    "COMILLA_DOBLE",
+    "COMILLA_SIMPLE",
     # Tipos de datos        # Grupo
     "FLOAT",                # Veintimilla
     "DOUBLE",               # Veintimilla
@@ -110,12 +112,12 @@ tokens = [
 # -------------------------------------------- VEINTIMILLA ----------------------------------------------
 def t_FLOAT(t):
   r'\d+\.(\d){1,7}(f|F){1}'
-  t.value = reserved.get(t.value, "FLOAT")
+  t.value = float(t.value[:-1])
   return t
 
 def t_DOUBLE(t):
   r'\d+\.(\d){1,15}(d|D)?'
-  t.value = reserved.get(t.value, "DOUBLE")
+  t.value = float(t.value[:-1])
   return t
 # --------------------------------------------------------------------------------------------------
 
@@ -155,7 +157,8 @@ def t_IDENTIFICADOR(t):
 #~~~~~~~~~~~~~~~~~~~~~~~ Expresiones regulares para tokens simples (Simbolos) ~~~~~~~~~~~~~~~~~~~~~~
 # -------------------------------------------- CHEVEZ ----------------------------------------------
 t_STRING = r'".*"'
-
+t_COMILLA_DOBLE = r'\"'
+t_COMILLA_SIMPLE = r'\''
 # --------------------------------------------------------------------------------------------------
 
 # -------------------------------------------- REYES -----------------------------------------------
@@ -254,15 +257,14 @@ def getTokens(lexer):
 def showMenuAnalizadorLexico():
     print(
         "\nAnalizador Lexico\n"+
-        "Digite una opcion para hacer las pruebas\n"+
-        "\t1. Archivo de prueba Chevez\n"+
-        "\t2. Archivo de prueba Reyes\n"+
-        "\t3. Archivo de prueba Veintimilla\n"+
-        "\t4. Consola\n"+
-        "\t9. Salir"
+        " 1. Archivo de prueba Chevez\n"+
+        " 2. Archivo de prueba Reyes\n"+
+        " 3. Archivo de prueba Veintimilla\n"+
+        " 4. Consola\n"+
+        " 9. Salir"
     )
     rutaFileTest = ""
-    resp_opcion = input(" >> ")
+    resp_opcion = input("Digite una opcion para hacer las pruebas: ")
     if(resp_opcion == "1"):
         rutaFileTest = "G1_C#/tests/analizador_lexico/testChevez.txt"
     elif(resp_opcion == "2"):
@@ -301,13 +303,12 @@ def showMenuAnalizadorSemantico():
 print(
     "\nProyecto Analizador lexico, sintactico y semantico en C#\n"+
     "Grupo 1 - Pruebas\n"+
-    "Digite una opción:\n"+
-    "\t1. Analizador Lexico\n"+
-    "\t2. Analizador Sintactico\n"+
-    "\t3. Analizador Semantico\n"+
-    "\t9. Salir"
+    " 1. Analizador Lexico\n"+
+    " 2. Analizador Sintactico\n"+
+    " 3. Analizador Semantico\n"+
+    " 9. Salir"
 )
-resp_modo = input(" >> ")
+resp_modo = input("Digite una opción: ")
 if(resp_modo == "1"):
     showMenuAnalizadorLexico()
 elif(resp_modo == "2"):

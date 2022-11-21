@@ -4,7 +4,7 @@ import ply.lex as lex
 # Analizador Léxico: C#
 # Grupo 1:
 #   => Kevin Isaac Chevez Coronel
-#   => Guillermo Alejandro Veintimiila Altamirano
+#   => Guillermo Alejandro Veintimilla Altamirano
 #   => Diego Javier Reyes Medranda
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Palabras reservadas ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,7 +21,7 @@ reserved = {
     "break" : "BREAK",      "float": "FLOAT_TYPE",      "double": "DOUBLE_TYPE",    "int" : "INT_TYPE",
     "char" : "CHAR_TYPE",   "bool" : "BOOL_TYPE",       "string": "STRING_TYPE",
     #Palabras Reservadas para las funciones (para su uso en reglas semánticas)
-    "Stack":"STACK",        "ToUpper":"TO_UPPER",       "Push": "PUSH",
+    "Stack":"STACK",        "ToUpper":"TO_UPPER",       "Push": "PUSH",             "Add" : "ADD", 
 
 
 }
@@ -253,7 +253,7 @@ def getTokens(lexer):
     tokens.append(tok)
     print(tok)
   return tokens
-
+'''
 def showMenuAnalizadorLexico():
     print(
         "\nAnalizador Lexico\n"+
@@ -318,4 +318,4 @@ elif(resp_modo == "3"):
 else:
     print("Vuelva pronto! :)")
     sys.exit(-1)
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''

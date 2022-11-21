@@ -1,0 +1,298 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ADD
+    AND
+    AND_EQUAL
+    AUMENTADO
+    BOOL_TYPE
+    BREAK
+    BYTE
+    CASE
+    CHAR_TYPE
+    CLASS
+    COMA
+    COMILLA_DOBLE
+    COMILLA_SIMPLE
+    CONSOLE_READLINE
+    CONSOLE_WRITELINE
+    CONST
+    CONTINUE
+    COR_DER
+    COR_IZQ
+    C_CADENA_INTERPOLADA
+    C_IDENT_TEXTUAL
+    DECREMENTADO
+    DECREMENTO
+    DEFAULT
+    DIVIDIDO_POR
+    DIVISION
+    DO
+    DOS_PUNTOS
+    DOUBLE_TYPE
+    ELSE
+    END_OF_LINE
+    EXC_OREQUAL
+    FINALLY
+    FLOAT_TYPE
+    FOR
+    GLOBAL
+    IGUAL
+    IGUAL_IGUAL
+    IN
+    INCREMENTO
+    INT_TYPE
+    IR
+    LAMBDA
+    LEFTSHIFT_EQUAL
+    LET
+    LLAVE_DER
+    LLAVE_IZQ
+    MAYOR_O_IGUAL_QUE
+    MAYOR_QUE
+    MENOR_O_IGUAL_QUE
+    MENOR_QUE
+    MODULO
+    MODULO_DE
+    MULTIPLICACION
+    MULTIPLICADO_POR
+    NEGACION
+    NEW
+    NOR
+    NO_IGUAL
+    NULL
+    NULL_EQUAL
+    NULL_VAL
+    OBJECT
+    ON
+    OP_TERNARIO
+    OR
+    ORDERBY
+    OR_EQUAL
+    PAR_DER
+    PAR_IZQ
+    PRIVATE
+    PROTECTED
+    PUBLIC
+    PUNTO
+    PUSH
+    RESTA
+    RETURN
+    RIGHTSHIFT_EQUAL
+    SHIFT_MAYOR
+    SHIFT_MENOR
+    SIMPLE_AND
+    SIMPLE_OR
+    STACK
+    STRING_TYPE
+    STRUCT
+    SUMA
+    SWITCH
+    THIS
+    TO_UPPER
+    TYPEOF
+    VAR
+    VOID
+    WHEN
+    WHERE
+    WHILE
+
+Grammar
+
+Rule 0     S' -> valor
+Rule 1     valor -> FLOAT
+Rule 2     valor -> DOUBLE
+Rule 3     valor -> STRING
+Rule 4     valor -> INT
+Rule 5     valor -> BOOL
+Rule 6     valor -> CHAR
+Rule 7     valor -> IDENTIFICADOR
+
+Terminals, with rules where they appear
+
+ADD                  : 
+AND                  : 
+AND_EQUAL            : 
+AUMENTADO            : 
+BOOL                 : 5
+BOOL_TYPE            : 
+BREAK                : 
+BYTE                 : 
+CASE                 : 
+CHAR                 : 6
+CHAR_TYPE            : 
+CLASS                : 
+COMA                 : 
+COMILLA_DOBLE        : 
+COMILLA_SIMPLE       : 
+CONSOLE_READLINE     : 
+CONSOLE_WRITELINE    : 
+CONST                : 
+CONTINUE             : 
+COR_DER              : 
+COR_IZQ              : 
+C_CADENA_INTERPOLADA : 
+C_IDENT_TEXTUAL      : 
+DECREMENTADO         : 
+DECREMENTO           : 
+DEFAULT              : 
+DIVIDIDO_POR         : 
+DIVISION             : 
+DO                   : 
+DOS_PUNTOS           : 
+DOUBLE               : 2
+DOUBLE_TYPE          : 
+ELSE                 : 
+END_OF_LINE          : 
+EXC_OREQUAL          : 
+FINALLY              : 
+FLOAT                : 1
+FLOAT_TYPE           : 
+FOR                  : 
+GLOBAL               : 
+IDENTIFICADOR        : 7
+IGUAL                : 
+IGUAL_IGUAL          : 
+IN                   : 
+INCREMENTO           : 
+INT                  : 4
+INT_TYPE             : 
+IR                   : 
+LAMBDA               : 
+LEFTSHIFT_EQUAL      : 
+LET                  : 
+LLAVE_DER            : 
+LLAVE_IZQ            : 
+MAYOR_O_IGUAL_QUE    : 
+MAYOR_QUE            : 
+MENOR_O_IGUAL_QUE    : 
+MENOR_QUE            : 
+MODULO               : 
+MODULO_DE            : 
+MULTIPLICACION       : 
+MULTIPLICADO_POR     : 
+NEGACION             : 
+NEW                  : 
+NOR                  : 
+NO_IGUAL             : 
+NULL                 : 
+NULL_EQUAL           : 
+NULL_VAL             : 
+OBJECT               : 
+ON                   : 
+OP_TERNARIO          : 
+OR                   : 
+ORDERBY              : 
+OR_EQUAL             : 
+PAR_DER              : 
+PAR_IZQ              : 
+PRIVATE              : 
+PROTECTED            : 
+PUBLIC               : 
+PUNTO                : 
+PUSH                 : 
+RESTA                : 
+RETURN               : 
+RIGHTSHIFT_EQUAL     : 
+SHIFT_MAYOR          : 
+SHIFT_MENOR          : 
+SIMPLE_AND           : 
+SIMPLE_OR            : 
+STACK                : 
+STRING               : 3
+STRING_TYPE          : 
+STRUCT               : 
+SUMA                 : 
+SWITCH               : 
+THIS                 : 
+TO_UPPER             : 
+TYPEOF               : 
+VAR                  : 
+VOID                 : 
+WHEN                 : 
+WHERE                : 
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+valor                : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . valor
+    (1) valor -> . FLOAT
+    (2) valor -> . DOUBLE
+    (3) valor -> . STRING
+    (4) valor -> . INT
+    (5) valor -> . BOOL
+    (6) valor -> . CHAR
+    (7) valor -> . IDENTIFICADOR
+
+    FLOAT           shift and go to state 2
+    DOUBLE          shift and go to state 3
+    STRING          shift and go to state 4
+    INT             shift and go to state 5
+    BOOL            shift and go to state 6
+    CHAR            shift and go to state 7
+    IDENTIFICADOR   shift and go to state 8
+
+    valor                          shift and go to state 1
+
+state 1
+
+    (0) S' -> valor .
+
+
+
+state 2
+
+    (1) valor -> FLOAT .
+
+    $end            reduce using rule 1 (valor -> FLOAT .)
+
+
+state 3
+
+    (2) valor -> DOUBLE .
+
+    $end            reduce using rule 2 (valor -> DOUBLE .)
+
+
+state 4
+
+    (3) valor -> STRING .
+
+    $end            reduce using rule 3 (valor -> STRING .)
+
+
+state 5
+
+    (4) valor -> INT .
+
+    $end            reduce using rule 4 (valor -> INT .)
+
+
+state 6
+
+    (5) valor -> BOOL .
+
+    $end            reduce using rule 5 (valor -> BOOL .)
+
+
+state 7
+
+    (6) valor -> CHAR .
+
+    $end            reduce using rule 6 (valor -> CHAR .)
+
+
+state 8
+
+    (7) valor -> IDENTIFICADOR .
+
+    $end            reduce using rule 7 (valor -> IDENTIFICADOR .)
+

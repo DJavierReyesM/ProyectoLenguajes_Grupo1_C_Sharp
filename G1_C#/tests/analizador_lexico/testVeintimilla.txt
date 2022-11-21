@@ -33,3 +33,13 @@ double valor = 10.4D;
 *=
 /=
 %=
+
+// Prueba de metodo de agregar elemento a lista
+
+numeros.Add(1);
+
+// Prueba de algoritmo de Casting 
+
+float n = 4.5f;
+int num;
+num = (int) n;

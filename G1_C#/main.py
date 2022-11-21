@@ -3,13 +3,15 @@ from lexico import tokens
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Cuerpo sintáctico ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def p_body(p):
-  '''body : asignacion
+  '''body : asignacion END_OF_LINE
   | comparacion
   | estructura_control
   | estructura_datos
   | expresion
   | salida_entrada
   | funcion
+  | declaracion END_OF_LINE
+  | empty
   '''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -79,8 +81,39 @@ def p_operador_condicional(p):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Formas de asignación ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # -------------------------------------------- REYES -----------------------------------------------
+
+def p_empty(p):
+  'empty : END_OF_LINE'
+
 def p_asignacion(p):
-  'asignacion : IGUAL'
+  '''asignacion : asignacionSimple
+   '''
+def p_asignacionSimple(p):
+  '''asignacionSimple : IDENTIFICADOR IGUAL valor
+                      | IDENTIFICADOR IGUAL expresion
+  '''
+
+def p_declaracion(p):
+  'declaracion : valor_tipo IDENTIFICADOR'
+
+def p_declaracionAsignacion(p):
+  ''' declaracion : valor_tipo asignacion
+
+  '''
+
+'''
+Declaración a preguntar en un futuro:
+
+def p_declaracion(p):
+  'declaracion : valor_tipo declaracionComponente'
+  
+def p_declaracionComponente(p):
+  declaracionComponente : IDENTIFICADOR
+                           | IDENTIFICADOR COMA declaracionComponente
+                           | asignacionSimple
+                           | asignacionSimple COMA declaracionComponente
+'''
+
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -1,0 +1,33 @@
+// Archivo de prueba para comprobar el funcionamiento del Analizador Léxico
+// De acuerdo a los tokens implementados por Diego Reyes
+
+//------------------------------------------------------//
+// Booleanos y Caracteres"
+bool _verdadero1 = false;
+bool @falseto1 = true;
+char car = 'A';
+
+//------------------------------------------------------//
+// Simbolos/Caracteres Especiales"
+@$?;,.:
+a&=b
+a|=c
+a^=d
+a??=e
+a<<=f
+a>>=g
+a=>h
+()[]{}
+System
+Main
+
+//------------------------------------------------------//
+// Palabras usadas para funciones (reglas semanticas en un futuro)//
+Stack
+numeros.Push('A');
+cadena.ToUpper();
+Console.ReadLine();
+while(true){
+    Console.WriteLine('B');
+    break;
+}

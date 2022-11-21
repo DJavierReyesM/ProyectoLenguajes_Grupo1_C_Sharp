@@ -253,7 +253,7 @@ def getTokens(lexer):
     tokens.append(tok)
     print(tok)
   return tokens
-
+'''
 def showMenuAnalizadorLexico():
     print(
         "\nAnalizador Lexico\n"+
@@ -318,4 +318,4 @@ elif(resp_modo == "3"):
 else:
     print("Vuelva pronto! :)")
     sys.exit(-1)
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''

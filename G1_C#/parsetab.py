@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ADD AND AND_EQUAL AUMENTADO BOOL BOOL_TYPE BREAK BYTE CASE CHAR CHAR_TYPE CLASS COMA COMILLA_DOBLE COMILLA_SIMPLE CONSOLE_READLINE CONSOLE_WRITELINE CONST CONTINUE COR_DER COR_IZQ C_CADENA_INTERPOLADA C_IDENT_TEXTUAL DECREMENTADO DECREMENTO DEFAULT DIVIDIDO_POR DIVISION DO DOS_PUNTOS DOUBLE DOUBLE_TYPE ELSE END_OF_LINE EXC_OREQUAL FINALLY FLOAT FLOAT_TYPE FOR GLOBAL IDENTIFICADOR IGUAL IGUAL_IGUAL IN INCREMENTO INT INT_TYPE IR LAMBDA LEFTSHIFT_EQUAL LET LLAVE_DER LLAVE_IZQ MAYOR_O_IGUAL_QUE MAYOR_QUE MENOR_O_IGUAL_QUE MENOR_QUE MODULO MODULO_DE MULTIPLICACION MULTIPLICADO_POR NEGACION NEW NOR NO_IGUAL NULL NULL_EQUAL NULL_VAL OBJECT ON OP_TERNARIO OR ORDERBY OR_EQUAL PAR_DER PAR_IZQ PRIVATE PROTECTED PUBLIC PUNTO PUSH RESTA RETURN RIGHTSHIFT_EQUAL SHIFT_MAYOR SHIFT_MENOR SIMPLE_AND SIMPLE_OR STACK STRING STRING_TYPE STRUCT SUMA SWITCH THIS TO_UPPER TYPEOF VAR VOID WHEN WHERE WHILEvalor : FLOAT\n            | DOUBLE\n            | STRING\n            | INT\n            | BOOL\n            | CHAR\n            | IDENTIFICADOR'
+_lr_signature = 'ADD AND AND_EQUAL AUMENTADO BOOL BOOL_TYPE BREAK BYTE CASE CHAR CHAR_TYPE CLASS COMA COMILLA_DOBLE COMILLA_SIMPLE CONSOLE_READLINE CONSOLE_WRITELINE CONST CONTINUE COR_DER COR_IZQ C_CADENA_INTERPOLADA C_IDENT_TEXTUAL DECREMENTADO DECREMENTO DEFAULT DIVIDIDO_POR DIVISION DO DOS_PUNTOS DOUBLE DOUBLE_TYPE ELSE END_OF_LINE EXC_OREQUAL FINALLY FLOAT FLOAT_TYPE FOR GLOBAL IDENTIFICADOR IGUAL IGUAL_IGUAL IN INCREMENTO INT INT_TYPE IR LAMBDA LEFTSHIFT_EQUAL LET LLAVE_DER LLAVE_IZQ MAYOR_O_IGUAL_QUE MAYOR_QUE MENOR_O_IGUAL_QUE MENOR_QUE MODULO MODULO_DE MULTIPLICACION MULTIPLICADO_POR NEGACION NEW NOR NO_IGUAL NULL NULL_EQUAL NULL_VAL OBJECT ON OP_TERNARIO OR ORDERBY OR_EQUAL PAR_DER PAR_IZQ PRIVATE PROTECTED PUBLIC PUNTO PUSH RESTA RETURN RIGHTSHIFT_EQUAL SHIFT_MAYOR SHIFT_MENOR SIMPLE_AND SIMPLE_OR STACK STRING STRING_TYPE STRUCT SUMA SWITCH THIS TO_UPPER TYPEOF VAR VOID WHEN WHERE WHILEbody : asignacion\n  | comparacion\n  | estructura_control\n  | estructura_datos\n  | expresion\n  | salida_entrada\n  | funcion\n  valor : CHAR\n  | numero\n  | BOOL\n  | STRING\n  | IDENTIFICADOR\n  numero : FLOAT\n  | DOUBLE\n  | INT\n  valor_tipo : CHAR_TYPE\n  | FLOAT_TYPE\n  | DOUBLE_TYPE\n  | INT_TYPE\n  | BOOL_TYPE\n  | STRING_TYPE\n  | VOID\n  modificador_acceso : PRIVATE\n  | PROTECTED\n  | PUBLIC\n  operador_realacional : IGUAL_IGUAL\n  | NO_IGUAL \n  | MENOR_QUE\n  | MENOR_O_IGUAL_QUE\n  | MAYOR_QUE\n  | MAYOR_O_IGUAL_QUE\n  operador_aritmentico : SUMA\n  | RESTA\n  | MULTIPLICACION\n  | DIVISION\n  | MODULO\n  operador_condicional : IGUAL_IGUAL\n  | NO_IGUAL\n  | MENOR_QUE\n  | MENOR_O_IGUAL_QUE\n  | MAYOR_QUE\n  | MAYOR_O_IGUAL_QUE\n  asignacion : IGUALcomparacion : valor operador_realacional valorestructura_control : while\n  | switch_case\n  | for\n  while : IGUALswitch_case : IGUALfor : IGUALestructura_datos : IGUALexpresion : expresion_operacion_aritmetica\n  | expresion_condicional\n  expresion_operacion_aritmetica : numero operador_aritmentico numero\n  | IDENTIFICADOR operador_aritmentico IDENTIFICADOR\n  expresion_condicional : numero operador_condicional numero\n  | IDENTIFICADOR operador_condicional IDENTIFICADOR\n  salida_entrada : IGUALfuncion : IGUAL'
     
-_lr_action_items = {'FLOAT':([0,],[2,]),'DOUBLE':([0,],[3,]),'STRING':([0,],[4,]),'INT':([0,],[5,]),'BOOL':([0,],[6,]),'CHAR':([0,],[7,]),'IDENTIFICADOR':([0,],[8,]),'$end':([1,2,3,4,5,6,7,8,],[0,-1,-2,-3,-4,-5,-6,-7,]),}
+_lr_action_items = {'IGUAL':([0,],[9,]),'CHAR':([0,24,25,26,27,28,29,30,],[16,16,-26,-27,-28,-29,-30,-31,]),'BOOL':([0,24,25,26,27,28,29,30,],[18,18,-26,-27,-28,-29,-30,-31,]),'STRING':([0,24,25,26,27,28,29,30,],[19,19,-26,-27,-28,-29,-30,-31,]),'IDENTIFICADOR':([0,24,25,26,27,28,29,30,33,34,35,36,37,38,39,40,41,42,43,44,45,],[20,48,-26,-27,-28,-29,-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,51,52,]),'FLOAT':([0,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,],[21,21,-26,-27,-28,-29,-30,-31,21,21,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,]),'DOUBLE':([0,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,],[22,22,-26,-27,-28,-29,-30,-31,22,22,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,]),'INT':([0,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,],[23,23,-26,-27,-28,-29,-30,-31,23,23,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,]),'$end':([1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,19,21,22,23,46,47,48,49,50,51,52,],[0,-1,-2,-3,-4,-5,-6,-7,-43,-45,-46,-47,-52,-53,-8,-10,-11,-13,-14,-15,-44,-9,-12,-54,-56,-55,-57,]),'IGUAL_IGUAL':([10,16,17,18,19,20,21,22,23,],[25,-8,38,-10,-11,38,-13,-14,-15,]),'NO_IGUAL':([10,16,17,18,19,20,21,22,23,],[26,-8,39,-10,-11,39,-13,-14,-15,]),'MENOR_QUE':([10,16,17,18,19,20,21,22,23,],[27,-8,40,-10,-11,40,-13,-14,-15,]),'MENOR_O_IGUAL_QUE':([10,16,17,18,19,20,21,22,23,],[28,-8,41,-10,-11,41,-13,-14,-15,]),'MAYOR_QUE':([10,16,17,18,19,20,21,22,23,],[29,-8,42,-10,-11,42,-13,-14,-15,]),'MAYOR_O_IGUAL_QUE':([10,16,17,18,19,20,21,22,23,],[30,-8,43,-10,-11,43,-13,-14,-15,]),'SUMA':([17,20,21,22,23,],[33,33,-13,-14,-15,]),'RESTA':([17,20,21,22,23,],[34,34,-13,-14,-15,]),'MULTIPLICACION':([17,20,21,22,23,],[35,35,-13,-14,-15,]),'DIVISION':([17,20,21,22,23,],[36,36,-13,-14,-15,]),'MODULO':([17,20,21,22,23,],[37,37,-13,-14,-15,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'valor':([0,],[1,]),}
+_lr_goto_items = {'body':([0,],[1,]),'asignacion':([0,],[2,]),'comparacion':([0,],[3,]),'estructura_control':([0,],[4,]),'estructura_datos':([0,],[5,]),'expresion':([0,],[6,]),'salida_entrada':([0,],[7,]),'funcion':([0,],[8,]),'valor':([0,24,],[10,46,]),'while':([0,],[11,]),'switch_case':([0,],[12,]),'for':([0,],[13,]),'expresion_operacion_aritmetica':([0,],[14,]),'expresion_condicional':([0,],[15,]),'numero':([0,24,31,32,],[17,47,49,50,]),'operador_realacional':([10,],[24,]),'operador_aritmentico':([17,20,],[31,44,]),'operador_condicional':([17,20,],[32,45,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,12 +26,64 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> valor","S'",1,None,None,None),
-  ('valor -> FLOAT','valor',1,'p_valor','main.py',21),
-  ('valor -> DOUBLE','valor',1,'p_valor','main.py',22),
-  ('valor -> STRING','valor',1,'p_valor','main.py',23),
-  ('valor -> INT','valor',1,'p_valor','main.py',24),
-  ('valor -> BOOL','valor',1,'p_valor','main.py',25),
-  ('valor -> CHAR','valor',1,'p_valor','main.py',26),
-  ('valor -> IDENTIFICADOR','valor',1,'p_valor','main.py',27),
+  ("S' -> body","S'",1,None,None,None),
+  ('body -> asignacion','body',1,'p_body','main.py',6),
+  ('body -> comparacion','body',1,'p_body','main.py',7),
+  ('body -> estructura_control','body',1,'p_body','main.py',8),
+  ('body -> estructura_datos','body',1,'p_body','main.py',9),
+  ('body -> expresion','body',1,'p_body','main.py',10),
+  ('body -> salida_entrada','body',1,'p_body','main.py',11),
+  ('body -> funcion','body',1,'p_body','main.py',12),
+  ('valor -> CHAR','valor',1,'p_valor','main.py',21),
+  ('valor -> numero','valor',1,'p_valor','main.py',22),
+  ('valor -> BOOL','valor',1,'p_valor','main.py',23),
+  ('valor -> STRING','valor',1,'p_valor','main.py',24),
+  ('valor -> IDENTIFICADOR','valor',1,'p_valor','main.py',25),
+  ('numero -> FLOAT','numero',1,'p_numero','main.py',29),
+  ('numero -> DOUBLE','numero',1,'p_numero','main.py',30),
+  ('numero -> INT','numero',1,'p_numero','main.py',31),
+  ('valor_tipo -> CHAR_TYPE','valor_tipo',1,'p_valor_tipo','main.py',35),
+  ('valor_tipo -> FLOAT_TYPE','valor_tipo',1,'p_valor_tipo','main.py',36),
+  ('valor_tipo -> DOUBLE_TYPE','valor_tipo',1,'p_valor_tipo','main.py',37),
+  ('valor_tipo -> INT_TYPE','valor_tipo',1,'p_valor_tipo','main.py',38),
+  ('valor_tipo -> BOOL_TYPE','valor_tipo',1,'p_valor_tipo','main.py',39),
+  ('valor_tipo -> STRING_TYPE','valor_tipo',1,'p_valor_tipo','main.py',40),
+  ('valor_tipo -> VOID','valor_tipo',1,'p_valor_tipo','main.py',41),
+  ('modificador_acceso -> PRIVATE','modificador_acceso',1,'p_modificador_acceso','main.py',45),
+  ('modificador_acceso -> PROTECTED','modificador_acceso',1,'p_modificador_acceso','main.py',46),
+  ('modificador_acceso -> PUBLIC','modificador_acceso',1,'p_modificador_acceso','main.py',47),
+  ('operador_realacional -> IGUAL_IGUAL','operador_realacional',1,'p_operador_realacional','main.py',51),
+  ('operador_realacional -> NO_IGUAL','operador_realacional',1,'p_operador_realacional','main.py',52),
+  ('operador_realacional -> MENOR_QUE','operador_realacional',1,'p_operador_realacional','main.py',53),
+  ('operador_realacional -> MENOR_O_IGUAL_QUE','operador_realacional',1,'p_operador_realacional','main.py',54),
+  ('operador_realacional -> MAYOR_QUE','operador_realacional',1,'p_operador_realacional','main.py',55),
+  ('operador_realacional -> MAYOR_O_IGUAL_QUE','operador_realacional',1,'p_operador_realacional','main.py',56),
+  ('operador_aritmentico -> SUMA','operador_aritmentico',1,'p_operador_aritmentico','main.py',60),
+  ('operador_aritmentico -> RESTA','operador_aritmentico',1,'p_operador_aritmentico','main.py',61),
+  ('operador_aritmentico -> MULTIPLICACION','operador_aritmentico',1,'p_operador_aritmentico','main.py',62),
+  ('operador_aritmentico -> DIVISION','operador_aritmentico',1,'p_operador_aritmentico','main.py',63),
+  ('operador_aritmentico -> MODULO','operador_aritmentico',1,'p_operador_aritmentico','main.py',64),
+  ('operador_condicional -> IGUAL_IGUAL','operador_condicional',1,'p_operador_condicional','main.py',68),
+  ('operador_condicional -> NO_IGUAL','operador_condicional',1,'p_operador_condicional','main.py',69),
+  ('operador_condicional -> MENOR_QUE','operador_condicional',1,'p_operador_condicional','main.py',70),
+  ('operador_condicional -> MENOR_O_IGUAL_QUE','operador_condicional',1,'p_operador_condicional','main.py',71),
+  ('operador_condicional -> MAYOR_QUE','operador_condicional',1,'p_operador_condicional','main.py',72),
+  ('operador_condicional -> MAYOR_O_IGUAL_QUE','operador_condicional',1,'p_operador_condicional','main.py',73),
+  ('asignacion -> IGUAL','asignacion',1,'p_asignacion','main.py',83),
+  ('comparacion -> valor operador_realacional valor','comparacion',3,'p_comparacion','main.py',93),
+  ('estructura_control -> while','estructura_control',1,'p_estructura_control','main.py',102),
+  ('estructura_control -> switch_case','estructura_control',1,'p_estructura_control','main.py',103),
+  ('estructura_control -> for','estructura_control',1,'p_estructura_control','main.py',104),
+  ('while -> IGUAL','while',1,'p_while','main.py',109),
+  ('switch_case -> IGUAL','switch_case',1,'p_switch_case','main.py',117),
+  ('for -> IGUAL','for',1,'p_for','main.py',125),
+  ('estructura_datos -> IGUAL','estructura_datos',1,'p_estructura_datos','main.py',134),
+  ('expresion -> expresion_operacion_aritmetica','expresion',1,'p_expresion','main.py',142),
+  ('expresion -> expresion_condicional','expresion',1,'p_expresion','main.py',143),
+  ('expresion_operacion_aritmetica -> numero operador_aritmentico numero','expresion_operacion_aritmetica',3,'p_expresion_operacion_aritmetica','main.py',147),
+  ('expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico IDENTIFICADOR','expresion_operacion_aritmetica',3,'p_expresion_operacion_aritmetica','main.py',148),
+  ('expresion_condicional -> numero operador_condicional numero','expresion_condicional',3,'p_expresion_condicional','main.py',152),
+  ('expresion_condicional -> IDENTIFICADOR operador_condicional IDENTIFICADOR','expresion_condicional',3,'p_expresion_condicional','main.py',153),
+  ('salida_entrada -> IGUAL','salida_entrada',1,'p_salida_entrada','main.py',163),
+  ('funcion -> IGUAL','funcion',1,'p_funcion','main.py',172),
 ]

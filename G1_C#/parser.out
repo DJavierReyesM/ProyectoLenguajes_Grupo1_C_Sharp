@@ -6,11 +6,9 @@ Unused terminals:
     AND
     AND_EQUAL
     AUMENTADO
-    BOOL_TYPE
     BREAK
     BYTE
     CASE
-    CHAR_TYPE
     CLASS
     COMA
     COMILLA_DOBLE
@@ -27,40 +25,27 @@ Unused terminals:
     DECREMENTO
     DEFAULT
     DIVIDIDO_POR
-    DIVISION
     DO
     DOS_PUNTOS
-    DOUBLE_TYPE
     ELSE
     END_OF_LINE
     EXC_OREQUAL
     FINALLY
-    FLOAT_TYPE
     FOR
     GLOBAL
-    IGUAL
-    IGUAL_IGUAL
     IN
     INCREMENTO
-    INT_TYPE
     IR
     LAMBDA
     LEFTSHIFT_EQUAL
     LET
     LLAVE_DER
     LLAVE_IZQ
-    MAYOR_O_IGUAL_QUE
-    MAYOR_QUE
-    MENOR_O_IGUAL_QUE
-    MENOR_QUE
-    MODULO
     MODULO_DE
-    MULTIPLICACION
     MULTIPLICADO_POR
     NEGACION
     NEW
     NOR
-    NO_IGUAL
     NULL
     NULL_EQUAL
     NULL_VAL
@@ -72,12 +57,8 @@ Unused terminals:
     OR_EQUAL
     PAR_DER
     PAR_IZQ
-    PRIVATE
-    PROTECTED
-    PUBLIC
     PUNTO
     PUSH
-    RESTA
     RETURN
     RIGHTSHIFT_EQUAL
     SHIFT_MAYOR
@@ -85,29 +66,78 @@ Unused terminals:
     SIMPLE_AND
     SIMPLE_OR
     STACK
-    STRING_TYPE
     STRUCT
-    SUMA
     SWITCH
     THIS
     TO_UPPER
     TYPEOF
     VAR
-    VOID
     WHEN
     WHERE
     WHILE
 
 Grammar
 
-Rule 0     S' -> valor
-Rule 1     valor -> FLOAT
-Rule 2     valor -> DOUBLE
-Rule 3     valor -> STRING
-Rule 4     valor -> INT
-Rule 5     valor -> BOOL
-Rule 6     valor -> CHAR
-Rule 7     valor -> IDENTIFICADOR
+Rule 0     S' -> body
+Rule 1     body -> asignacion
+Rule 2     body -> comparacion
+Rule 3     body -> estructura_control
+Rule 4     body -> estructura_datos
+Rule 5     body -> expresion
+Rule 6     body -> salida_entrada
+Rule 7     body -> funcion
+Rule 8     valor -> CHAR
+Rule 9     valor -> numero
+Rule 10    valor -> BOOL
+Rule 11    valor -> STRING
+Rule 12    valor -> IDENTIFICADOR
+Rule 13    numero -> FLOAT
+Rule 14    numero -> DOUBLE
+Rule 15    numero -> INT
+Rule 16    valor_tipo -> CHAR_TYPE
+Rule 17    valor_tipo -> FLOAT_TYPE
+Rule 18    valor_tipo -> DOUBLE_TYPE
+Rule 19    valor_tipo -> INT_TYPE
+Rule 20    valor_tipo -> BOOL_TYPE
+Rule 21    valor_tipo -> STRING_TYPE
+Rule 22    valor_tipo -> VOID
+Rule 23    modificador_acceso -> PRIVATE
+Rule 24    modificador_acceso -> PROTECTED
+Rule 25    modificador_acceso -> PUBLIC
+Rule 26    operador_realacional -> IGUAL_IGUAL
+Rule 27    operador_realacional -> NO_IGUAL
+Rule 28    operador_realacional -> MENOR_QUE
+Rule 29    operador_realacional -> MENOR_O_IGUAL_QUE
+Rule 30    operador_realacional -> MAYOR_QUE
+Rule 31    operador_realacional -> MAYOR_O_IGUAL_QUE
+Rule 32    operador_aritmentico -> SUMA
+Rule 33    operador_aritmentico -> RESTA
+Rule 34    operador_aritmentico -> MULTIPLICACION
+Rule 35    operador_aritmentico -> DIVISION
+Rule 36    operador_aritmentico -> MODULO
+Rule 37    operador_condicional -> IGUAL_IGUAL
+Rule 38    operador_condicional -> NO_IGUAL
+Rule 39    operador_condicional -> MENOR_QUE
+Rule 40    operador_condicional -> MENOR_O_IGUAL_QUE
+Rule 41    operador_condicional -> MAYOR_QUE
+Rule 42    operador_condicional -> MAYOR_O_IGUAL_QUE
+Rule 43    asignacion -> IGUAL
+Rule 44    comparacion -> valor operador_realacional valor
+Rule 45    estructura_control -> while
+Rule 46    estructura_control -> switch_case
+Rule 47    estructura_control -> for
+Rule 48    while -> IGUAL
+Rule 49    switch_case -> IGUAL
+Rule 50    for -> IGUAL
+Rule 51    estructura_datos -> IGUAL
+Rule 52    expresion -> expresion_operacion_aritmetica
+Rule 53    expresion -> expresion_condicional
+Rule 54    expresion_operacion_aritmetica -> numero operador_aritmentico numero
+Rule 55    expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico IDENTIFICADOR
+Rule 56    expresion_condicional -> numero operador_condicional numero
+Rule 57    expresion_condicional -> IDENTIFICADOR operador_condicional IDENTIFICADOR
+Rule 58    salida_entrada -> IGUAL
+Rule 59    funcion -> IGUAL
 
 Terminals, with rules where they appear
 
@@ -115,13 +145,13 @@ ADD                  :
 AND                  : 
 AND_EQUAL            : 
 AUMENTADO            : 
-BOOL                 : 5
-BOOL_TYPE            : 
+BOOL                 : 10
+BOOL_TYPE            : 20
 BREAK                : 
 BYTE                 : 
 CASE                 : 
-CHAR                 : 6
-CHAR_TYPE            : 
+CHAR                 : 8
+CHAR_TYPE            : 16
 CLASS                : 
 COMA                 : 
 COMILLA_DOBLE        : 
@@ -138,44 +168,44 @@ DECREMENTADO         :
 DECREMENTO           : 
 DEFAULT              : 
 DIVIDIDO_POR         : 
-DIVISION             : 
+DIVISION             : 35
 DO                   : 
 DOS_PUNTOS           : 
-DOUBLE               : 2
-DOUBLE_TYPE          : 
+DOUBLE               : 14
+DOUBLE_TYPE          : 18
 ELSE                 : 
 END_OF_LINE          : 
 EXC_OREQUAL          : 
 FINALLY              : 
-FLOAT                : 1
-FLOAT_TYPE           : 
+FLOAT                : 13
+FLOAT_TYPE           : 17
 FOR                  : 
 GLOBAL               : 
-IDENTIFICADOR        : 7
-IGUAL                : 
-IGUAL_IGUAL          : 
+IDENTIFICADOR        : 12 55 55 57 57
+IGUAL                : 43 48 49 50 51 58 59
+IGUAL_IGUAL          : 26 37
 IN                   : 
 INCREMENTO           : 
-INT                  : 4
-INT_TYPE             : 
+INT                  : 15
+INT_TYPE             : 19
 IR                   : 
 LAMBDA               : 
 LEFTSHIFT_EQUAL      : 
 LET                  : 
 LLAVE_DER            : 
 LLAVE_IZQ            : 
-MAYOR_O_IGUAL_QUE    : 
-MAYOR_QUE            : 
-MENOR_O_IGUAL_QUE    : 
-MENOR_QUE            : 
-MODULO               : 
+MAYOR_O_IGUAL_QUE    : 31 42
+MAYOR_QUE            : 30 41
+MENOR_O_IGUAL_QUE    : 29 40
+MENOR_QUE            : 28 39
+MODULO               : 36
 MODULO_DE            : 
-MULTIPLICACION       : 
+MULTIPLICACION       : 34
 MULTIPLICADO_POR     : 
 NEGACION             : 
 NEW                  : 
 NOR                  : 
-NO_IGUAL             : 
+NO_IGUAL             : 27 38
 NULL                 : 
 NULL_EQUAL           : 
 NULL_VAL             : 
@@ -187,12 +217,12 @@ ORDERBY              :
 OR_EQUAL             : 
 PAR_DER              : 
 PAR_IZQ              : 
-PRIVATE              : 
-PROTECTED            : 
-PUBLIC               : 
+PRIVATE              : 23
+PROTECTED            : 24
+PUBLIC               : 25
 PUNTO                : 
 PUSH                 : 
-RESTA                : 
+RESTA                : 33
 RETURN               : 
 RIGHTSHIFT_EQUAL     : 
 SHIFT_MAYOR          : 
@@ -200,16 +230,16 @@ SHIFT_MENOR          :
 SIMPLE_AND           : 
 SIMPLE_OR            : 
 STACK                : 
-STRING               : 3
-STRING_TYPE          : 
+STRING               : 11
+STRING_TYPE          : 21
 STRUCT               : 
-SUMA                 : 
+SUMA                 : 32
 SWITCH               : 
 THIS                 : 
 TO_UPPER             : 
 TYPEOF               : 
 VAR                  : 
-VOID                 : 
+VOID                 : 22
 WHEN                 : 
 WHERE                : 
 WHILE                : 
@@ -217,82 +247,737 @@ error                :
 
 Nonterminals, with rules where they appear
 
-valor                : 0
+asignacion           : 1
+body                 : 0
+comparacion          : 2
+estructura_control   : 3
+estructura_datos     : 4
+expresion            : 5
+expresion_condicional : 53
+expresion_operacion_aritmetica : 52
+for                  : 47
+funcion              : 7
+modificador_acceso   : 
+numero               : 9 54 54 56 56
+operador_aritmentico : 54 55
+operador_condicional : 56 57
+operador_realacional : 44
+salida_entrada       : 6
+switch_case          : 46
+valor                : 44 44
+valor_tipo           : 
+while                : 45
 
 Parsing method: LALR
 
 state 0
 
-    (0) S' -> . valor
-    (1) valor -> . FLOAT
-    (2) valor -> . DOUBLE
-    (3) valor -> . STRING
-    (4) valor -> . INT
-    (5) valor -> . BOOL
-    (6) valor -> . CHAR
-    (7) valor -> . IDENTIFICADOR
+    (0) S' -> . body
+    (1) body -> . asignacion
+    (2) body -> . comparacion
+    (3) body -> . estructura_control
+    (4) body -> . estructura_datos
+    (5) body -> . expresion
+    (6) body -> . salida_entrada
+    (7) body -> . funcion
+    (43) asignacion -> . IGUAL
+    (44) comparacion -> . valor operador_realacional valor
+    (45) estructura_control -> . while
+    (46) estructura_control -> . switch_case
+    (47) estructura_control -> . for
+    (51) estructura_datos -> . IGUAL
+    (52) expresion -> . expresion_operacion_aritmetica
+    (53) expresion -> . expresion_condicional
+    (58) salida_entrada -> . IGUAL
+    (59) funcion -> . IGUAL
+    (8) valor -> . CHAR
+    (9) valor -> . numero
+    (10) valor -> . BOOL
+    (11) valor -> . STRING
+    (12) valor -> . IDENTIFICADOR
+    (48) while -> . IGUAL
+    (49) switch_case -> . IGUAL
+    (50) for -> . IGUAL
+    (54) expresion_operacion_aritmetica -> . numero operador_aritmentico numero
+    (55) expresion_operacion_aritmetica -> . IDENTIFICADOR operador_aritmentico IDENTIFICADOR
+    (56) expresion_condicional -> . numero operador_condicional numero
+    (57) expresion_condicional -> . IDENTIFICADOR operador_condicional IDENTIFICADOR
+    (13) numero -> . FLOAT
+    (14) numero -> . DOUBLE
+    (15) numero -> . INT
 
-    FLOAT           shift and go to state 2
-    DOUBLE          shift and go to state 3
-    STRING          shift and go to state 4
-    INT             shift and go to state 5
-    BOOL            shift and go to state 6
-    CHAR            shift and go to state 7
-    IDENTIFICADOR   shift and go to state 8
+    IGUAL           shift and go to state 9
+    CHAR            shift and go to state 16
+    BOOL            shift and go to state 18
+    STRING          shift and go to state 19
+    IDENTIFICADOR   shift and go to state 20
+    FLOAT           shift and go to state 21
+    DOUBLE          shift and go to state 22
+    INT             shift and go to state 23
 
-    valor                          shift and go to state 1
+    body                           shift and go to state 1
+    asignacion                     shift and go to state 2
+    comparacion                    shift and go to state 3
+    estructura_control             shift and go to state 4
+    estructura_datos               shift and go to state 5
+    expresion                      shift and go to state 6
+    salida_entrada                 shift and go to state 7
+    funcion                        shift and go to state 8
+    valor                          shift and go to state 10
+    while                          shift and go to state 11
+    switch_case                    shift and go to state 12
+    for                            shift and go to state 13
+    expresion_operacion_aritmetica shift and go to state 14
+    expresion_condicional          shift and go to state 15
+    numero                         shift and go to state 17
 
 state 1
 
-    (0) S' -> valor .
+    (0) S' -> body .
 
 
 
 state 2
 
-    (1) valor -> FLOAT .
+    (1) body -> asignacion .
 
-    $end            reduce using rule 1 (valor -> FLOAT .)
+    $end            reduce using rule 1 (body -> asignacion .)
 
 
 state 3
 
-    (2) valor -> DOUBLE .
+    (2) body -> comparacion .
 
-    $end            reduce using rule 2 (valor -> DOUBLE .)
+    $end            reduce using rule 2 (body -> comparacion .)
 
 
 state 4
 
-    (3) valor -> STRING .
+    (3) body -> estructura_control .
 
-    $end            reduce using rule 3 (valor -> STRING .)
+    $end            reduce using rule 3 (body -> estructura_control .)
 
 
 state 5
 
-    (4) valor -> INT .
+    (4) body -> estructura_datos .
 
-    $end            reduce using rule 4 (valor -> INT .)
+    $end            reduce using rule 4 (body -> estructura_datos .)
 
 
 state 6
 
-    (5) valor -> BOOL .
+    (5) body -> expresion .
 
-    $end            reduce using rule 5 (valor -> BOOL .)
+    $end            reduce using rule 5 (body -> expresion .)
 
 
 state 7
 
-    (6) valor -> CHAR .
+    (6) body -> salida_entrada .
 
-    $end            reduce using rule 6 (valor -> CHAR .)
+    $end            reduce using rule 6 (body -> salida_entrada .)
 
 
 state 8
 
-    (7) valor -> IDENTIFICADOR .
+    (7) body -> funcion .
 
-    $end            reduce using rule 7 (valor -> IDENTIFICADOR .)
+    $end            reduce using rule 7 (body -> funcion .)
 
+
+state 9
+
+    (43) asignacion -> IGUAL .
+    (51) estructura_datos -> IGUAL .
+    (58) salida_entrada -> IGUAL .
+    (59) funcion -> IGUAL .
+    (48) while -> IGUAL .
+    (49) switch_case -> IGUAL .
+    (50) for -> IGUAL .
+
+  ! reduce/reduce conflict for $end resolved using rule 43 (asignacion -> IGUAL .)
+  ! reduce/reduce conflict for $end resolved using rule 43 (asignacion -> IGUAL .)
+  ! reduce/reduce conflict for $end resolved using rule 43 (asignacion -> IGUAL .)
+  ! reduce/reduce conflict for $end resolved using rule 43 (asignacion -> IGUAL .)
+  ! reduce/reduce conflict for $end resolved using rule 43 (asignacion -> IGUAL .)
+  ! reduce/reduce conflict for $end resolved using rule 43 (asignacion -> IGUAL .)
+    $end            reduce using rule 43 (asignacion -> IGUAL .)
+
+  ! $end            [ reduce using rule 51 (estructura_datos -> IGUAL .) ]
+  ! $end            [ reduce using rule 58 (salida_entrada -> IGUAL .) ]
+  ! $end            [ reduce using rule 59 (funcion -> IGUAL .) ]
+  ! $end            [ reduce using rule 48 (while -> IGUAL .) ]
+  ! $end            [ reduce using rule 49 (switch_case -> IGUAL .) ]
+  ! $end            [ reduce using rule 50 (for -> IGUAL .) ]
+
+
+state 10
+
+    (44) comparacion -> valor . operador_realacional valor
+    (26) operador_realacional -> . IGUAL_IGUAL
+    (27) operador_realacional -> . NO_IGUAL
+    (28) operador_realacional -> . MENOR_QUE
+    (29) operador_realacional -> . MENOR_O_IGUAL_QUE
+    (30) operador_realacional -> . MAYOR_QUE
+    (31) operador_realacional -> . MAYOR_O_IGUAL_QUE
+
+    IGUAL_IGUAL     shift and go to state 25
+    NO_IGUAL        shift and go to state 26
+    MENOR_QUE       shift and go to state 27
+    MENOR_O_IGUAL_QUE shift and go to state 28
+    MAYOR_QUE       shift and go to state 29
+    MAYOR_O_IGUAL_QUE shift and go to state 30
+
+    operador_realacional           shift and go to state 24
+
+state 11
+
+    (45) estructura_control -> while .
+
+    $end            reduce using rule 45 (estructura_control -> while .)
+
+
+state 12
+
+    (46) estructura_control -> switch_case .
+
+    $end            reduce using rule 46 (estructura_control -> switch_case .)
+
+
+state 13
+
+    (47) estructura_control -> for .
+
+    $end            reduce using rule 47 (estructura_control -> for .)
+
+
+state 14
+
+    (52) expresion -> expresion_operacion_aritmetica .
+
+    $end            reduce using rule 52 (expresion -> expresion_operacion_aritmetica .)
+
+
+state 15
+
+    (53) expresion -> expresion_condicional .
+
+    $end            reduce using rule 53 (expresion -> expresion_condicional .)
+
+
+state 16
+
+    (8) valor -> CHAR .
+
+    IGUAL_IGUAL     reduce using rule 8 (valor -> CHAR .)
+    NO_IGUAL        reduce using rule 8 (valor -> CHAR .)
+    MENOR_QUE       reduce using rule 8 (valor -> CHAR .)
+    MENOR_O_IGUAL_QUE reduce using rule 8 (valor -> CHAR .)
+    MAYOR_QUE       reduce using rule 8 (valor -> CHAR .)
+    MAYOR_O_IGUAL_QUE reduce using rule 8 (valor -> CHAR .)
+    $end            reduce using rule 8 (valor -> CHAR .)
+
+
+state 17
+
+    (9) valor -> numero .
+    (54) expresion_operacion_aritmetica -> numero . operador_aritmentico numero
+    (56) expresion_condicional -> numero . operador_condicional numero
+    (32) operador_aritmentico -> . SUMA
+    (33) operador_aritmentico -> . RESTA
+    (34) operador_aritmentico -> . MULTIPLICACION
+    (35) operador_aritmentico -> . DIVISION
+    (36) operador_aritmentico -> . MODULO
+    (37) operador_condicional -> . IGUAL_IGUAL
+    (38) operador_condicional -> . NO_IGUAL
+    (39) operador_condicional -> . MENOR_QUE
+    (40) operador_condicional -> . MENOR_O_IGUAL_QUE
+    (41) operador_condicional -> . MAYOR_QUE
+    (42) operador_condicional -> . MAYOR_O_IGUAL_QUE
+
+  ! shift/reduce conflict for IGUAL_IGUAL resolved as shift
+  ! shift/reduce conflict for NO_IGUAL resolved as shift
+  ! shift/reduce conflict for MENOR_QUE resolved as shift
+  ! shift/reduce conflict for MENOR_O_IGUAL_QUE resolved as shift
+  ! shift/reduce conflict for MAYOR_QUE resolved as shift
+  ! shift/reduce conflict for MAYOR_O_IGUAL_QUE resolved as shift
+    SUMA            shift and go to state 33
+    RESTA           shift and go to state 34
+    MULTIPLICACION  shift and go to state 35
+    DIVISION        shift and go to state 36
+    MODULO          shift and go to state 37
+    IGUAL_IGUAL     shift and go to state 38
+    NO_IGUAL        shift and go to state 39
+    MENOR_QUE       shift and go to state 40
+    MENOR_O_IGUAL_QUE shift and go to state 41
+    MAYOR_QUE       shift and go to state 42
+    MAYOR_O_IGUAL_QUE shift and go to state 43
+
+  ! IGUAL_IGUAL     [ reduce using rule 9 (valor -> numero .) ]
+  ! NO_IGUAL        [ reduce using rule 9 (valor -> numero .) ]
+  ! MENOR_QUE       [ reduce using rule 9 (valor -> numero .) ]
+  ! MENOR_O_IGUAL_QUE [ reduce using rule 9 (valor -> numero .) ]
+  ! MAYOR_QUE       [ reduce using rule 9 (valor -> numero .) ]
+  ! MAYOR_O_IGUAL_QUE [ reduce using rule 9 (valor -> numero .) ]
+
+    operador_aritmentico           shift and go to state 31
+    operador_condicional           shift and go to state 32
+
+state 18
+
+    (10) valor -> BOOL .
+
+    IGUAL_IGUAL     reduce using rule 10 (valor -> BOOL .)
+    NO_IGUAL        reduce using rule 10 (valor -> BOOL .)
+    MENOR_QUE       reduce using rule 10 (valor -> BOOL .)
+    MENOR_O_IGUAL_QUE reduce using rule 10 (valor -> BOOL .)
+    MAYOR_QUE       reduce using rule 10 (valor -> BOOL .)
+    MAYOR_O_IGUAL_QUE reduce using rule 10 (valor -> BOOL .)
+    $end            reduce using rule 10 (valor -> BOOL .)
+
+
+state 19
+
+    (11) valor -> STRING .
+
+    IGUAL_IGUAL     reduce using rule 11 (valor -> STRING .)
+    NO_IGUAL        reduce using rule 11 (valor -> STRING .)
+    MENOR_QUE       reduce using rule 11 (valor -> STRING .)
+    MENOR_O_IGUAL_QUE reduce using rule 11 (valor -> STRING .)
+    MAYOR_QUE       reduce using rule 11 (valor -> STRING .)
+    MAYOR_O_IGUAL_QUE reduce using rule 11 (valor -> STRING .)
+    $end            reduce using rule 11 (valor -> STRING .)
+
+
+state 20
+
+    (12) valor -> IDENTIFICADOR .
+    (55) expresion_operacion_aritmetica -> IDENTIFICADOR . operador_aritmentico IDENTIFICADOR
+    (57) expresion_condicional -> IDENTIFICADOR . operador_condicional IDENTIFICADOR
+    (32) operador_aritmentico -> . SUMA
+    (33) operador_aritmentico -> . RESTA
+    (34) operador_aritmentico -> . MULTIPLICACION
+    (35) operador_aritmentico -> . DIVISION
+    (36) operador_aritmentico -> . MODULO
+    (37) operador_condicional -> . IGUAL_IGUAL
+    (38) operador_condicional -> . NO_IGUAL
+    (39) operador_condicional -> . MENOR_QUE
+    (40) operador_condicional -> . MENOR_O_IGUAL_QUE
+    (41) operador_condicional -> . MAYOR_QUE
+    (42) operador_condicional -> . MAYOR_O_IGUAL_QUE
+
+  ! shift/reduce conflict for IGUAL_IGUAL resolved as shift
+  ! shift/reduce conflict for NO_IGUAL resolved as shift
+  ! shift/reduce conflict for MENOR_QUE resolved as shift
+  ! shift/reduce conflict for MENOR_O_IGUAL_QUE resolved as shift
+  ! shift/reduce conflict for MAYOR_QUE resolved as shift
+  ! shift/reduce conflict for MAYOR_O_IGUAL_QUE resolved as shift
+    SUMA            shift and go to state 33
+    RESTA           shift and go to state 34
+    MULTIPLICACION  shift and go to state 35
+    DIVISION        shift and go to state 36
+    MODULO          shift and go to state 37
+    IGUAL_IGUAL     shift and go to state 38
+    NO_IGUAL        shift and go to state 39
+    MENOR_QUE       shift and go to state 40
+    MENOR_O_IGUAL_QUE shift and go to state 41
+    MAYOR_QUE       shift and go to state 42
+    MAYOR_O_IGUAL_QUE shift and go to state 43
+
+  ! IGUAL_IGUAL     [ reduce using rule 12 (valor -> IDENTIFICADOR .) ]
+  ! NO_IGUAL        [ reduce using rule 12 (valor -> IDENTIFICADOR .) ]
+  ! MENOR_QUE       [ reduce using rule 12 (valor -> IDENTIFICADOR .) ]
+  ! MENOR_O_IGUAL_QUE [ reduce using rule 12 (valor -> IDENTIFICADOR .) ]
+  ! MAYOR_QUE       [ reduce using rule 12 (valor -> IDENTIFICADOR .) ]
+  ! MAYOR_O_IGUAL_QUE [ reduce using rule 12 (valor -> IDENTIFICADOR .) ]
+
+    operador_aritmentico           shift and go to state 44
+    operador_condicional           shift and go to state 45
+
+state 21
+
+    (13) numero -> FLOAT .
+
+    SUMA            reduce using rule 13 (numero -> FLOAT .)
+    RESTA           reduce using rule 13 (numero -> FLOAT .)
+    MULTIPLICACION  reduce using rule 13 (numero -> FLOAT .)
+    DIVISION        reduce using rule 13 (numero -> FLOAT .)
+    MODULO          reduce using rule 13 (numero -> FLOAT .)
+    IGUAL_IGUAL     reduce using rule 13 (numero -> FLOAT .)
+    NO_IGUAL        reduce using rule 13 (numero -> FLOAT .)
+    MENOR_QUE       reduce using rule 13 (numero -> FLOAT .)
+    MENOR_O_IGUAL_QUE reduce using rule 13 (numero -> FLOAT .)
+    MAYOR_QUE       reduce using rule 13 (numero -> FLOAT .)
+    MAYOR_O_IGUAL_QUE reduce using rule 13 (numero -> FLOAT .)
+    $end            reduce using rule 13 (numero -> FLOAT .)
+
+
+state 22
+
+    (14) numero -> DOUBLE .
+
+    SUMA            reduce using rule 14 (numero -> DOUBLE .)
+    RESTA           reduce using rule 14 (numero -> DOUBLE .)
+    MULTIPLICACION  reduce using rule 14 (numero -> DOUBLE .)
+    DIVISION        reduce using rule 14 (numero -> DOUBLE .)
+    MODULO          reduce using rule 14 (numero -> DOUBLE .)
+    IGUAL_IGUAL     reduce using rule 14 (numero -> DOUBLE .)
+    NO_IGUAL        reduce using rule 14 (numero -> DOUBLE .)
+    MENOR_QUE       reduce using rule 14 (numero -> DOUBLE .)
+    MENOR_O_IGUAL_QUE reduce using rule 14 (numero -> DOUBLE .)
+    MAYOR_QUE       reduce using rule 14 (numero -> DOUBLE .)
+    MAYOR_O_IGUAL_QUE reduce using rule 14 (numero -> DOUBLE .)
+    $end            reduce using rule 14 (numero -> DOUBLE .)
+
+
+state 23
+
+    (15) numero -> INT .
+
+    SUMA            reduce using rule 15 (numero -> INT .)
+    RESTA           reduce using rule 15 (numero -> INT .)
+    MULTIPLICACION  reduce using rule 15 (numero -> INT .)
+    DIVISION        reduce using rule 15 (numero -> INT .)
+    MODULO          reduce using rule 15 (numero -> INT .)
+    IGUAL_IGUAL     reduce using rule 15 (numero -> INT .)
+    NO_IGUAL        reduce using rule 15 (numero -> INT .)
+    MENOR_QUE       reduce using rule 15 (numero -> INT .)
+    MENOR_O_IGUAL_QUE reduce using rule 15 (numero -> INT .)
+    MAYOR_QUE       reduce using rule 15 (numero -> INT .)
+    MAYOR_O_IGUAL_QUE reduce using rule 15 (numero -> INT .)
+    $end            reduce using rule 15 (numero -> INT .)
+
+
+state 24
+
+    (44) comparacion -> valor operador_realacional . valor
+    (8) valor -> . CHAR
+    (9) valor -> . numero
+    (10) valor -> . BOOL
+    (11) valor -> . STRING
+    (12) valor -> . IDENTIFICADOR
+    (13) numero -> . FLOAT
+    (14) numero -> . DOUBLE
+    (15) numero -> . INT
+
+    CHAR            shift and go to state 16
+    BOOL            shift and go to state 18
+    STRING          shift and go to state 19
+    IDENTIFICADOR   shift and go to state 48
+    FLOAT           shift and go to state 21
+    DOUBLE          shift and go to state 22
+    INT             shift and go to state 23
+
+    valor                          shift and go to state 46
+    numero                         shift and go to state 47
+
+state 25
+
+    (26) operador_realacional -> IGUAL_IGUAL .
+
+    CHAR            reduce using rule 26 (operador_realacional -> IGUAL_IGUAL .)
+    BOOL            reduce using rule 26 (operador_realacional -> IGUAL_IGUAL .)
+    STRING          reduce using rule 26 (operador_realacional -> IGUAL_IGUAL .)
+    IDENTIFICADOR   reduce using rule 26 (operador_realacional -> IGUAL_IGUAL .)
+    FLOAT           reduce using rule 26 (operador_realacional -> IGUAL_IGUAL .)
+    DOUBLE          reduce using rule 26 (operador_realacional -> IGUAL_IGUAL .)
+    INT             reduce using rule 26 (operador_realacional -> IGUAL_IGUAL .)
+
+
+state 26
+
+    (27) operador_realacional -> NO_IGUAL .
+
+    CHAR            reduce using rule 27 (operador_realacional -> NO_IGUAL .)
+    BOOL            reduce using rule 27 (operador_realacional -> NO_IGUAL .)
+    STRING          reduce using rule 27 (operador_realacional -> NO_IGUAL .)
+    IDENTIFICADOR   reduce using rule 27 (operador_realacional -> NO_IGUAL .)
+    FLOAT           reduce using rule 27 (operador_realacional -> NO_IGUAL .)
+    DOUBLE          reduce using rule 27 (operador_realacional -> NO_IGUAL .)
+    INT             reduce using rule 27 (operador_realacional -> NO_IGUAL .)
+
+
+state 27
+
+    (28) operador_realacional -> MENOR_QUE .
+
+    CHAR            reduce using rule 28 (operador_realacional -> MENOR_QUE .)
+    BOOL            reduce using rule 28 (operador_realacional -> MENOR_QUE .)
+    STRING          reduce using rule 28 (operador_realacional -> MENOR_QUE .)
+    IDENTIFICADOR   reduce using rule 28 (operador_realacional -> MENOR_QUE .)
+    FLOAT           reduce using rule 28 (operador_realacional -> MENOR_QUE .)
+    DOUBLE          reduce using rule 28 (operador_realacional -> MENOR_QUE .)
+    INT             reduce using rule 28 (operador_realacional -> MENOR_QUE .)
+
+
+state 28
+
+    (29) operador_realacional -> MENOR_O_IGUAL_QUE .
+
+    CHAR            reduce using rule 29 (operador_realacional -> MENOR_O_IGUAL_QUE .)
+    BOOL            reduce using rule 29 (operador_realacional -> MENOR_O_IGUAL_QUE .)
+    STRING          reduce using rule 29 (operador_realacional -> MENOR_O_IGUAL_QUE .)
+    IDENTIFICADOR   reduce using rule 29 (operador_realacional -> MENOR_O_IGUAL_QUE .)
+    FLOAT           reduce using rule 29 (operador_realacional -> MENOR_O_IGUAL_QUE .)
+    DOUBLE          reduce using rule 29 (operador_realacional -> MENOR_O_IGUAL_QUE .)
+    INT             reduce using rule 29 (operador_realacional -> MENOR_O_IGUAL_QUE .)
+
+
+state 29
+
+    (30) operador_realacional -> MAYOR_QUE .
+
+    CHAR            reduce using rule 30 (operador_realacional -> MAYOR_QUE .)
+    BOOL            reduce using rule 30 (operador_realacional -> MAYOR_QUE .)
+    STRING          reduce using rule 30 (operador_realacional -> MAYOR_QUE .)
+    IDENTIFICADOR   reduce using rule 30 (operador_realacional -> MAYOR_QUE .)
+    FLOAT           reduce using rule 30 (operador_realacional -> MAYOR_QUE .)
+    DOUBLE          reduce using rule 30 (operador_realacional -> MAYOR_QUE .)
+    INT             reduce using rule 30 (operador_realacional -> MAYOR_QUE .)
+
+
+state 30
+
+    (31) operador_realacional -> MAYOR_O_IGUAL_QUE .
+
+    CHAR            reduce using rule 31 (operador_realacional -> MAYOR_O_IGUAL_QUE .)
+    BOOL            reduce using rule 31 (operador_realacional -> MAYOR_O_IGUAL_QUE .)
+    STRING          reduce using rule 31 (operador_realacional -> MAYOR_O_IGUAL_QUE .)
+    IDENTIFICADOR   reduce using rule 31 (operador_realacional -> MAYOR_O_IGUAL_QUE .)
+    FLOAT           reduce using rule 31 (operador_realacional -> MAYOR_O_IGUAL_QUE .)
+    DOUBLE          reduce using rule 31 (operador_realacional -> MAYOR_O_IGUAL_QUE .)
+    INT             reduce using rule 31 (operador_realacional -> MAYOR_O_IGUAL_QUE .)
+
+
+state 31
+
+    (54) expresion_operacion_aritmetica -> numero operador_aritmentico . numero
+    (13) numero -> . FLOAT
+    (14) numero -> . DOUBLE
+    (15) numero -> . INT
+
+    FLOAT           shift and go to state 21
+    DOUBLE          shift and go to state 22
+    INT             shift and go to state 23
+
+    numero                         shift and go to state 49
+
+state 32
+
+    (56) expresion_condicional -> numero operador_condicional . numero
+    (13) numero -> . FLOAT
+    (14) numero -> . DOUBLE
+    (15) numero -> . INT
+
+    FLOAT           shift and go to state 21
+    DOUBLE          shift and go to state 22
+    INT             shift and go to state 23
+
+    numero                         shift and go to state 50
+
+state 33
+
+    (32) operador_aritmentico -> SUMA .
+
+    FLOAT           reduce using rule 32 (operador_aritmentico -> SUMA .)
+    DOUBLE          reduce using rule 32 (operador_aritmentico -> SUMA .)
+    INT             reduce using rule 32 (operador_aritmentico -> SUMA .)
+    IDENTIFICADOR   reduce using rule 32 (operador_aritmentico -> SUMA .)
+
+
+state 34
+
+    (33) operador_aritmentico -> RESTA .
+
+    FLOAT           reduce using rule 33 (operador_aritmentico -> RESTA .)
+    DOUBLE          reduce using rule 33 (operador_aritmentico -> RESTA .)
+    INT             reduce using rule 33 (operador_aritmentico -> RESTA .)
+    IDENTIFICADOR   reduce using rule 33 (operador_aritmentico -> RESTA .)
+
+
+state 35
+
+    (34) operador_aritmentico -> MULTIPLICACION .
+
+    FLOAT           reduce using rule 34 (operador_aritmentico -> MULTIPLICACION .)
+    DOUBLE          reduce using rule 34 (operador_aritmentico -> MULTIPLICACION .)
+    INT             reduce using rule 34 (operador_aritmentico -> MULTIPLICACION .)
+    IDENTIFICADOR   reduce using rule 34 (operador_aritmentico -> MULTIPLICACION .)
+
+
+state 36
+
+    (35) operador_aritmentico -> DIVISION .
+
+    FLOAT           reduce using rule 35 (operador_aritmentico -> DIVISION .)
+    DOUBLE          reduce using rule 35 (operador_aritmentico -> DIVISION .)
+    INT             reduce using rule 35 (operador_aritmentico -> DIVISION .)
+    IDENTIFICADOR   reduce using rule 35 (operador_aritmentico -> DIVISION .)
+
+
+state 37
+
+    (36) operador_aritmentico -> MODULO .
+
+    FLOAT           reduce using rule 36 (operador_aritmentico -> MODULO .)
+    DOUBLE          reduce using rule 36 (operador_aritmentico -> MODULO .)
+    INT             reduce using rule 36 (operador_aritmentico -> MODULO .)
+    IDENTIFICADOR   reduce using rule 36 (operador_aritmentico -> MODULO .)
+
+
+state 38
+
+    (37) operador_condicional -> IGUAL_IGUAL .
+
+    FLOAT           reduce using rule 37 (operador_condicional -> IGUAL_IGUAL .)
+    DOUBLE          reduce using rule 37 (operador_condicional -> IGUAL_IGUAL .)
+    INT             reduce using rule 37 (operador_condicional -> IGUAL_IGUAL .)
+    IDENTIFICADOR   reduce using rule 37 (operador_condicional -> IGUAL_IGUAL .)
+
+
+state 39
+
+    (38) operador_condicional -> NO_IGUAL .
+
+    FLOAT           reduce using rule 38 (operador_condicional -> NO_IGUAL .)
+    DOUBLE          reduce using rule 38 (operador_condicional -> NO_IGUAL .)
+    INT             reduce using rule 38 (operador_condicional -> NO_IGUAL .)
+    IDENTIFICADOR   reduce using rule 38 (operador_condicional -> NO_IGUAL .)
+
+
+state 40
+
+    (39) operador_condicional -> MENOR_QUE .
+
+    FLOAT           reduce using rule 39 (operador_condicional -> MENOR_QUE .)
+    DOUBLE          reduce using rule 39 (operador_condicional -> MENOR_QUE .)
+    INT             reduce using rule 39 (operador_condicional -> MENOR_QUE .)
+    IDENTIFICADOR   reduce using rule 39 (operador_condicional -> MENOR_QUE .)
+
+
+state 41
+
+    (40) operador_condicional -> MENOR_O_IGUAL_QUE .
+
+    FLOAT           reduce using rule 40 (operador_condicional -> MENOR_O_IGUAL_QUE .)
+    DOUBLE          reduce using rule 40 (operador_condicional -> MENOR_O_IGUAL_QUE .)
+    INT             reduce using rule 40 (operador_condicional -> MENOR_O_IGUAL_QUE .)
+    IDENTIFICADOR   reduce using rule 40 (operador_condicional -> MENOR_O_IGUAL_QUE .)
+
+
+state 42
+
+    (41) operador_condicional -> MAYOR_QUE .
+
+    FLOAT           reduce using rule 41 (operador_condicional -> MAYOR_QUE .)
+    DOUBLE          reduce using rule 41 (operador_condicional -> MAYOR_QUE .)
+    INT             reduce using rule 41 (operador_condicional -> MAYOR_QUE .)
+    IDENTIFICADOR   reduce using rule 41 (operador_condicional -> MAYOR_QUE .)
+
+
+state 43
+
+    (42) operador_condicional -> MAYOR_O_IGUAL_QUE .
+
+    FLOAT           reduce using rule 42 (operador_condicional -> MAYOR_O_IGUAL_QUE .)
+    DOUBLE          reduce using rule 42 (operador_condicional -> MAYOR_O_IGUAL_QUE .)
+    INT             reduce using rule 42 (operador_condicional -> MAYOR_O_IGUAL_QUE .)
+    IDENTIFICADOR   reduce using rule 42 (operador_condicional -> MAYOR_O_IGUAL_QUE .)
+
+
+state 44
+
+    (55) expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico . IDENTIFICADOR
+
+    IDENTIFICADOR   shift and go to state 51
+
+
+state 45
+
+    (57) expresion_condicional -> IDENTIFICADOR operador_condicional . IDENTIFICADOR
+
+    IDENTIFICADOR   shift and go to state 52
+
+
+state 46
+
+    (44) comparacion -> valor operador_realacional valor .
+
+    $end            reduce using rule 44 (comparacion -> valor operador_realacional valor .)
+
+
+state 47
+
+    (9) valor -> numero .
+
+    $end            reduce using rule 9 (valor -> numero .)
+
+
+state 48
+
+    (12) valor -> IDENTIFICADOR .
+
+    $end            reduce using rule 12 (valor -> IDENTIFICADOR .)
+
+
+state 49
+
+    (54) expresion_operacion_aritmetica -> numero operador_aritmentico numero .
+
+    $end            reduce using rule 54 (expresion_operacion_aritmetica -> numero operador_aritmentico numero .)
+
+
+state 50
+
+    (56) expresion_condicional -> numero operador_condicional numero .
+
+    $end            reduce using rule 56 (expresion_condicional -> numero operador_condicional numero .)
+
+
+state 51
+
+    (55) expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico IDENTIFICADOR .
+
+    $end            reduce using rule 55 (expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico IDENTIFICADOR .)
+
+
+state 52
+
+    (57) expresion_condicional -> IDENTIFICADOR operador_condicional IDENTIFICADOR .
+
+    $end            reduce using rule 57 (expresion_condicional -> IDENTIFICADOR operador_condicional IDENTIFICADOR .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for IGUAL_IGUAL in state 17 resolved as shift
+WARNING: shift/reduce conflict for NO_IGUAL in state 17 resolved as shift
+WARNING: shift/reduce conflict for MENOR_QUE in state 17 resolved as shift
+WARNING: shift/reduce conflict for MENOR_O_IGUAL_QUE in state 17 resolved as shift
+WARNING: shift/reduce conflict for MAYOR_QUE in state 17 resolved as shift
+WARNING: shift/reduce conflict for MAYOR_O_IGUAL_QUE in state 17 resolved as shift
+WARNING: shift/reduce conflict for IGUAL_IGUAL in state 20 resolved as shift
+WARNING: shift/reduce conflict for NO_IGUAL in state 20 resolved as shift
+WARNING: shift/reduce conflict for MENOR_QUE in state 20 resolved as shift
+WARNING: shift/reduce conflict for MENOR_O_IGUAL_QUE in state 20 resolved as shift
+WARNING: shift/reduce conflict for MAYOR_QUE in state 20 resolved as shift
+WARNING: shift/reduce conflict for MAYOR_O_IGUAL_QUE in state 20 resolved as shift
+WARNING: reduce/reduce conflict in state 9 resolved using rule (asignacion -> IGUAL)
+WARNING: rejected rule (estructura_datos -> IGUAL) in state 9
+WARNING: reduce/reduce conflict in state 9 resolved using rule (asignacion -> IGUAL)
+WARNING: rejected rule (salida_entrada -> IGUAL) in state 9
+WARNING: reduce/reduce conflict in state 9 resolved using rule (asignacion -> IGUAL)
+WARNING: rejected rule (funcion -> IGUAL) in state 9
+WARNING: reduce/reduce conflict in state 9 resolved using rule (asignacion -> IGUAL)
+WARNING: rejected rule (while -> IGUAL) in state 9
+WARNING: reduce/reduce conflict in state 9 resolved using rule (asignacion -> IGUAL)
+WARNING: rejected rule (switch_case -> IGUAL) in state 9
+WARNING: reduce/reduce conflict in state 9 resolved using rule (asignacion -> IGUAL)
+WARNING: rejected rule (for -> IGUAL) in state 9
+WARNING: Rule (estructura_datos -> IGUAL) is never reduced
+WARNING: Rule (salida_entrada -> IGUAL) is never reduced
+WARNING: Rule (funcion -> IGUAL) is never reduced
+WARNING: Rule (while -> IGUAL) is never reduced
+WARNING: Rule (switch_case -> IGUAL) is never reduced
+WARNING: Rule (for -> IGUAL) is never reduced

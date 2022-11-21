@@ -1,0 +1,12 @@
+private void MiFuncion(){}
+private string MiFuncion(string val){ Console.WriteLine("Sb"); int valor = 5;} // WRONG
+private string MiFuncion(){ Console.WriteLine("Sb"); }
+private string MiFuncion(){ int valor = 5; }
+private string MiFuncion(){ int valor = 5; int valor = 5; }
+private string MiFuncion(){ Console.WriteLine("Sb"); Console.WriteLine("Sb"); }
+private string MiFuncion(string val){ int valor = 5; }
+private string MiFuncion(string val){ }
+private string MiFuncion(string val, string val){ }
+Console.WriteLine("Sb");
+Console.WriteLine
+int valor = 5;

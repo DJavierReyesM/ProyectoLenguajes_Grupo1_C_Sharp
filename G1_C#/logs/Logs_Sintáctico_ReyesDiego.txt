@@ -1,0 +1,131 @@
+-> Pruebas Reyes Diego:
+"------- 21/Noviembre/2022 - 16:57 pm -------------------------"
+calc > ;
+None
+calc > int val
+None
+calc > bool val
+None
+calc > char val
+None
+calc > float val
+None
+calc > string val
+None
+calc > double val
+None
+calc > int val = 1
+None
+calc > bool val = false
+None
+calc > char val = 'A'
+None
+calc > float val = 5.5
+None
+calc > string val = "Javier"
+None
+calc > double val = 5.5d
+None
+calc > int a = 1 +2
+None
+"------------------------------------------------------------"
+
+"------- 21/Noviembre/2022 - 17:18 pm -------------------------"
+calc > int a = 1;
+None
+calc > float @fors = false;
+None
+calc > char a;
+None
+calc > string adw
+Error de sintaxis Fin de Linea
+None
+calc > double vol = 5.5d
+Error de sintaxis Fin de Linea
+None
+calc > bool @for = true;
+None
+calc > float ad = 2.2F;
+None
+calc > float sd 
+Error de sintaxis Fin de Linea
+None
+calc > 
+"------------------------------------------------------------"
+
+"------- 21/Noviembre/2022 - 18:57 pm -------------------------"
+calc > a &= b;
+None
+calc > a ^= c;
+None
+calc > c |= false;
+None
+calc > c &= 2>3
+Error de sintaxis Fin de Linea
+None
+calc > c &= 2>3;
+None
+calc > a+=1;
+None
+calc > b-=2.2;
+None
+calc > c*=20;
+None
+calc > d/=dsd;
+None
+calc > d%=10;
+None
+calc > d+=2+3;
+None
+calc > 
+"------------------------------------------------------------"
+"------- 21/Noviembre/2022 - 22:20 pm -------------------------"
+calc > while(a<10){ Console.WriteLine(a); a+=1; }
+None
+calc > do{ Console.WriteLine(a); a+=1; }while(a<10);
+None
+calc > public void holaM(int edad, string op="Hola", float @f){ Console.WriteLine(edad); Console.WriteLine(op); int a = 2; a+=1; }
+None
+calc > a &= b;
+None
+calc > a ^= c;
+None
+calc > c |= false;
+None
+calc > c &= 2>3;
+None
+calc > a+=1;
+None
+calc > b-=2.2;
+None
+calc > c*=20;
+None
+calc > d/=dsd;
+None
+calc > d%=10;
+None
+calc > d+=2+3;
+None
+calc > Stack<int> num = new Stack<int>();
+None
+calc > num.Push(1);
+None
+calc > num.Pop();
+None
+calc > Stack<dataS> num = new Stack<dataS>();
+None
+calc > num.Push(as);
+None
+calc > bool _verdadero1 = false;
+None
+calc > bool @falseto1 = true;
+None
+calc > char car = 'A';
+None
+calc > int a;
+None
+calc > float @tr;
+None
+calc > 
+"------------------------------------------------------------"
+

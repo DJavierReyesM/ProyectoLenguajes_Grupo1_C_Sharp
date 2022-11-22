@@ -217,7 +217,24 @@ def p_body_while(p):
 
 # -------------------------------------------- CHEVEZ ----------------------------------------------
 def p_switch_case(p):
-  'switch_case : IGUAL'
+  'switch_case : SWITCH PAR_IZQ valor PAR_DER LLAVE_IZQ casos LLAVE_DER'
+
+def p_casos(p):
+  '''casos : CASE valor DOS_PUNTOS body_case BREAK END_OF_LINE
+  | CASE valor DOS_PUNTOS BREAK END_OF_LINE
+  | CASE valor DOS_PUNTOS body_case BREAK END_OF_LINE casos
+  | CASE valor DOS_PUNTOS BREAK END_OF_LINE casos
+  '''
+def p_body_case(p):
+  '''body_case : asignacion END_OF_LINE
+  | declaracion END_OF_LINE
+  | comparacion END_OF_LINE
+  | salida_entrada END_OF_LINE
+  | asignacion END_OF_LINE body_case
+  | declaracion END_OF_LINE body_case
+  | salida_entrada END_OF_LINE body_case
+  | comparacion END_OF_LINE body_case
+  '''
 # --------------------------------------------------------------------------------------------------
 
 
@@ -323,6 +340,8 @@ def p_expresion(p):
 
 def p_expresion_operacion_aritmetica(p):
   '''expresion_operacion_aritmetica : numero operador_aritmentico numero
+  | numero operador_aritmentico IDENTIFICADOR
+  | IDENTIFICADOR operador_aritmentico numero
   | IDENTIFICADOR operador_aritmentico IDENTIFICADOR
   '''
 
@@ -407,14 +426,49 @@ def p_error(p):
 # Build the parser
 parser = yacc.yacc()
 
-def validaRegla(s):
-  result = parser.parse(s)
-  print(result)
+# def validaRegla(s):
+#   result = parser.parse(s)
+#   print(result)
 
-while True:
-  try:
-    s = input('calc > ')
-  except EOFError:
-    break
-  if not s: continue
-  validaRegla(s)
+# while True:
+#   try:
+#     s = input('calc > ')
+#   except EOFError:
+#     break
+#   if not s: continue
+#   validaRegla(s)
+
+#Main Ejecutable
+print(
+    "\nAnalizador Sintactico\n"+
+        " 1. Archivo de prueba Chevez\n"+
+        " 2. Archivo de prueba Reyes\n"+
+        " 3. Archivo de prueba Veintimilla\n"+
+        " 9. Salir"
+)
+rutaFileTest = ""
+resp_opcion = input("Digite una opcion para hacer las pruebas: ")
+if(resp_opcion == "1"):
+    rutaFileTest = "G1_C#/tests/analizador_sintactico/testChevez.txt"
+elif(resp_opcion == "2"):
+    rutaFileTest = "G1_C#/tests/analizador_sintactico/testReyes.txt"
+elif(resp_opcion == "3"):
+    rutaFileTest = "G1_C#/tests/analizador_sintactico/testVeintimilla.txt"
+elif(resp_opcion == "4"):
+    rutaFileTest = "consola"
+else:
+    print("Vuelva pronto! :)")
+    sys.exit(-1)
+if(rutaFileTest != ""):
+    # Build the parser
+    file = open(rutaFileTest)
+    content = file.read()
+    lines = 0
+    for item in content.splitlines():
+        lines += 1
+        if item:
+            gram = parser.parse(item)
+            if gram is None:
+                print(f"Linea: {str(lines)} | Info: No hay errores!")
+            else:
+                print(f"Linea: {str(lines)} | Info: {str(gram)}")

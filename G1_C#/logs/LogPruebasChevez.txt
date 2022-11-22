@@ -1,0 +1,367 @@
+Prueba 1 - 21/11/2022 18:59
+----------------- Texto a probar ------------------
+// Archivo de prueba para revisar que el analizador 
+// sintactico este correcto segun las implementaciones de Kevin Chevez
+
+// Prueba de comparacion
+valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+
+// Prueba de switch case
+switch (day){case 1: Console.WriteLine("Monday"); break; case 2: Console.WriteLine("Tuesday"); break; case 3: Console.WriteLine("Wednesday"); break;}
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+------------------- resultado ---------------------
+Error de sintaxis Fin de Linea
+Linea: 1 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 2 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 4 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 5 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 6 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 7 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 8 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 11 | Info: No hay errores!
+Error de sintaxis - Token: CASE, Línea: 1, Col: 27
+Error de sintaxis - Token: INT, Línea: 1, Col: 32
+Error de sintaxis - Token: DOS_PUNTOS, Línea: 1, Col: 33
+Error de sintaxis - Token: CONSOLE_WRITELINE, Línea: 1, Col: 35
+Error de sintaxis - Token: PAR_IZQ, Línea: 1, Col: 52
+Error de sintaxis - Token: STRING, Línea: 1, Col: 53
+Error de sintaxis - Token: PAR_DER, Línea: 1, Col: 62
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 63
+Error de sintaxis - Token: BREAK, Línea: 1, Col: 65
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 70
+Linea: 13 | Info: No hay errores!
+Linea: 14 | Info: No hay errores!
+
+
+Prueba 2 - 21/11/2022 20:43
+----------------- Texto a probar ------------------
+// Archivo de prueba para revisar que el analizador 
+// sintactico este correcto segun las implementaciones de Kevin Chevez
+
+// Prueba de comparacion
+valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+
+// Prueba de switch case
+switch (day){case 1: Console.WriteLine("Monday"); break; case 2: Console.WriteLine("Tuesday"); break; case 3: Console.WriteLine("Wednesday"); break;}
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+------------------- resultado ---------------------
+Error de sintaxis Fin de Linea
+Linea: 1 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 2 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 4 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 5 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 6 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 7 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 8 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 11 | Info: No hay errores!
+Linea: 12 | Info: No hay errores!
+Error de sintaxis - Token: CASE, Línea: 1, Col: 35
+Error de sintaxis - Token: IDENTIFICADOR, Línea: 1, Col: 40
+Error de sintaxis - Token: DOS_PUNTOS, Línea: 1, Col: 49
+Error de sintaxis - Token: CONSOLE_WRITELINE, Línea: 1, Col: 51
+Error de sintaxis - Token: PAR_IZQ, Línea: 1, Col: 68
+Error de sintaxis - Token: STRING, Línea: 1, Col: 69
+Error de sintaxis - Token: PAR_DER, Línea: 1, Col: 78
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 79
+Linea: 13 | Info: No hay errores!
+Linea: 14 | Info: No hay errores
+
+Prueba 3 - 21/11/2022 21:42
+----------------- Texto a probar ------------------
+// Archivo de prueba para revisar que el analizador 
+// sintactico este correcto segun las implementaciones de Kevin Chevez
+
+// Prueba de comparacion
+valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+
+// Prueba de switch case
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+------------------- resultado ---------------------
+Error de sintaxis Fin de Linea
+Linea: 1 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 2 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 4 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 5 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 6 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 7 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 8 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 11 | Info: No hay errores!
+Linea: 13 | Info: No hay errores!
+
+
+
+Prueba 4 - 21/11/2022 21:53
+----------------- Texto a probar ------------------
+// Archivo de prueba para revisar que el analizador 
+// sintactico este correcto segun las implementaciones de Kevin Chevez
+
+// Prueba de comparacion
+valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+
+// Prueba de switch case
+switch (day){case 1: Console.WriteLine("Monday"); break; case 2: Console.WriteLine("Tuesday"); break; case 3: Console.WriteLine("Wednesday"); break;}
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+------------------- resultado ---------------------
+Error de sintaxis Fin de Linea
+Linea: 1 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 2 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 4 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 5 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 6 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 7 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 8 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 11 | Info: No hay errores!
+Error de sintaxis - Token: CASE, Línea: 1, Col: 27
+Error de sintaxis - Token: INT, Línea: 1, Col: 32
+Error de sintaxis - Token: DOS_PUNTOS, Línea: 1, Col: 33
+Error de sintaxis - Token: CONSOLE_WRITELINE, Línea: 1, Col: 35
+Error de sintaxis - Token: PAR_IZQ, Línea: 1, Col: 52
+Error de sintaxis - Token: STRING, Línea: 1, Col: 53
+Error de sintaxis - Token: PAR_DER, Línea: 1, Col: 62
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 63
+Error de sintaxis - Token: BREAK, Línea: 1, Col: 65
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 70
+Linea: 13 | Info: No hay errores!
+Linea: 14 | Info: No hay errores!
+
+
+Prueba 5 - 21/11/2022 22:07
+----------------- Texto a probar ------------------
+// Archivo de prueba para revisar que el analizador 
+// sintactico este correcto segun las implementaciones de Kevin Chevez
+
+// Prueba de comparacion
+valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+
+// Prueba de switch case
+switch (day){case 1: Console.WriteLine("Monday"); break; case 2: Console.WriteLine("Tuesday"); break; case 3: Console.WriteLine("Wednesday"); break;}
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+------------------- resultado ---------------------
+Linea: 1 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 2 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 4 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 5 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 6 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 7 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 8 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 11 | Info: No hay errores!
+Linea: 12 | Info: No hay errores!
+Linea: 13 | Info: No hay errores!
+Linea: 14 | Info: No hay errores!
+
+
+Prueba 6 - 21/11/2022 23:11
+----------------- Texto a probar ------------------
+// Archivo de prueba para revisar que el analizador 
+// sintactico este correcto segun las implementaciones de Kevin Chevez
+
+// Prueba de comparacion
+valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+
+// Prueba de switch case
+switch (day){case 1: Console.WriteLine("Monday"); break; case 2: Console.WriteLine("Tuesday"); break; case 3: Console.WriteLine("Wednesday"); break;}
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+
+// Prueba de expresiones
+2 + 4
+4 - 5
+3.4f * 2.4d
+29/23
+20.5f / 0
+valor + valor
+valor + 4
+valor == valor
+2.3f != 4
+3 > 10
+valor <= 23
+------------------- resultado ---------------------
+Linea: 1 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 2 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 4 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 5 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 6 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 7 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 8 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 11 | Info: No hay errores!
+Linea: 12 | Info: No hay errores!
+Linea: 13 | Info: No hay errores!
+Linea: 14 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 16 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 17 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 18 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 19 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 20 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 21 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 22 | Info: No hay errores!
+Error de sintaxis - Token: INT, Línea: 1, Col: 8
+Error de sintaxis Fin de Linea
+Linea: 23 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 24 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 25 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 26 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 27 | Info: No hay errores!
+
+
+
+Prueba 7 - 21/11/2022 23:30
+----------------- Texto a probar ------------------
+// Archivo de prueba para revisar que el analizador 
+// sintactico este correcto segun las implementaciones de Kevin Chevez
+
+// Prueba de comparacion
+valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+
+// Prueba de switch case
+switch (day){case 1: Console.WriteLine("Monday"); break; case 2: Console.WriteLine("Tuesday"); break; case 3: Console.WriteLine("Wednesday"); break;}
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+
+// Prueba de expresiones
+2 + 4
+4 - 5
+3.4f * 2.4d
+29/23
+20.5f / 0
+valor + valor
+valor + 4
+valor == valor
+2.3f != 4
+3 > 10
+valor <= 23
+------------------- resultado ---------------------
+Linea: 1 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 2 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 4 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 5 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 6 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 7 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 8 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 11 | Info: No hay errores!
+Linea: 12 | Info: No hay errores!
+Linea: 13 | Info: No hay errores!
+Linea: 14 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 16 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 17 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 18 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 19 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 20 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 21 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 22 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 23 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 24 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 25 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 26 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 27 | Info: No hay errores!

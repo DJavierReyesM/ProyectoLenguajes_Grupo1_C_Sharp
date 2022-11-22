@@ -1,12 +1,27 @@
-private void MiFuncion(){}
-private string MiFuncion(string val){ Console.WriteLine("Sb"); int valor = 5;} // WRONG
-private string MiFuncion(){ Console.WriteLine("Sb"); }
-private string MiFuncion(){ int valor = 5; }
-private string MiFuncion(){ int valor = 5; int valor = 5; }
-private string MiFuncion(){ Console.WriteLine("Sb"); Console.WriteLine("Sb"); }
-private string MiFuncion(string val){ int valor = 5; }
-private string MiFuncion(string val){ }
-private string MiFuncion(string val, string val){ }
-Console.WriteLine("Sb");
-Console.WriteLine
-int valor = 5;
+// Archivo de prueba para revisar que el analizador 
+// sintactico este correcto segun las implementaciones de Kevin Chevez
+
+// Prueba de comparacion
+valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+
+// Prueba de switch case
+switch (day){case 1: Console.WriteLine("Monday"); break; case 2: Console.WriteLine("Tuesday"); break; case 3: Console.WriteLine("Wednesday"); break;}
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+
+// Prueba de expresiones
+2 + 4
+4 - 5
+3.4f * 2.4d
+29/23
+20.5f / 0
+valor + valor
+valor + 4
+valor == valor
+2.3f != 4
+3 > 10
+valor <= 23

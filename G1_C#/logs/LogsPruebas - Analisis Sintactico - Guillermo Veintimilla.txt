@@ -1,0 +1,164 @@
+Pruebas - Guillermo Veintimilla
+
+Prueba 1 - 21/11/2022 15:36
+
+calc > for(int i1 = 1; i1 < 10; i1 ++){ a=2 }
+None
+calc > for(int i1 = 1; i1 < 10; i1 ++){ Console.WriteLine(i1); } 
+Error de sintaxis - Token: CONSOLE_WRITELINE, Línea: 1, Col: 33
+Error de sintaxis - Token: PAR_IZQ, Línea: 1, Col: 50
+Error de sintaxis - Token: PAR_DER, Línea: 1, Col: 53
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 54
+Error de sintaxis - Token: LLAVE_DER, Línea: 1, Col: 56
+Error de sintaxis Fin de Linea
+None
+calc > List<int> listaEjemplo = new List<int>();
+Error de sintaxis - Token: LIST, Línea: 1, Col: 0
+Error de sintaxis - Token: MENOR_QUE, Línea: 1, Col: 4
+Error de sintaxis - Token: INT_TYPE, Línea: 1, Col: 5
+Error de sintaxis - Token: MAYOR_QUE, Línea: 1, Col: 8
+Error de sintaxis - Token: NEW, Línea: 1, Col: 25
+Error de sintaxis - Token: LIST, Línea: 1, Col: 29
+Error de sintaxis - Token: MENOR_QUE, Línea: 1, Col: 33
+Error de sintaxis - Token: INT_TYPE, Línea: 1, Col: 34
+Error de sintaxis - Token: MAYOR_QUE, Línea: 1, Col: 37
+Error de sintaxis - Token: PAR_IZQ, Línea: 1, Col: 38
+Error de sintaxis - Token: PAR_DER, Línea: 1, Col: 39
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 40
+Error de sintaxis Fin de Linea
+None
+
+
+Prueba 2 - 21/11/2022 17:05
+calc > for(int i1 = 1; i1 < 10; i1 ++){ a=2 }
+None
+calc > for(int i1 = 1; i1 < 10; i1 ++){ Console.WriteLine(i1); }
+Error de sintaxis - Token: CONSOLE_WRITELINE, Línea: 1, Col: 33
+Error de sintaxis - Token: PAR_IZQ, Línea: 1, Col: 50
+Error de sintaxis - Token: PAR_DER, Línea: 1, Col: 53
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 54
+Error de sintaxis - Token: LLAVE_DER, Línea: 1, Col: 56
+Error de sintaxis Fin de Linea
+None
+
+Prueba 3 - 21/11/2022 17:10
+calc > for(int i1 = 1; i1 < 10; i1 ++){ a=2 }
+None
+calc > for(int i1 = 1; i1 < 10; i1 ++){ Console.WriteLine(i1); }
+None
+calc > List<int> listaEjemplo = new List<int>(); 
+None
+calc > public void realizarTarea(){ Console.WriteLine("Hola"); }
+Error de sintaxis - Token: CONSOLE_WRITELINE, Línea: 1, Col: 29
+Error de sintaxis - Token: PAR_IZQ, Línea: 1, Col: 46
+Error de sintaxis - Token: STRING, Línea: 1, Col: 47
+Error de sintaxis - Token: PAR_DER, Línea: 1, Col: 53
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 54
+Error de sintaxis - Token: LLAVE_DER, Línea: 1, Col: 56
+Error de sintaxis Fin de Linea
+None
+
+
+Prueba 4 - 21/11/2022 17:13
+calc > for(int i1 = 1; i1 < 10; i1 ++){ a=2 }
+None
+calc > for(int i1 = 1; i1 < 10; i1 ++){ Console.WriteLine(i1); }
+None
+calc > List<int> listaEjemplo = new List<int>();
+None
+calc > public void realizarTarea(){ Console.WriteLine("Hola"); }
+None
+calc > Console.WriteLine("Menu de opciones");
+None
+calc > Console.WriteLine("Menu de opciones" + variable);
+None
+calc > Console.WriteLine($"Menu de opciones + {variable}");
+None
+calc > Console.ReadLine();
+None
+calc > palabra = Console.ReadLine();
+Error de sintaxis - Token: CONSOLE_READLINE, Línea: 1, Col: 10
+Error de sintaxis - Token: PAR_IZQ, Línea: 1, Col: 26
+Error de sintaxis - Token: PAR_DER, Línea: 1, Col: 27
+Error de sintaxis - Token: END_OF_LINE, Línea: 1, Col: 28
+Error de sintaxis Fin de Linea
+None
+
+
+Prueba 5 - 21/11/2022 17:21
+calc > Console.ReadLine();
+None
+calc > palabra = Console.ReadLine();
+
+Prueba 6 - 21/11/2022 17:46
+calc > for(i1 = 1; i1 < 10; i1 ++){ Console.WriteLine(i1); }
+None
+calc > for(int i1 = 1; i1 < 10; i1 --){ Console.WriteLine(i1); }
+None
+calc > List<int> listaEjemplo = new List<int>();
+None
+calc > List<Carro> listaEjemplo = new List<Carro>();
+None
+calc > public void realizar(){ a=29; }
+None
+calc > public void realizarTarea(){ Console.WriteLine("Hola"); }
+None
+calc > Console.WriteLine("Menu de opciones" + variable); 
+None
+calc > Console.WriteLine($"Menu de opciones {variable}"); 
+None
+calc > Console.ReadLine();
+None
+calc > palabra = Console.ReadLine(); 
+None
+
+Prueba 6 - 21/11/2022 19:16
+calc > for(i1 = 1; i1 < 10; i1 ++){ Console.WriteLine(i1); }
+None
+calc > for(int i1 = 1; i1 < 10; i1 --){ Console.WriteLine(i1); }
+None
+calc > List<int> listaEjemplo = new List<int>();
+None
+calc > List<Carro> listaEjemplo = new List<Carro>();
+None
+calc > public void realizar(){ a=29; }
+None
+calc > public void realizarTarea(){ Console.WriteLine("Hola"); }
+None
+calc > Console.WriteLine("Menu de opciones" + variable); 
+None
+calc > Console.WriteLine($"Menu de opciones {variable}"); 
+None
+calc > Console.ReadLine();
+None
+calc > palabra = Console.ReadLine(); 
+None
+
+Prueba 7 - 21/11/2022 21:49
+----------------------- Texto a probar ----------------------------
+for(i1 = 1; i1 < 10; i1 ++){ Console.WriteLine(i1); }
+for(int i1 = 1; i1 < 10; i1 --){ Console.WriteLine(i1); }
+List<int> listaEjemplo = new List<int>();
+List<Carro> listaEjemplo = new List<Carro>();
+public void realizar(){ a=29; }
+public void realizarTarea(){ Console.WriteLine("Hola"); }
+Console.WriteLine("Menu de opciones" + variable); 
+Console.WriteLine($"Menu de opciones {variable}"); 
+Console.ReadLine();
+palabra = Console.ReadLine(); 
+----------------------------------------------------------------
+-----------Texto de salida al realizar la prueba----------------
+Linea: 1 | Info: No hay errores!
+Linea: 2 | Info: No hay errores!
+Linea: 3 | Info: No hay errores!
+Linea: 4 | Info: No hay errores!
+Linea: 2 | Info: No hay errores!
+Linea: 3 | Info: No hay errores!
+Linea: 4 | Info: No hay errores!
+Linea: 5 | Info: No hay errores!
+Linea: 6 | Info: No hay errores!
+Linea: 7 | Info: No hay errores!
+Linea: 8 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Linea: 10 | Info: No hay errores!
+-------------------------------------------------------------

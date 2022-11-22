@@ -1,0 +1,27 @@
+// ARCHIVO DE PRUEBA DE ANALIZAR SINTACTICO DE GUILLERMO VEINTIMILLA
+
+//Estructuras de control
+for(i1 = 1; i1 < 10; i1 ++){ Console.WriteLine(i1); }
+for(int i1 = 1; i1 < 10; i1 --){ Console.WriteLine(i1); }
+
+
+//Estructuras de datos
+List<int> listaEjemplo = new List<int>();
+List<Carro> listaEjemplo = new List<Carro>();
+
+
+//Tipo de definicion de funciones
+public void realizar(){ a=29; }
+public void realizarTarea(){ Console.WriteLine("Hola"); }
+
+//Imprimir e ingresar datos por teclado
+//---------------Imprimir datos por teclado: -----------//
+//-----Opcion 1--------//
+Console.WriteLine("Menu de opciones" + variable); 
+
+//-----Opcion 2--------//
+Console.WriteLine($"Menu de opciones {variable}"); 
+
+//---------------Ingresar datos por teclado: -----------//
+Console.ReadLine();
+palabra = Console.ReadLine(); 

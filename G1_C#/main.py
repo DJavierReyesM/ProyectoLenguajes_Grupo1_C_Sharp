@@ -7,7 +7,7 @@ def p_body(p):
   | comparacion
   | estructura_control
   | estructura_datos
-  | expresion
+  | expresion END_OF_LINE
   | salida_entrada
   | funcion
   | declaracion END_OF_LINE
@@ -43,6 +43,15 @@ def p_valor_tipo(p):
   | VOID
   '''
 
+def p_valor_tipo_inicializador(p):
+    '''valor_tipo_inicializador : FLOAT_TYPE
+    | DOUBLE_TYPE
+    | STRING_TYPE
+    | INT_TYPE
+    | BOOL_TYPE
+    | CHAR_TYPE
+    | IDENTIFICADOR'''
+
 def p_modificador_acceso(p):
   '''modificador_acceso : PRIVATE
   | PROTECTED
@@ -74,6 +83,12 @@ def p_operador_condicional(p):
   | MAYOR_QUE
   | MAYOR_O_IGUAL_QUE
   '''
+
+def p_operacion_string(p):
+    '''operacion_string : STRING SUMA STRING
+    | STRING SUMA IDENTIFICADOR
+    | IDENTIFICADOR SUMA STRING
+    | IDENTIFICADOR SUMA IDENTIFICADOR'''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -154,8 +169,57 @@ def p_switch_case(p):
 
 
 # ----------------------------------------- VEINTIMILLA --------------------------------------------
+# ----------------------------------------------Estructura de control For --------------------------------------------------------- # 
 def p_for(p):
-  'for : IGUAL'
+    'for : FOR PAR_IZQ forInicializador END_OF_LINE forCondicion END_OF_LINE forIterador PAR_DER LLAVE_IZQ body LLAVE_DER'
+
+
+# Seccion iterador
+
+def p_forIterador(p):
+    'forIterador : IDENTIFICADOR operadorForIteracion'
+
+
+def p_operadorForIteracion(p):
+    '''operadorForIteracion : INCREMENTO 
+                            | DECREMENTO'''
+
+# ------------------------------------------- #
+# Seccion condicion
+
+def p_forCondicion(p):
+    'forCondicion : IDENTIFICADOR operador_condicional valorForCondicion'
+
+
+def p_valorForCondicion(p):
+    '''valorForCondicion : FLOAT
+            | DOUBLE
+            | INT
+            | IDENTIFICADOR'''
+
+# ------------------------------------------- #
+# Seccion inicializador
+
+def p_forInicializador(p):
+    '''forInicializador : tipoDatoForInicializador IDENTIFICADOR IGUAL valorForInicializador
+                    | IDENTIFICADOR IGUAL valorForInicializador'''
+
+
+
+def p_tipoDatoForInicializador(p):
+    '''tipoDatoForInicializador : FLOAT_TYPE
+                        | DOUBLE_TYPE
+                        | INT_TYPE'''
+
+
+def p_valorForInicializador(p):
+    '''valorForInicializador : FLOAT
+            | DOUBLE
+            | INT
+            | IDENTIFICADOR'''
+    
+# ------------------------------------------- #
+# ---------------------------------------------- Fin Estructura de control For --------------------------------------------------------- # 
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -164,7 +228,15 @@ def p_for(p):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Estructuras de datos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def p_estructura_datos(p):
-  'estructura_datos : IGUAL'
+  'estructura_datos : lista'
+# ----------------------------------------- VEINTIMILLA --------------------------------------------
+def p_lista(p):
+    'lista : LIST tipoLista IDENTIFICADOR IGUAL NEW LIST tipoLista PAR_IZQ PAR_DER END_OF_LINE'
+
+def p_tipoLista(p):
+    'tipoLista : MENOR_QUE valor_tipo_inicializador MAYOR_QUE'
+
+# --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -175,6 +247,7 @@ def p_estructura_datos(p):
 def p_expresion(p):
   '''expresion : expresion_operacion_aritmetica
   | expresion_condicional
+  | salida_entrada
   '''
 
 def p_expresion_operacion_aritmetica(p):
@@ -195,7 +268,22 @@ def p_expresion_condicional(p):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Imprimir e ingresar datos por teclado ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ----------------------------------------- VEINTIMILLA --------------------------------------------
 def p_salida_entrada(p):
-  'salida_entrada : IGUAL'
+  '''salida_entrada : salida_uno
+                    | salida_dos
+                    | salida_tres'''
+
+
+def p_salida_uno(p):
+    '''salida_uno : CONSOLE_WRITELINE PAR_IZQ STRING PAR_DER
+                    | CONSOLE_WRITELINE PAR_IZQ operacion_string PAR_DER
+                    | CONSOLE_WRITELINE PAR_IZQ IDENTIFICADOR PAR_DER'''
+
+def p_salida_dos(p):
+    '''salida_dos : CONSOLE_WRITELINE PAR_IZQ C_CADENA_INTERPOLADA STRING PAR_DER'''
+
+def p_salida_tres(p):
+    'salida_tres : CONSOLE_READLINE PAR_IZQ PAR_DER'
+
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -204,7 +292,12 @@ def p_salida_entrada(p):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Tipos de definición de funciones ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def p_funcion(p):
-  'funcion : IGUAL'
+  'funcion : funcion_tipo_uno'
+# ----------------------------------------- VEINTIMILLA --------------------------------------------
+def p_funcion_tipo_uno(p):
+  'funcion_tipo_uno : modificador_acceso VOID IDENTIFICADOR PAR_IZQ PAR_DER LLAVE_IZQ body LLAVE_DER'
+
+# --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

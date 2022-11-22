@@ -8,10 +8,11 @@ def p_body(p):
   | estructura_control
   | estructura_datos
   | expresion END_OF_LINE
-  | salida_entrada
+  | salida_entrada END_OF_LINE
   | funcion
   | declaracion END_OF_LINE
   | empty
+  | funciones_estructura_datos END_OF_LINE
   '''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -32,6 +33,10 @@ def p_numero(p):
   | DOUBLE
   | INT
   '''
+def p_ftipo(p):
+    '''ftipo : valor_tipo
+                   | VOID
+    '''
 
 def p_valor_tipo(p):
   '''valor_tipo : CHAR_TYPE
@@ -40,7 +45,6 @@ def p_valor_tipo(p):
   | INT_TYPE
   | BOOL_TYPE
   | STRING_TYPE
-  | VOID
   '''
 
 def p_valor_tipo_inicializador(p):
@@ -102,17 +106,46 @@ def p_empty(p):
 
 def p_asignacion(p):
   '''asignacion : asignacionSimple
+                | asignacionCompuesta
    '''
 def p_asignacionSimple(p):
   '''asignacionSimple : IDENTIFICADOR IGUAL valor
                       | IDENTIFICADOR IGUAL expresion
+                      | IDENTIFICADOR IGUAL salida_entrada
+  '''
+def p_asignacionCompuesta(p):
+  '''asignacionCompuesta : asignacionCompuesta_Logic
+                        | asignacionCompuesta_Number
+  '''
+def p_asignacionCompuesta_Logic(p):
+  '''asignacionCompuesta_Logic : IDENTIFICADOR operadoresCompuestosLogic BOOL
+                               | IDENTIFICADOR operadoresCompuestosLogic expresion_condicional
+                               | IDENTIFICADOR operadoresCompuestosLogic IDENTIFICADOR
   '''
 
+def p_asignacionCompuesta_Number(p):
+  '''asignacionCompuesta_Number : IDENTIFICADOR operadoresCompuestosNumber numero
+                                | IDENTIFICADOR operadoresCompuestosNumber expresion_operacion_aritmetica
+                                | IDENTIFICADOR operadoresCompuestosNumber IDENTIFICADOR
+  '''
+
+def p_operadoresCompuestosNumber(p):
+  ''' operadoresCompuestosNumber : AUMENTADO
+                          | DECREMENTADO
+                          | MULTIPLICADO_POR
+                          | DIVIDIDO_POR
+                          | MODULO_DE
+  '''
+def p_operadoresCompuestosLogic(p):
+  ''' operadoresCompuestosLogic : AND_EQUAL
+                                | OR_EQUAL
+                                | EXC_OREQUAL
+  '''
 def p_declaracion(p):
   'declaracion : valor_tipo IDENTIFICADOR'
 
 def p_declaracionAsignacion(p):
-  ''' declaracion : valor_tipo asignacion
+  ''' declaracion : valor_tipo asignacionSimple
 
   '''
 
@@ -154,7 +187,29 @@ def p_estructura_control(p):
 
 # -------------------------------------------- REYES -----------------------------------------------
 def p_while(p):
-  'while : IGUAL'
+  '''while : while_normal
+           | while_do
+  '''
+
+def p_while_normal(p):
+    '''while_normal : WHILE PAR_IZQ expresion_condicional PAR_DER LLAVE_IZQ body_while LLAVE_DER'''
+
+def p_while_do(p):
+    '''while_do : DO LLAVE_IZQ body_while LLAVE_DER WHILE PAR_IZQ expresion_condicional PAR_DER END_OF_LINE'''
+
+def p_body_while(p):
+    '''body_while : asignacion END_OF_LINE
+                  | declaracion END_OF_LINE
+                  | salida_entrada END_OF_LINE
+                  | BREAK END_OF_LINE
+                  | CONTINUE END_OF_LINE
+                  | asignacion END_OF_LINE body_while
+                  | declaracion END_OF_LINE body_while
+                  | salida_entrada END_OF_LINE body_while
+                  | BREAK END_OF_LINE body_while
+                  | CONTINUE END_OF_LINE body_while
+
+    '''
 # --------------------------------------------------------------------------------------------------
 
 
@@ -228,7 +283,9 @@ def p_valorForInicializador(p):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Estructuras de datos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def p_estructura_datos(p):
-  'estructura_datos : lista'
+  '''estructura_datos : lista
+                      | stack
+  '''
 # ----------------------------------------- VEINTIMILLA --------------------------------------------
 def p_lista(p):
     'lista : LIST tipoLista IDENTIFICADOR IGUAL NEW LIST tipoLista PAR_IZQ PAR_DER END_OF_LINE'
@@ -236,6 +293,21 @@ def p_lista(p):
 def p_tipoLista(p):
     'tipoLista : MENOR_QUE valor_tipo_inicializador MAYOR_QUE'
 
+# --------------------------------------------------------------------------------------------------
+# ----------------------------------------- REYES --------------------------------------------
+def p_stack(p):
+    'stack : STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE IDENTIFICADOR IGUAL NEW STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'
+
+def p_funciones_estructura_datos(p):
+    '''funciones_estructura_datos : stack_push
+                                  | stack_pop
+    '''
+
+def p_stack_push(p):
+    '''stack_push : IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER'''
+
+def p_stack_pop(p):
+    '''stack_pop : IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER'''
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -247,7 +319,6 @@ def p_tipoLista(p):
 def p_expresion(p):
   '''expresion : expresion_operacion_aritmetica
   | expresion_condicional
-  | salida_entrada
   '''
 
 def p_expresion_operacion_aritmetica(p):
@@ -258,6 +329,8 @@ def p_expresion_operacion_aritmetica(p):
 def p_expresion_condicional(p):
   '''expresion_condicional : numero operador_condicional numero
   | IDENTIFICADOR operador_condicional IDENTIFICADOR
+  | IDENTIFICADOR operador_condicional numero
+  | numero operador_condicional IDENTIFICADOR
   '''
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -292,11 +365,31 @@ def p_salida_tres(p):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Tipos de definición de funciones ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def p_funcion(p):
-  'funcion : funcion_tipo_uno'
+  '''funcion : funcion_tipo_uno
+             | funcion_tipo_tres
+  '''
 # ----------------------------------------- VEINTIMILLA --------------------------------------------
 def p_funcion_tipo_uno(p):
   'funcion_tipo_uno : modificador_acceso VOID IDENTIFICADOR PAR_IZQ PAR_DER LLAVE_IZQ body LLAVE_DER'
 
+# --------------------------------------------------------------------------------------------------
+
+# ----------------------------------------- REYES --------------------------------------------
+def p_funcion_tipo_tres(p):
+  'funcion_tipo_tres : modificador_acceso VOID IDENTIFICADOR PAR_IZQ parametrosF PAR_DER LLAVE_IZQ bodyF LLAVE_DER'
+
+def p_parametrosF(p):
+  '''parametrosF : declaracion
+                 | declaracion COMA parametrosF
+  '''
+
+def p_bodyF(p):
+    '''bodyF : asignacion END_OF_LINE
+            | declaracion END_OF_LINE
+            | salida_entrada END_OF_LINE
+            | asignacion END_OF_LINE bodyF
+            | declaracion END_OF_LINE bodyF
+            | salida_entrada END_OF_LINE bodyF'''
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

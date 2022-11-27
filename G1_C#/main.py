@@ -107,18 +107,26 @@ def p_empty(p):
 def p_asignacion(p):
   '''asignacion : asignacionSimple
                 | asignacionCompuesta
+                | asignacionClase
+                | asignacionEstructuraD
+                | asignacionNull
    '''
 def p_asignacionSimple(p):
   '''asignacionSimple : IDENTIFICADOR IGUAL valor
                       | IDENTIFICADOR IGUAL expresion
                       | IDENTIFICADOR IGUAL salida_entrada
-                      | IDENTIFICADOR IGUAL asignacionEstructuraD
   '''
+def p_asignacionNull(p):
+    'asignacionNull : IDENTIFICADOR IGUAL NULL'
+
+def p_asignacionClase(p):
+    '''asignacionClase : IDENTIFICADOR IGUAL NEW IDENTIFICADOR PAR_IZQ PAR_DER'''
+
 
 def p_asignacionEstructuraD(p):
-    '''asignacionEstructuraD : asignacionPila
-                            | asignacionQueue
-                            | asignacionList
+    '''asignacionEstructuraD : IDENTIFICADOR IGUAL asignacionPila
+                            | IDENTIFICADOR IGUAL asignacionQueue
+                            | IDENTIFICADOR IGUAL asignacionList
     '''
 
 def p_asignacionPila(p):
@@ -133,6 +141,7 @@ def p_asignacionList(p):
 def p_asignacionCompuesta(p):
   '''asignacionCompuesta : asignacionCompuesta_Logic
                         | asignacionCompuesta_Number
+                        | asignacionCompuesta_Null
   '''
 def p_asignacionCompuesta_Logic(p):
   '''asignacionCompuesta_Logic : IDENTIFICADOR operadoresCompuestosLogic BOOL
@@ -145,6 +154,13 @@ def p_asignacionCompuesta_Number(p):
                                 | IDENTIFICADOR operadoresCompuestosNumber expresion_operacion_aritmetica
                                 | IDENTIFICADOR operadoresCompuestosNumber IDENTIFICADOR
   '''
+
+def p_asignacionCompuesta_Null(p):
+    '''asignacionCompuesta_Null : IDENTIFICADOR NULL_EQUAL valor
+                                | IDENTIFICADOR NULL_EQUAL expresion
+                                | IDENTIFICADOR NULL_EQUAL asignacionPila
+                                | IDENTIFICADOR NULL_EQUAL asignacionQueue
+                                | IDENTIFICADOR NULL_EQUAL asignacionList'''
 
 def p_operadoresCompuestosNumber(p):
   ''' operadoresCompuestosNumber : AUMENTADO
@@ -162,10 +178,25 @@ def p_declaracion(p):
   '''declaracion : valor_tipo IDENTIFICADOR
                  | declaracionEstructuraD
                  | declaracionAsignacion
+                 | declaracionClase
+                 | declaracionNull
   '''
+
+def p_declaracionNull(p):
+    'declaracionNull : valor_tipo OP_TERNARIO IDENTIFICADOR'
+
+def p_declaracionClase(p):
+    'declaracionClase : IDENTIFICADOR IDENTIFICADOR'
 
 def p_declaracionAsignacion(p):
   ''' declaracionAsignacion : valor_tipo asignacionSimple
+                            | declaracionClase IGUAL NEW IDENTIFICADOR PAR_IZQ PAR_DER
+                            | declaracionClase IGUAL NULL
+                            | declaracionClase IGUAL IDENTIFICADOR
+                            | declaracionNull IGUAL valor
+                            | declaracionNull IGUAL expresion
+                            | declaracionNull IGUAL NULL
+                            | declaracionEstructuraD IGUAL NULL
 
   '''
 def p_declaracionEstructuraD(p):

@@ -129,3 +129,178 @@ None
 calc > 
 "------------------------------------------------------------"
 
+Prueba 5 - 27/11/2022 02:30
+----------------------- Texto a probar ----------------------------
+// Declaraciones y asignaciones Nuevas : Stack, List, Queue
+Stack<int> pila;
+List<float> pila23;
+Queue<Persona> @pila;
+pila = new Stack<bool>();
+pila23 = new List<char>();
+@pila = new Queue<string>();
+
+// Declaracion y asignacion nuevas: Clases / Null y (? y ??=)
+Libros l;
+l = new Libros();
+LPersona l2 = new LPersona();
+as = null;
+
+bool? b = 2>3;
+int? c = 3+2;
+float? as = null;
+as = null;
+Queue<int> asas = null;
+as ??= 23;
+qer ??= 2>1;
+@dko ??= new Stack<int>();
+@dko ??= new List<string>();
+@dko ??= new Queue<bool>();
+dj ??= a;
+------------------- resultado ---------------------
+Linea: 1 | Info: No hay errores!
+Linea: 2 | Info: No hay errores!
+Linea: 3 | Info: No hay errores!
+Linea: 4 | Info: No hay errores!
+Linea: 5 | Info: No hay errores!
+Linea: 6 | Info: No hay errores!
+Linea: 7 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 9 | Info: No hay errores!
+Linea: 10 | Info: No hay errores!
+Linea: 11 | Info: No hay errores!
+Linea: 12 | Info: No hay errores!
+Linea: 13 | Info: No hay errores!
+Linea: 15 | Info: No hay errores!
+Linea: 16 | Info: No hay errores!
+Linea: 17 | Info: No hay errores!
+Linea: 18 | Info: No hay errores!
+Linea: 19 | Info: No hay errores!
+Linea: 20 | Info: No hay errores!
+Linea: 21 | Info: No hay errores!
+Linea: 22 | Info: No hay errores!
+Linea: 23 | Info: No hay errores!
+Linea: 24 | Info: No hay errores!
+Linea: 25 | Info: No hay errores!
+
+Prueba 6 - 27/11/2022 02:40
+----------------------- Texto a probar ----------------------------
+//Pruebas Reyes - Sintáctico
+
+//Declaración de tipo de Función
+
+public void holaM(int edad, string op="Hola", float @f){ Console.WriteLine(edad); Console.WriteLine(op); int a = 2; a+=1; }
+
+// Estructura control While
+
+while(a<10){ Console.WriteLine(a); a+=1; }
+
+do{ Console.WriteLine(a); a+=1; }while(a<10);
+
+// Declaraciones y Asignaciones con Operadores Compuestos (Parte 1)
+a &= b;
+a ^= c;
+c |= false;
+c &= 2>3;
+a+=1;
+b-=2.2;
+c*=20;
+d/=dsd;
+d%=10;
+d+=2+3;
+bool _verdadero1 = false;
+bool @falseto1 = true;
+char car = 'A';
+int a;
+float @tr;
+
+// Estructura Datos : Stack
+Stack<int> num = new Stack<int>();
+num.Push(1);
+num.Pop();
+
+Stack<dataS> num = new Stack<dataS>();
+num.Push(as);
+
+// Declaraciones y asignaciones Nuevas : Stack, List, Queue
+Stack<int> pila;
+List<float> pila23;
+Queue<Persona> @pila;
+pila = new Stack<bool>();
+pila23 = new List<char>();
+@pila = new Queue<string>();
+
+// Declaracion y asignacion nuevas: Clases / Null y (? y ??=)
+Libros l;
+l = new Libros();
+LPersona l2 = new LPersona();
+as = null;
+
+bool? b = 2>3;
+int? c = 3+2;
+float? as = null;
+as = null;
+Queue<int> asas = null;
+as ??= 23;
+qer ??= 2>1;
+@dko ??= new Stack<int>();
+@dko ??= new List<string>();
+@dko ??= new Queue<bool>();
+dj ??= a;
+------------------- resultado ---------------------
+Linea: 1 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 3 | Info: No hay errores!
+Linea: 5 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 7 | Info: No hay errores!
+Linea: 9 | Info: No hay errores!
+Linea: 11 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 13 | Info: No hay errores!
+Linea: 14 | Info: No hay errores!
+Linea: 15 | Info: No hay errores!
+Linea: 16 | Info: No hay errores!
+Linea: 17 | Info: No hay errores!
+Linea: 18 | Info: No hay errores!
+Linea: 19 | Info: No hay errores!
+Linea: 20 | Info: No hay errores!
+Linea: 21 | Info: No hay errores!
+Linea: 22 | Info: No hay errores!
+Linea: 23 | Info: No hay errores!
+Linea: 24 | Info: No hay errores!
+Linea: 25 | Info: No hay errores!
+Linea: 26 | Info: No hay errores!
+Linea: 27 | Info: No hay errores!
+Linea: 28 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 30 | Info: No hay errores!
+Linea: 31 | Info: No hay errores!
+Linea: 32 | Info: No hay errores!
+Linea: 33 | Info: No hay errores!
+Linea: 35 | Info: No hay errores!
+Linea: 36 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 38 | Info: No hay errores!
+Linea: 39 | Info: No hay errores!
+Linea: 40 | Info: No hay errores!
+Linea: 41 | Info: No hay errores!
+Linea: 42 | Info: No hay errores!
+Linea: 43 | Info: No hay errores!
+Linea: 44 | Info: No hay errores!
+Error de sintaxis Fin de Linea
+Linea: 46 | Info: No hay errores!
+Linea: 47 | Info: No hay errores!
+Linea: 48 | Info: No hay errores!
+Linea: 49 | Info: No hay errores!
+Linea: 50 | Info: No hay errores!
+Linea: 52 | Info: No hay errores!
+Linea: 53 | Info: No hay errores!
+Linea: 54 | Info: No hay errores!
+Linea: 55 | Info: No hay errores!
+Linea: 56 | Info: No hay errores!
+Linea: 57 | Info: No hay errores!
+Linea: 58 | Info: No hay errores!
+Linea: 59 | Info: No hay errores!
+Linea: 60 | Info: No hay errores!
+Linea: 61 | Info: No hay errores!
+Linea: 62 | Info: No hay errores!

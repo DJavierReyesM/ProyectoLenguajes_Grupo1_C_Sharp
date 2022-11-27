@@ -10,7 +10,7 @@ while(a<10){ Console.WriteLine(a); a+=1; }
 
 do{ Console.WriteLine(a); a+=1; }while(a<10);
 
-// Asignaciones y Declaraciones
+// Declaraciones y Asignaciones con Operadores Compuestos (Parte 1)
 a &= b;
 a ^= c;
 c |= false;
@@ -42,3 +42,21 @@ Queue<Persona> @pila;
 pila = new Stack<bool>();
 pila23 = new List<char>();
 @pila = new Queue<string>();
+
+// Declaracion y asignacion nuevas: Clases / Null y (? y ??=)
+Libros l;
+l = new Libros();
+LPersona l2 = new LPersona();
+as = null;
+
+bool? b = 2>3;
+int? c = 3+2;
+float? as = null;
+as = null;
+Queue<int> asas = null;
+as ??= 23;
+qer ??= 2>1;
+@dko ??= new Stack<int>();
+@dko ??= new List<string>();
+@dko ??= new Queue<bool>();
+dj ??= a;

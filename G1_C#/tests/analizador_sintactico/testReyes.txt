@@ -34,3 +34,11 @@ num.Pop();
 
 Stack<dataS> num = new Stack<dataS>();
 num.Push(as);
+
+// Declaraciones y asignaciones Nuevas : Stack, List, Queue
+Stack<int> pila;
+List<float> pila23;
+Queue<Persona> @pila;
+pila = new Stack<bool>();
+pila23 = new List<char>();
+@pila = new Queue<string>();

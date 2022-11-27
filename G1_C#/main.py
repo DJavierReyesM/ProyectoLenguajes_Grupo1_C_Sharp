@@ -112,7 +112,24 @@ def p_asignacionSimple(p):
   '''asignacionSimple : IDENTIFICADOR IGUAL valor
                       | IDENTIFICADOR IGUAL expresion
                       | IDENTIFICADOR IGUAL salida_entrada
+                      | IDENTIFICADOR IGUAL asignacionEstructuraD
   '''
+
+def p_asignacionEstructuraD(p):
+    '''asignacionEstructuraD : asignacionPila
+                            | asignacionQueue
+                            | asignacionList
+    '''
+
+def p_asignacionPila(p):
+    'asignacionPila : NEW STACK tipoLista PAR_IZQ PAR_DER'
+
+def p_asignacionQueue(p):
+    'asignacionQueue : NEW QUEUE tipoLista PAR_IZQ PAR_DER'
+
+def p_asignacionList(p):
+    'asignacionList : NEW LIST tipoLista PAR_IZQ PAR_DER'
+
 def p_asignacionCompuesta(p):
   '''asignacionCompuesta : asignacionCompuesta_Logic
                         | asignacionCompuesta_Number
@@ -142,12 +159,29 @@ def p_operadoresCompuestosLogic(p):
                                 | EXC_OREQUAL
   '''
 def p_declaracion(p):
-  'declaracion : valor_tipo IDENTIFICADOR'
+  '''declaracion : valor_tipo IDENTIFICADOR
+                 | declaracionEstructuraD
+                 | declaracionAsignacion
+  '''
 
 def p_declaracionAsignacion(p):
-  ''' declaracion : valor_tipo asignacionSimple
+  ''' declaracionAsignacion : valor_tipo asignacionSimple
 
   '''
+def p_declaracionEstructuraD(p):
+    '''declaracionEstructuraD : declaracionList
+                              | declaracionQueue
+                              | declaracionPila
+    '''
+
+def p_declaracionList(p):
+    'declaracionList : LIST tipoLista IDENTIFICADOR'
+
+def p_declaracionQueue(p):
+    'declaracionQueue : QUEUE tipoLista IDENTIFICADOR'
+
+def p_declaracionPila(p):
+    'declaracionPila : STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE IDENTIFICADOR'
 
 '''
 Declaración a preguntar en un futuro:
@@ -301,7 +335,7 @@ def p_valorForInicializador(p):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Estructuras de datos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def p_estructura_datos(p):
   '''estructura_datos : lista
-                      | stack
+                      | pila
   '''
 # ----------------------------------------- VEINTIMILLA --------------------------------------------
 def p_lista(p):
@@ -312,8 +346,8 @@ def p_tipoLista(p):
 
 # --------------------------------------------------------------------------------------------------
 # ----------------------------------------- REYES --------------------------------------------
-def p_stack(p):
-    'stack : STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE IDENTIFICADOR IGUAL NEW STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'
+def p_pila(p):
+    'pila : STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE IDENTIFICADOR IGUAL NEW STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'
 
 def p_funciones_estructura_datos(p):
     '''funciones_estructura_datos : stack_push

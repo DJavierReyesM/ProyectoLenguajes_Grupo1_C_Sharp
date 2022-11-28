@@ -78,3 +78,11 @@ ji<<=@f;
 (x, y) => y*x
 (int x, int y) => y>=x
 () => Console.WriteLine("Hola")
+
+//Asignacion y Declaracion: ref
+ref int a = ref b;
+a = ref c;
+ref int aet = ref al[0];
+a = ref @dg[xi];
+Stack<int> asa = new Stack<int>();
+ref Auto z = ref carro;

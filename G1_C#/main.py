@@ -112,6 +112,7 @@ def p_asignacion(p):
                 | asignacionEstructuraD
                 | asignacionNull
                 | asignacionIndex
+                | asignacionRef
    '''
 def p_asignacionSimple(p):
   '''asignacionSimple : IDENTIFICADOR IGUAL valor
@@ -149,6 +150,11 @@ def p_asignacionIndex(p):
 def p_index(p):
     '''index : IDENTIFICADOR COR_IZQ INT COR_DER
             | IDENTIFICADOR COR_IZQ IDENTIFICADOR COR_DER
+    '''
+
+def p_asignacionRef(p):
+    '''asignacionRef : IDENTIFICADOR IGUAL REF IDENTIFICADOR
+                    | IDENTIFICADOR IGUAL REF index
     '''
 
 def p_asignacionCompuesta(p):
@@ -223,6 +229,9 @@ def p_declaracionAsignacion(p):
                             | declaracionNull IGUAL expresion
                             | declaracionNull IGUAL NULL
                             | declaracionEstructuraD IGUAL NULL
+                            | REF valor_tipo asignacionRef
+                            | REF IDENTIFICADOR asignacionRef
+                            | REF declaracionEstructuraD asignacionRef
 
   '''
 def p_declaracionEstructuraD(p):

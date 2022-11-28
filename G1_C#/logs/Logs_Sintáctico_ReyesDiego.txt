@@ -342,13 +342,23 @@ Prueba 9 - 27/11/2022 20:00
 (int x, int y) => y>=x
 () => Console.WriteLine("Hola")
 ------------------- resultado ---------------------
-Linea: 77 | Info: No hay errores!
-Linea: 78 | Info: No hay errores!
-Linea: 79 | Info: No hay errores!
-Linea: 80 | Info: No hay errores!
+Linea: 1 | Info: No hay errores!
+Linea: 2 | Info: No hay errores!
+Linea: 3 | Info: No hay errores!
+Linea: 4 | Info: No hay errores!
 
-Prueba 10 - 27/11/2022 19:20
+Prueba 10 - 27/11/2022 22:34
 ----------------------- Texto a probar ----------------------------
-
+//Asignacion y Declaracion: ref
+ref int a = ref b;
+a = ref c;
+ref int aet = ref al[0];
+a = ref @dg[xi];
 ------------------- resultado ---------------------
-
+Linea: 1 | Info: No hay errores!
+Linea: 2 | Info: No hay errores!
+Linea: 3 | Info: No hay errores!
+Linea: 4 | Info: No hay errores!
+Linea: 5 | Info: No hay errores!
+Linea: 6 | Info: No hay errores!
+Linea: 7 | Info: No hay errores!

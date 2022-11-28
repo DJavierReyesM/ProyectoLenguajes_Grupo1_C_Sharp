@@ -13,6 +13,7 @@ def p_body(p):
   | declaracion END_OF_LINE
   | empty
   | funciones_estructura_datos END_OF_LINE
+  | lambda_exp
   '''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -110,11 +111,13 @@ def p_asignacion(p):
                 | asignacionClase
                 | asignacionEstructuraD
                 | asignacionNull
+                | asignacionIndex
    '''
 def p_asignacionSimple(p):
   '''asignacionSimple : IDENTIFICADOR IGUAL valor
                       | IDENTIFICADOR IGUAL expresion
-                      | IDENTIFICADOR IGUAL salida_entrada
+                      | IDENTIFICADOR IGUAL salida_tres
+                      | IDENTIFICADOR IGUAL index
   '''
 def p_asignacionNull(p):
     'asignacionNull : IDENTIFICADOR IGUAL NULL'
@@ -138,15 +141,27 @@ def p_asignacionQueue(p):
 def p_asignacionList(p):
     'asignacionList : NEW LIST tipoLista PAR_IZQ PAR_DER'
 
+def p_asignacionIndex(p):
+    '''asignacionIndex : index IGUAL index
+                       | index IGUAL valor
+    '''
+
+def p_index(p):
+    '''index : IDENTIFICADOR COR_IZQ INT COR_DER
+            | IDENTIFICADOR COR_IZQ IDENTIFICADOR COR_DER
+    '''
+
 def p_asignacionCompuesta(p):
   '''asignacionCompuesta : asignacionCompuesta_Logic
                         | asignacionCompuesta_Number
                         | asignacionCompuesta_Null
+                        | asignacionCompuesta_Shift
   '''
 def p_asignacionCompuesta_Logic(p):
   '''asignacionCompuesta_Logic : IDENTIFICADOR operadoresCompuestosLogic BOOL
                                | IDENTIFICADOR operadoresCompuestosLogic expresion_condicional
                                | IDENTIFICADOR operadoresCompuestosLogic IDENTIFICADOR
+                               | IDENTIFICADOR operadoresCompuestosLogic INT
   '''
 
 def p_asignacionCompuesta_Number(p):
@@ -162,6 +177,11 @@ def p_asignacionCompuesta_Null(p):
                                 | IDENTIFICADOR NULL_EQUAL asignacionQueue
                                 | IDENTIFICADOR NULL_EQUAL asignacionList'''
 
+def p_asignacionCompuesta_Shift(p):
+    '''asignacionCompuesta_Shift : IDENTIFICADOR operadoresCompuestosShift IDENTIFICADOR
+                                | IDENTIFICADOR operadoresCompuestosShift INT
+    '''
+
 def p_operadoresCompuestosNumber(p):
   ''' operadoresCompuestosNumber : AUMENTADO
                           | DECREMENTADO
@@ -174,6 +194,12 @@ def p_operadoresCompuestosLogic(p):
                                 | OR_EQUAL
                                 | EXC_OREQUAL
   '''
+
+def p_operadoresCompuestosShift(p):
+    '''operadoresCompuestosShift : LEFTSHIFT_EQUAL
+                                | RIGHTSHIFT_EQUAL
+    '''
+
 def p_declaracion(p):
   '''declaracion : valor_tipo IDENTIFICADOR
                  | declaracionEstructuraD
@@ -386,7 +412,9 @@ def p_funciones_estructura_datos(p):
     '''
 
 def p_stack_push(p):
-    '''stack_push : IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER'''
+    '''stack_push : IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER
+                  | IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
+    '''
 
 def p_stack_pop(p):
     '''stack_pop : IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER'''
@@ -474,6 +502,30 @@ def p_bodyF(p):
             | asignacion END_OF_LINE bodyF
             | declaracion END_OF_LINE bodyF
             | salida_entrada END_OF_LINE bodyF'''
+
+def p_lambda_exp(p):
+    'lambda_exp : lambdaArg LAMBDA lambdaCuerpo'
+
+def p_lambdaArg(p):
+    '''lambdaArg : PAR_IZQ PAR_DER
+            | PAR_IZQ lambdaParametrosUno PAR_DER
+            | PAR_IZQ lambdaParametrosDos PAR_DER
+            | IDENTIFICADOR
+    '''
+def p_lambdaParametrosUno(p):
+    '''lambdaParametrosUno : valor_tipo IDENTIFICADOR
+                        | valor_tipo IDENTIFICADOR COMA lambdaParametrosUno
+    '''
+def p_lambdaParametrosDos(p):
+    '''lambdaParametrosDos : IDENTIFICADOR
+                        |  IDENTIFICADOR COMA lambdaParametrosDos
+    '''
+
+def p_lambdaCuerpo(p):
+    '''lambdaCuerpo : expresion
+                    | salida_uno
+                    | salida_dos
+    '''
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

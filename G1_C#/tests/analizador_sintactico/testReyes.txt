@@ -60,3 +60,21 @@ qer ??= 2>1;
 @dko ??= new List<string>();
 @dko ??= new Queue<bool>();
 dj ??= a;
+
+// Asignacion: Index
+abd = b[2];
+a[i] = 2;
+a[2] = "Hola";
+a[3] = b[0];
+a[6] = @d;
+
+// Asignacion <<= y >>=
+a<<=2;
+b>>=a;
+c>>=4;
+ji<<=@f;
+
+//Expresion Lambda
+(x, y) => y*x
+(int x, int y) => y>=x
+() => Console.WriteLine("Hola")

@@ -304,3 +304,51 @@ Linea: 59 | Info: No hay errores!
 Linea: 60 | Info: No hay errores!
 Linea: 61 | Info: No hay errores!
 Linea: 62 | Info: No hay errores!
+
+Prueba 7 - 27/11/2022 19:10
+----------------------- Texto a probar ----------------------------
+// Asignacion: Index
+abd = b[2];
+a[i] = 2;
+a[2] = "Hola";
+a[3] = b[0];
+a[6] = @d;
+------------------- resultado ---------------------
+Linea: 1 | Info: No hay errores!
+Linea: 2 | Info: No hay errores!
+Linea: 3 | Info: No hay errores!
+Linea: 4 | Info: No hay errores!
+Linea: 5 | Info: No hay errores!
+Linea: 6 | Info: No hay errores!
+
+Prueba 8 - 27/11/2022 00:00
+----------------------- Texto a probar ----------------------------
+// Asignacion <<= y >>=
+a<<=2;
+b>>=a;
+c>>=4;
+ji<<=@f;
+------------------- resultado ---------------------
+Linea: 1 | Info: No hay errores!
+Linea: 2 | Info: No hay errores!
+Linea: 3 | Info: No hay errores!
+Linea: 4 | Info: No hay errores!
+Linea: 5 | Info: No hay errores!
+
+Prueba 9 - 27/11/2022 20:00
+----------------------- Texto a probar ----------------------------
+//Expresion Lambda
+(x, y) => y*x
+(int x, int y) => y>=x
+() => Console.WriteLine("Hola")
+------------------- resultado ---------------------
+Linea: 77 | Info: No hay errores!
+Linea: 78 | Info: No hay errores!
+Linea: 79 | Info: No hay errores!
+Linea: 80 | Info: No hay errores!
+
+Prueba 10 - 27/11/2022 19:20
+----------------------- Texto a probar ----------------------------
+
+------------------- resultado ---------------------
+

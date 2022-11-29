@@ -78,12 +78,12 @@ class App(tk.Tk):
         codigo = self.code_entry.get(1.0, "end-1c")
         self.salida.insert(tk.INSERT, f'Analisis Semántico para: {codigo}\n')
 
-        # self.salida.insert(tk.INSERT, validaReglaSemantica(codigo))
-        # self.salida.insert(tk.INSERT, "\n")
+        self.salida.insert(tk.INSERT, validaReglaSemantica(codigo))
+        self.salida.insert(tk.INSERT, "\n")
 
-        # for str_err in errores_semantico:
-        #     self.salida.insert(tk.INSERT, str_err)
-        # self.salida.insert(tk.INSERT, "\n")
+        for str_err in errores_semantico:
+          self.salida.insert(tk.INSERT, str_err)
+        self.salida.insert(tk.INSERT, "\n")
 
     def limpiar(self):
         self.code_entry.delete('1.0', tk.END)

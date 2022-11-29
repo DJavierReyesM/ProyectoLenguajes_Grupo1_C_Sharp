@@ -18,6 +18,7 @@ def p_body(p):
   | empty
   | funciones_estructura_datos END_OF_LINE
   | lambda_exp
+  | body body
   '''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -98,6 +99,16 @@ def p_operacion_string(p):
     | STRING SUMA IDENTIFICADOR
     | IDENTIFICADOR SUMA STRING
     | IDENTIFICADOR SUMA IDENTIFICADOR'''
+
+def p_termino(p):
+  '''termino : termino operador_aritmentico factor
+    | factor
+  '''
+
+def p_factor(p):
+  '''factor : numero
+    | PAR_IZQ expresion_operacion_aritmetica PAR_DER
+  '''
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -445,10 +456,13 @@ def p_expresion(p):
   '''
 
 def p_expresion_operacion_aritmetica(p):
-  '''expresion_operacion_aritmetica : numero operador_aritmentico numero
+  '''expresion_operacion_aritmetica : expresion_operacion_aritmetica operador_aritmentico termino
+  | numero operador_aritmentico expresion_operacion_aritmetica
+  | numero operador_aritmentico numero
   | numero operador_aritmentico IDENTIFICADOR
   | IDENTIFICADOR operador_aritmentico numero
   | IDENTIFICADOR operador_aritmentico IDENTIFICADOR
+  | termino
   '''
 
 def p_expresion_condicional(p):

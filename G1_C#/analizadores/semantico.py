@@ -19,6 +19,7 @@ def p_body(p):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Terminales ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # De ser necesario
+p_valor
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -52,10 +53,10 @@ def p_concat_strings(p):
 # ----------------------------------------- VEINTIMILLA --------------------------------------------
 # Ecribir sus reglas semanticas
 def p_add_list(p):
-  'add_list : CHAR_TYPE'
+  'add_list : IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER END_OF_LINE'
 
 def p_cast_float_to_int(p):
-  'cast_float_to_int : CHAR_TYPE'
+  'cast_float_to_int : INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE'
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

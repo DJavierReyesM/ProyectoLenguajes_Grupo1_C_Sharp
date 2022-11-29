@@ -6,11 +6,10 @@ errores_semantico = []
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Cuerpo semantico ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def p_body(p):
     """body : add_list END_OF_LINE
-    | add_stack END_OF_LINE
+    | semantica_stack
     | add_queue END_OF_LINE
     | cast_float_to_int END_OF_LINE
     | to_upper_case END_OF_LINE
-    | concat_strings END_OF_LINE
     """
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -40,11 +39,27 @@ def p_to_upper_case(p):
 
 # -------------------------------------------- REYES -----------------------------------------------
 # Ecribir sus reglas semanticas
-def p_add_stack(p):
-  'add_stack : CHAR_TYPE'
 
-def p_concat_strings(p):
-  'concat_strings : CHAR_TYPE'
+#Regla semantica para añadir y eliminar elementos de una pila
+# Se creo la sgte regla tentativa para ver si es posible usarla en la sustentación
+'''
+def p_semantica_stack(p):
+  'semantica_stack : declaracionPila END_OF_LINE IDENTIFICADOR IGUAL asignacionPila END_OF_LINE operacionesStack
+                    | pila operacionesStack'
+'''
+def p_semantica_stack(p):
+  'semantica_stack : operacionesStack'
+def p_push_stack(p):
+  'add_stack : stack_push'
+
+def p_pop_stack(p):
+  'pop_stack : stack_pop'
+
+def p_operacionesStack(p):
+  '''operacionesStack : add_stack END_OF_LINE pop_stack END_OF_LINE
+                      | add_stack END_OF_LINE
+                      | pop_stack END_OF_LINE
+  '''
 # --------------------------------------------------------------------------------------------------
 
 

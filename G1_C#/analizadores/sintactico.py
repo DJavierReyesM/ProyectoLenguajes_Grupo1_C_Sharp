@@ -16,6 +16,8 @@ def p_body(p):
   | funcion
   | declaracion END_OF_LINE
   | empty
+  | funciones_estructura_datos_lista END_OF_LINE
+  | cast_float_to_int
   | funciones_estructura_datos END_OF_LINE
   | lambda_exp
   | body body
@@ -425,6 +427,14 @@ def p_lista(p):
 def p_tipoLista(p):
     'tipoLista : MENOR_QUE valor_tipo_inicializador MAYOR_QUE'
 
+def p_funciones_estructura_datos_lista(p):
+  'funciones_estructura_datos_lista : add_lista'
+
+def p_add_lista(p):
+  'add_lista : IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER'
+
+def p_cast_float_to_int(p):
+  'cast_float_to_int : INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE'
 # --------------------------------------------------------------------------------------------------
 # ----------------------------------------- REYES --------------------------------------------
 def p_pila(p):

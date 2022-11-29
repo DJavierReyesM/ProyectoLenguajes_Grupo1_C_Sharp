@@ -1,6 +1,9 @@
 import sys
 import ply.yacc as yacc
-from lexico import tokens
+from analizadores.lexico import tokens
+
+# String de errores
+errores_sintactico = []
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Cuerpo sintáctico ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def p_body(p):
@@ -546,20 +549,28 @@ def p_lambdaCuerpo(p):
 def p_error(p):
   if p:
     print(f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos}")
+    errores_sintactico.append(f"Error de sintaxis - Token: {p.type}, Línea: {p.lineno}, Col: {p.lexpos}\n")
     parser.errok()
   else:
     print("Error de sintaxis Fin de Linea")
+    errores_sintactico.append("Error de sintaxis Fin de Linea\n")
  
 # Build the parser
 parser = yacc.yacc()
 
 # Funcion que valida la regla sintactica
 def validaReglaSintactica(s):
+  errores_sintactico.clear()
   gram = parser.parse(s)
+  resp = ''
   if gram is None:
-    print(f"Linea: {str(lines)} | Info: No hay errores!")
+    print(f"Linea: {str(resp)} | Info: No hay errores!")
+    resp += (f"Linea: {str(resp)} | Info: No hay errores!"+"\n")
   else:
-    print(f"Linea: {str(lines)} | Info: {str(gram)}")
+    print(f"Linea: {str(resp)} | Info: {str(gram)}")
+    resp += (f"Linea: {str(resp)} | Info: {str(gram)}" + "\n")
+
+  return resp if len(errores_sintactico) == 0 else ''
 
 # while True:
 #   try:

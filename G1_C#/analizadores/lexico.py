@@ -248,11 +248,11 @@ def t_error(t):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PROGRAMA ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 lexer = lex.lex()
 def getTokens(lexer):
-  tokens = []
+  resp = ''
   for tok in lexer:
-    tokens.append(tok)
+    resp+=(str(tok)+"\n")
     print(tok)
-  return tokens
+  return resp
 '''
 def showMenuAnalizadorLexico():
     print(

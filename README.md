@@ -13,5 +13,5 @@
     4. De esta manera ya tendrá el proyecto de manera local en su directorio.
 2. Ejecutar el programa para probar las funcionalidades.
     1. En la consola de comandos, ubicarse al directorio descargado, por ejemplo ejecutar lo siguiente: `cd ./ProyectoLenguajes_Grupo1_C_Sharp`.
-    2. Una vez se encuentre en la ubicación `/ProyectoLenguajes_Grupo1_C_Sharp` ejecutar en la consola, la siguiente linea `python .\G1_C#\lexico.py`
-    3. Listo, ahora puede seleccionar entre las opciones que aparece en el menú.
+    2. Una vez se encuentre en la ubicación `/ProyectoLenguajes_Grupo1_C_Sharp` ejecutar en la consola, la siguiente linea `python .\G1_C#\main.py`
+    3. Listo, ahora puede seleccionar entre las opciones que aparece en el menú grafico.

@@ -78,17 +78,45 @@ def p_semantica_stack(p):
 '''
 def p_semantica_stack(p):
   'semantica_stack : operacionesStack'
-def p_push_stack(p):
-  'add_stack : stack_push'
-
-def p_pop_stack(p):
-  'pop_stack : stack_pop'
 
 def p_operacionesStack(p):
-  '''operacionesStack : add_stack END_OF_LINE pop_stack END_OF_LINE
-                      | add_stack END_OF_LINE
-                      | pop_stack END_OF_LINE
+  '''operacionesStack : push_pop_stack
   '''
+
+def p_push_pop_stack(p):
+  '''push_pop_stack : asignacion_int_stack
+                | push_stack_int
+                | asignacion_int_stack push_stack_int
+                | asignacion_float_stack
+                | push_stack_float
+                | asignacion_float_stack push_stack_float
+                | pop_stack_int
+                | pop_stack_float
+                | asignacion_int_stack push_stack_int pop_stack_int
+                | asignacion_float_stack push_stack_float pop_stack_float
+                | asignacion_int_stack pop_stack_int
+                | asignacion_float_stack pop_stack_float
+
+  '''
+
+def p_asignacion_int_stack(p):
+  '''asignacion_int_stack : STACK MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW STACK MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'''
+
+def p_push_stack_int(p):
+  'push_stack_int : IDENTIFICADOR PUNTO PUSH PAR_IZQ INT PAR_DER END_OF_LINE'
+
+def p_asignacion_float_stack(p):
+  '''asignacion_float_stack : STACK MENOR_QUE FLOAT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW STACK MENOR_QUE FLOAT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'''
+
+def p_push_stack_float(p):
+  'push_stack_float : IDENTIFICADOR PUNTO PUSH PAR_IZQ FLOAT PAR_DER END_OF_LINE'
+
+def p_pop_stack_int(p):
+  'pop_stack_int : INT_TYPE IDENTIFICADOR IGUAL IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER END_OF_LINE'
+
+def p_pop_stack_float(p):
+  'pop_stack_float : FLOAT_TYPE IDENTIFICADOR IGUAL IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER END_OF_LINE'
+
 # --------------------------------------------------------------------------------------------------
 
 

@@ -169,3 +169,99 @@ Analisis Semantico para: float n = 4.5f;
 int num; 
 num = (int) n; 
 Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:45:11
+Entrada
+Analisis Semantico para: Queue<string> callerIds = new Queue<string>();
+callerIds.Enqueue(1);
+Error de sintaxis - Token: INT, Lï¿½nea: 7, Col: 65
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 7, Col: 66
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 7, Col: 67
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:45:18
+Entrada
+Analisis Semantico para: Queue<string> callerIds = new Queue<string>();
+callerIds.Enqueue("1");
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:32:30
+Entrada
+Analisis Semantico para: Stack<int> num = new Stack<int>();
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:32:45
+Entrada
+Analisis Semantico para: Stack<int> num = new Stack<int>();
+num.Push(1);
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:32:49
+Entrada
+Analisis Semantico para: Stack<int> num = new Stack<int>();
+num.Push('A');
+Error de sintaxis - Token: CHAR, Lï¿½nea: 5, Col: 44
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 5, Col: 47
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 5, Col: 48
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:33:03
+Entrada
+Analisis Semantico para: Stack<int> num = new Stack<int>();
+num.Push(1);
+int a = num.Pop();
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:33:10
+Entrada
+Analisis Semantico para: Stack<int> num = new Stack<int>();
+int a = num.Pop();
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:33:19
+Entrada
+Analisis Semantico para: Stack<float> num = new Stack<int>();
+int a = num.Pop();
+Error de sintaxis - Token: INT_TYPE, Lï¿½nea: 12, Col: 29
+Error de sintaxis - Token: MAYOR_QUE, Lï¿½nea: 12, Col: 32
+Error de sintaxis - Token: PAR_IZQ, Lï¿½nea: 12, Col: 33
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 12, Col: 34
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 12, Col: 35
+Error de sintaxis - Token: INT_TYPE, Lï¿½nea: 13, Col: 37
+Error de sintaxis - Token: IDENTIFICADOR, Lï¿½nea: 13, Col: 41
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 13, Col: 43
+Error de sintaxis - Token: IDENTIFICADOR, Lï¿½nea: 13, Col: 45
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 13, Col: 48
+Error de sintaxis - Token: POP, Lï¿½nea: 13, Col: 49
+Error de sintaxis - Token: PAR_IZQ, Lï¿½nea: 13, Col: 52
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 13, Col: 53
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 13, Col: 54
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:33:29
+Entrada
+Analisis Semantico para: Stack<float> num = new Stack<float>();
+int a = num.Pop();
+Error de sintaxis - Token: INT_TYPE, Lï¿½nea: 15, Col: 39
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 15, Col: 45
+Error de sintaxis - Token: IDENTIFICADOR, Lï¿½nea: 15, Col: 47
+Error de sintaxis - Token: POP, Lï¿½nea: 15, Col: 51
+Error de sintaxis - Token: PAR_IZQ, Lï¿½nea: 15, Col: 54
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 15, Col: 55
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 15, Col: 56
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:33:33
+Entrada
+Analisis Semantico para: Stack<float> num = new Stack<float>();
+float a = num.Pop();
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:33:45
+Entrada
+Analisis Semantico para: Stack<float> num = new Stack<float>();
+num.Push(2.2f);
+float a = num.Pop();
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:40:27
+Entrada
+Analisis Semantico para: Stack<int> num = new Stack<int>();
+num.Push(2);
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:40:45
+Entrada
+Analisis Semantico para: Stack<int> num = new Stack<int>();
+num.Push('A');
+Error de sintaxis - Token: CHAR, Línea: 5, Col: 44
+Error de sintaxis - Token: PAR_DER, Línea: 5, Col: 47
+Error de sintaxis - Token: END_OF_LINE, Línea: 5, Col: 48
+Error de sintaxis Fin de Linea

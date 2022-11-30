@@ -1,0 +1,171 @@
+-------------Analisis Sintactico - Timestamp:11/29/2022, 23:33:05
+Entrada
+Analisis Sintactico para: int a = 4;
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:09:41
+Entrada
+Analisis Semantico para: Queue<int> callerIds = new Queue<int>(); 
+callerIds.Enqueue(1); 
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:25:30
+Entrada
+Analisis Semantico para: List<int> numeros = new List<int>(); 
+numeros.Add(1); 
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/29/2022, 23:25:32
+Entrada
+Analisis Sintactico para: List<int> numeros = new List<int>(); 
+numeros.Add(1); 
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:25:40
+Entrada
+Analisis Semantico para: List<int> numeros = new List<int>(); 
+numeros.Add("kk"); 
+Error de sintaxis - Token: STRING, L nea: 7, Col: 50
+Error de sintaxis - Token: PAR_DER, L nea: 7, Col: 54
+Error de sintaxis - Token: END_OF_LINE, L nea: 7, Col: 55
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:25:47
+Entrada
+Analisis Semantico para: List<int> numeros = new List<int>(); 
+numeros.Add(44); 
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:25:58
+Entrada
+Analisis Semantico para: List<string> numeros = new List<string>(); 
+numeros.Add(44); 
+Error de sintaxis - Token: INT, L nea: 11, Col: 56
+Error de sintaxis - Token: PAR_DER, L nea: 11, Col: 58
+Error de sintaxis - Token: END_OF_LINE, L nea: 11, Col: 59
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:26:04
+Entrada
+Analisis Semantico para: List<string> numeros = new List<string>(); 
+numeros.Add("hola"); 
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/29/2022, 23:29:59
+Entrada
+Analisis Sintactico para: Float n = 4.5f; 
+int num; 
+num = (int) n; 
+Error de sintaxis - Token: FLOAT, L nea: 3, Col: 10
+Error de sintaxis - Token: END_OF_LINE, L nea: 3, Col: 14
+Error de sintaxis - Token: INT_TYPE, L nea: 4, Col: 17
+Error de sintaxis - Token: INT_TYPE, L nea: 5, Col: 34
+Error de sintaxis - Token: PAR_DER, L nea: 5, Col: 37
+Error de sintaxis - Token: END_OF_LINE, L nea: 5, Col: 40
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:30:00
+Entrada
+Analisis Semantico para: Float n = 4.5f; 
+int num; 
+num = (int) n; 
+Error de sintaxis - Token: IDENTIFICADOR, L nea: 7, Col: 6
+Error de sintaxis - Token: FLOAT, L nea: 7, Col: 10
+Error de sintaxis - Token: END_OF_LINE, L nea: 7, Col: 14
+Error de sintaxis - Token: INT_TYPE, L nea: 8, Col: 17
+Error de sintaxis - Token: IDENTIFICADOR, L nea: 8, Col: 21
+Error de sintaxis - Token: END_OF_LINE, L nea: 8, Col: 24
+Error de sintaxis - Token: IDENTIFICADOR, L nea: 9, Col: 27
+Error de sintaxis - Token: IGUAL, L nea: 9, Col: 31
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:30:01
+Entrada
+Analisis Semantico para: Float n = 4.5f; 
+int num; 
+num = (int) n; 
+Error de sintaxis - Token: IDENTIFICADOR, L nea: 11, Col: 6
+Error de sintaxis - Token: FLOAT, L nea: 11, Col: 10
+Error de sintaxis - Token: END_OF_LINE, L nea: 11, Col: 14
+Error de sintaxis - Token: INT_TYPE, L nea: 12, Col: 17
+Error de sintaxis - Token: IDENTIFICADOR, L nea: 12, Col: 21
+Error de sintaxis - Token: END_OF_LINE, L nea: 12, Col: 24
+Error de sintaxis - Token: IDENTIFICADOR, L nea: 13, Col: 27
+Error de sintaxis - Token: IGUAL, L nea: 13, Col: 31
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 23:30:09
+Entrada
+Analisis Sintactico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Error de sintaxis - Token: INT_TYPE, L nea: 17, Col: 34
+Error de sintaxis - Token: PAR_DER, L nea: 17, Col: 37
+Error de sintaxis - Token: END_OF_LINE, L nea: 17, Col: 40
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:30:10
+Entrada
+Analisis Semantico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:30:14
+Entrada
+Analisis Semantico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:30:16
+Entrada
+Analisis Semantico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:30:19
+Entrada
+Analisis Semantico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/29/2022, 23:30:20
+Entrada
+Analisis Sintactico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Error de sintaxis - Token: INT_TYPE, L nea: 37, Col: 34
+Error de sintaxis - Token: PAR_DER, L nea: 37, Col: 37
+Error de sintaxis - Token: END_OF_LINE, L nea: 37, Col: 40
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 23:30:22
+Entrada
+Analisis Sintactico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Error de sintaxis - Token: INT_TYPE, L nea: 41, Col: 34
+Error de sintaxis - Token: PAR_DER, L nea: 41, Col: 37
+Error de sintaxis - Token: END_OF_LINE, L nea: 41, Col: 40
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 23:30:23
+Entrada
+Analisis Lexico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+LexToken(FLOAT_TYPE,'float',41,0)
+LexToken(IDENTIFICADOR,'n',41,6)
+LexToken(IGUAL,'=',41,8)
+LexToken(FLOAT,4.5,41,10)
+LexToken(END_OF_LINE,';',41,14)
+LexToken(INT_TYPE,'int',42,17)
+LexToken(IDENTIFICADOR,'num',42,21)
+LexToken(END_OF_LINE,';',42,24)
+LexToken(IDENTIFICADOR,'num',43,27)
+LexToken(IGUAL,'=',43,31)
+LexToken(PAR_IZQ,'(',43,33)
+LexToken(INT_TYPE,'int',43,34)
+LexToken(PAR_DER,')',43,37)
+LexToken(IDENTIFICADOR,'n',43,39)
+LexToken(END_OF_LINE,';',43,40)
+-------------Analisis Sintactico - Timestamp:11/29/2022, 23:30:24
+Entrada
+Analisis Sintactico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Error de sintaxis - Token: INT_TYPE, L nea: 47, Col: 34
+Error de sintaxis - Token: PAR_DER, L nea: 47, Col: 37
+Error de sintaxis - Token: END_OF_LINE, L nea: 47, Col: 40
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 23:30:26
+Entrada
+Analisis Semantico para: float n = 4.5f; 
+int num; 
+num = (int) n; 
+Linea:  | Info: No hay errores!

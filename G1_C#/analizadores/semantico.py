@@ -96,21 +96,34 @@ def p_operacionesStack(p):
 
 # ----------------------------------------- VEINTIMILLA --------------------------------------------
 # Ecribir sus reglas semanticas
-'''def p_semantica_lista(p):
-  'semantica_lista : lista END_OF_LINE lista_add END_OF_LINE'
-'''
-
 def p_semantica_lista_add(p):
-  'semantica_lista_add : lista_add END_OF_LINE'
+  '''semantica_lista_add : asignacion_int_lista
+    | add_lista_int
+    | asignacion_int_lista add_lista_int
+    | asignacion_string_lista
+    | add_lista_string
+    | asignacion_string_lista add_lista_string
+  '''
 
-def p_lista_add(p):
-  'lista_add : add_lista'
+def p_asignacion_int_lista(p):
+  'asignacion_int_lista : LIST MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW LIST MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'
+
+def p_add_lista_int(p):
+  'add_lista_int : IDENTIFICADOR PUNTO ADD PAR_IZQ INT PAR_DER END_OF_LINE'
+
+def p_asignacion_string_lista(p):
+  'asignacion_string_lista : LIST MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW LIST MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'
+
+def p_add_lista_string(p):
+  'add_lista_string : IDENTIFICADOR PUNTO ADD PAR_IZQ STRING PAR_DER END_OF_LINE'
+
+
 
 def p_semantica_casting_float_to_int(p):
-  'semantica_casting_float_to_int : FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int'
+  'semantica_casting_float_to_int : FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE INT_TYPE IDENTIFICADOR END_OF_LINE cast_float_to_int'
 
-def p_cast_float_int(p):
-  'cast_float_int : cast_float_to_int'
+def p_cast_float_to_int(p):
+  'cast_float_to_int : IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE'
 # --------------------------------------------------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

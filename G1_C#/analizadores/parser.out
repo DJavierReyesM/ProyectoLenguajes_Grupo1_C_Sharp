@@ -30,7 +30,6 @@ Unused terminals:
     SIMPLE_OR
     STRUCT
     THIS
-    TO_UPPER
     TYPEOF
     VAR
     WHEN
@@ -42,465 +41,486 @@ Rule 0     S' -> body
 Rule 1     body -> semantica_lista_add
 Rule 2     body -> semantica_casting_float_to_int
 Rule 3     body -> semantica_stack
-Rule 4     body -> add_queue END_OF_LINE
+Rule 4     body -> add_queue
 Rule 5     body -> cast_float_to_int END_OF_LINE
-Rule 6     body -> to_upper_case END_OF_LINE
-Rule 7     add_queue -> CHAR_TYPE
-Rule 8     valor -> CHAR
-Rule 9     valor -> numero
-Rule 10    valor -> BOOL
-Rule 11    valor -> STRING
-Rule 12    valor -> IDENTIFICADOR
-Rule 13    to_upper_case -> CHAR_TYPE
-Rule 14    numero -> FLOAT
-Rule 15    numero -> DOUBLE
-Rule 16    numero -> INT
-Rule 17    ftipo -> valor_tipo
-Rule 18    ftipo -> VOID
-Rule 19    valor_tipo -> CHAR_TYPE
-Rule 20    valor_tipo -> FLOAT_TYPE
-Rule 21    valor_tipo -> DOUBLE_TYPE
-Rule 22    valor_tipo -> INT_TYPE
-Rule 23    valor_tipo -> BOOL_TYPE
-Rule 24    valor_tipo -> STRING_TYPE
-Rule 25    semantica_stack -> operacionesStack
-Rule 26    add_stack -> stack_push
-Rule 27    pop_stack -> stack_pop
-Rule 28    valor_tipo_inicializador -> FLOAT_TYPE
-Rule 29    valor_tipo_inicializador -> DOUBLE_TYPE
-Rule 30    valor_tipo_inicializador -> STRING_TYPE
-Rule 31    valor_tipo_inicializador -> INT_TYPE
-Rule 32    valor_tipo_inicializador -> BOOL_TYPE
-Rule 33    valor_tipo_inicializador -> CHAR_TYPE
-Rule 34    valor_tipo_inicializador -> IDENTIFICADOR
-Rule 35    operacionesStack -> add_stack END_OF_LINE pop_stack END_OF_LINE
-Rule 36    operacionesStack -> add_stack END_OF_LINE
-Rule 37    operacionesStack -> pop_stack END_OF_LINE
-Rule 38    modificador_acceso -> PRIVATE
-Rule 39    modificador_acceso -> PROTECTED
-Rule 40    modificador_acceso -> PUBLIC
-Rule 41    operador_realacional -> IGUAL_IGUAL
-Rule 42    operador_realacional -> NO_IGUAL
-Rule 43    operador_realacional -> MENOR_QUE
-Rule 44    operador_realacional -> MENOR_O_IGUAL_QUE
-Rule 45    operador_realacional -> MAYOR_QUE
-Rule 46    operador_realacional -> MAYOR_O_IGUAL_QUE
-Rule 47    semantica_lista_add -> lista_add END_OF_LINE
-Rule 48    lista_add -> add_lista
-Rule 49    semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int
-Rule 50    operador_aritmentico -> SUMA
-Rule 51    operador_aritmentico -> RESTA
-Rule 52    operador_aritmentico -> MULTIPLICACION
-Rule 53    operador_aritmentico -> DIVISION
-Rule 54    operador_aritmentico -> MODULO
-Rule 55    cast_float_int -> cast_float_to_int
-Rule 56    operador_condicional -> IGUAL_IGUAL
-Rule 57    operador_condicional -> NO_IGUAL
-Rule 58    operador_condicional -> MENOR_QUE
-Rule 59    operador_condicional -> MENOR_O_IGUAL_QUE
-Rule 60    operador_condicional -> MAYOR_QUE
-Rule 61    operador_condicional -> MAYOR_O_IGUAL_QUE
-Rule 62    operacion_string -> STRING SUMA STRING
-Rule 63    operacion_string -> STRING SUMA IDENTIFICADOR
-Rule 64    operacion_string -> IDENTIFICADOR SUMA STRING
-Rule 65    operacion_string -> IDENTIFICADOR SUMA IDENTIFICADOR
-Rule 66    termino -> termino operador_aritmentico factor
-Rule 67    termino -> factor
-Rule 68    factor -> numero
-Rule 69    factor -> PAR_IZQ expresion_operacion_aritmetica PAR_DER
-Rule 70    empty -> END_OF_LINE
-Rule 71    asignacion -> asignacionSimple
-Rule 72    asignacion -> asignacionCompuesta
-Rule 73    asignacion -> asignacionClase
-Rule 74    asignacion -> asignacionEstructuraD
-Rule 75    asignacion -> asignacionNull
-Rule 76    asignacion -> asignacionIndex
-Rule 77    asignacion -> asignacionRef
-Rule 78    asignacionSimple -> IDENTIFICADOR IGUAL valor
-Rule 79    asignacionSimple -> IDENTIFICADOR IGUAL expresion
-Rule 80    asignacionSimple -> IDENTIFICADOR IGUAL salida_tres
-Rule 81    asignacionSimple -> IDENTIFICADOR IGUAL index
-Rule 82    asignacionNull -> IDENTIFICADOR IGUAL NULL
-Rule 83    asignacionClase -> IDENTIFICADOR IGUAL NEW IDENTIFICADOR PAR_IZQ PAR_DER
-Rule 84    asignacionEstructuraD -> IDENTIFICADOR IGUAL asignacionPila
-Rule 85    asignacionEstructuraD -> IDENTIFICADOR IGUAL asignacionQueue
-Rule 86    asignacionEstructuraD -> IDENTIFICADOR IGUAL asignacionList
-Rule 87    asignacionPila -> NEW STACK tipoLista PAR_IZQ PAR_DER
-Rule 88    asignacionQueue -> NEW QUEUE tipoLista PAR_IZQ PAR_DER
-Rule 89    asignacionList -> NEW LIST tipoLista PAR_IZQ PAR_DER
-Rule 90    asignacionIndex -> index IGUAL index
-Rule 91    asignacionIndex -> index IGUAL valor
-Rule 92    index -> IDENTIFICADOR COR_IZQ INT COR_DER
-Rule 93    index -> IDENTIFICADOR COR_IZQ IDENTIFICADOR COR_DER
-Rule 94    asignacionRef -> IDENTIFICADOR IGUAL REF IDENTIFICADOR
-Rule 95    asignacionRef -> IDENTIFICADOR IGUAL REF index
-Rule 96    asignacionCompuesta -> asignacionCompuesta_Logic
-Rule 97    asignacionCompuesta -> asignacionCompuesta_Number
-Rule 98    asignacionCompuesta -> asignacionCompuesta_Null
-Rule 99    asignacionCompuesta -> asignacionCompuesta_Shift
-Rule 100   asignacionCompuesta_Logic -> IDENTIFICADOR operadoresCompuestosLogic BOOL
-Rule 101   asignacionCompuesta_Logic -> IDENTIFICADOR operadoresCompuestosLogic expresion_condicional
-Rule 102   asignacionCompuesta_Logic -> IDENTIFICADOR operadoresCompuestosLogic IDENTIFICADOR
-Rule 103   asignacionCompuesta_Logic -> IDENTIFICADOR operadoresCompuestosLogic INT
-Rule 104   asignacionCompuesta_Number -> IDENTIFICADOR operadoresCompuestosNumber numero
-Rule 105   asignacionCompuesta_Number -> IDENTIFICADOR operadoresCompuestosNumber expresion_operacion_aritmetica
-Rule 106   asignacionCompuesta_Number -> IDENTIFICADOR operadoresCompuestosNumber IDENTIFICADOR
-Rule 107   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL valor
-Rule 108   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL expresion
-Rule 109   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL asignacionPila
-Rule 110   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL asignacionQueue
-Rule 111   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL asignacionList
-Rule 112   asignacionCompuesta_Shift -> IDENTIFICADOR operadoresCompuestosShift IDENTIFICADOR
-Rule 113   asignacionCompuesta_Shift -> IDENTIFICADOR operadoresCompuestosShift INT
-Rule 114   operadoresCompuestosNumber -> AUMENTADO
-Rule 115   operadoresCompuestosNumber -> DECREMENTADO
-Rule 116   operadoresCompuestosNumber -> MULTIPLICADO_POR
-Rule 117   operadoresCompuestosNumber -> DIVIDIDO_POR
-Rule 118   operadoresCompuestosNumber -> MODULO_DE
-Rule 119   operadoresCompuestosLogic -> AND_EQUAL
-Rule 120   operadoresCompuestosLogic -> OR_EQUAL
-Rule 121   operadoresCompuestosLogic -> EXC_OREQUAL
-Rule 122   operadoresCompuestosShift -> LEFTSHIFT_EQUAL
-Rule 123   operadoresCompuestosShift -> RIGHTSHIFT_EQUAL
-Rule 124   declaracion -> valor_tipo IDENTIFICADOR
-Rule 125   declaracion -> declaracionEstructuraD
-Rule 126   declaracion -> declaracionAsignacion
-Rule 127   declaracion -> declaracionClase
-Rule 128   declaracion -> declaracionNull
-Rule 129   declaracionNull -> valor_tipo OP_TERNARIO IDENTIFICADOR
-Rule 130   declaracionClase -> IDENTIFICADOR IDENTIFICADOR
-Rule 131   declaracionAsignacion -> valor_tipo asignacionSimple
-Rule 132   declaracionAsignacion -> declaracionClase IGUAL NEW IDENTIFICADOR PAR_IZQ PAR_DER
-Rule 133   declaracionAsignacion -> declaracionClase IGUAL NULL
-Rule 134   declaracionAsignacion -> declaracionClase IGUAL IDENTIFICADOR
-Rule 135   declaracionAsignacion -> declaracionNull IGUAL valor
-Rule 136   declaracionAsignacion -> declaracionNull IGUAL expresion
-Rule 137   declaracionAsignacion -> declaracionNull IGUAL NULL
-Rule 138   declaracionAsignacion -> declaracionEstructuraD IGUAL NULL
-Rule 139   declaracionAsignacion -> REF valor_tipo asignacionRef
-Rule 140   declaracionAsignacion -> REF IDENTIFICADOR asignacionRef
-Rule 141   declaracionAsignacion -> REF declaracionEstructuraD asignacionRef
-Rule 142   declaracionEstructuraD -> declaracionList
-Rule 143   declaracionEstructuraD -> declaracionQueue
-Rule 144   declaracionEstructuraD -> declaracionPila
-Rule 145   declaracionList -> LIST tipoLista IDENTIFICADOR
-Rule 146   declaracionQueue -> QUEUE tipoLista IDENTIFICADOR
-Rule 147   declaracionPila -> STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE IDENTIFICADOR
-Rule 148   comparacion -> valor operador_realacional valor
-Rule 149   estructura_control -> while
-Rule 150   estructura_control -> switch_case
-Rule 151   estructura_control -> for
-Rule 152   while -> while_normal
-Rule 153   while -> while_do
-Rule 154   while_normal -> WHILE PAR_IZQ expresion_condicional PAR_DER LLAVE_IZQ body_while LLAVE_DER
-Rule 155   while_do -> DO LLAVE_IZQ body_while LLAVE_DER WHILE PAR_IZQ expresion_condicional PAR_DER END_OF_LINE
-Rule 156   body_while -> asignacion END_OF_LINE
-Rule 157   body_while -> declaracion END_OF_LINE
-Rule 158   body_while -> salida_entrada END_OF_LINE
-Rule 159   body_while -> BREAK END_OF_LINE
-Rule 160   body_while -> CONTINUE END_OF_LINE
-Rule 161   body_while -> asignacion END_OF_LINE body_while
-Rule 162   body_while -> declaracion END_OF_LINE body_while
-Rule 163   body_while -> salida_entrada END_OF_LINE body_while
-Rule 164   body_while -> BREAK END_OF_LINE body_while
-Rule 165   body_while -> CONTINUE END_OF_LINE body_while
-Rule 166   switch_case -> SWITCH PAR_IZQ valor PAR_DER LLAVE_IZQ casos LLAVE_DER
-Rule 167   casos -> CASE valor DOS_PUNTOS body_case BREAK END_OF_LINE
-Rule 168   casos -> CASE valor DOS_PUNTOS BREAK END_OF_LINE
-Rule 169   casos -> CASE valor DOS_PUNTOS body_case BREAK END_OF_LINE casos
-Rule 170   casos -> CASE valor DOS_PUNTOS BREAK END_OF_LINE casos
-Rule 171   body_case -> asignacion END_OF_LINE
-Rule 172   body_case -> declaracion END_OF_LINE
-Rule 173   body_case -> comparacion END_OF_LINE
-Rule 174   body_case -> salida_entrada END_OF_LINE
-Rule 175   body_case -> asignacion END_OF_LINE body_case
-Rule 176   body_case -> declaracion END_OF_LINE body_case
-Rule 177   body_case -> salida_entrada END_OF_LINE body_case
-Rule 178   body_case -> comparacion END_OF_LINE body_case
-Rule 179   for -> FOR PAR_IZQ forInicializador END_OF_LINE forCondicion END_OF_LINE forIterador PAR_DER LLAVE_IZQ body LLAVE_DER
-Rule 180   forIterador -> IDENTIFICADOR operadorForIteracion
-Rule 181   operadorForIteracion -> INCREMENTO
-Rule 182   operadorForIteracion -> DECREMENTO
-Rule 183   forCondicion -> IDENTIFICADOR operador_condicional valorForCondicion
-Rule 184   valorForCondicion -> FLOAT
-Rule 185   valorForCondicion -> DOUBLE
-Rule 186   valorForCondicion -> INT
-Rule 187   valorForCondicion -> IDENTIFICADOR
-Rule 188   forInicializador -> tipoDatoForInicializador IDENTIFICADOR IGUAL valorForInicializador
-Rule 189   forInicializador -> IDENTIFICADOR IGUAL valorForInicializador
-Rule 190   tipoDatoForInicializador -> FLOAT_TYPE
-Rule 191   tipoDatoForInicializador -> DOUBLE_TYPE
-Rule 192   tipoDatoForInicializador -> INT_TYPE
-Rule 193   valorForInicializador -> FLOAT
-Rule 194   valorForInicializador -> DOUBLE
-Rule 195   valorForInicializador -> INT
-Rule 196   valorForInicializador -> IDENTIFICADOR
-Rule 197   estructura_datos -> lista
-Rule 198   estructura_datos -> pila
-Rule 199   lista -> LIST tipoLista IDENTIFICADOR IGUAL NEW LIST tipoLista PAR_IZQ PAR_DER END_OF_LINE
-Rule 200   tipoLista -> MENOR_QUE valor_tipo_inicializador MAYOR_QUE
-Rule 201   funciones_estructura_datos_lista -> add_lista
-Rule 202   add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER
-Rule 203   cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
-Rule 204   pila -> STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE IDENTIFICADOR IGUAL NEW STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
-Rule 205   funciones_estructura_datos -> stack_push
-Rule 206   funciones_estructura_datos -> stack_pop
-Rule 207   stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER
-Rule 208   stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
-Rule 209   stack_pop -> IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER
-Rule 210   expresion -> expresion_operacion_aritmetica
-Rule 211   expresion -> expresion_condicional
-Rule 212   expresion_operacion_aritmetica -> expresion_operacion_aritmetica operador_aritmentico termino
-Rule 213   expresion_operacion_aritmetica -> numero operador_aritmentico expresion_operacion_aritmetica
-Rule 214   expresion_operacion_aritmetica -> numero operador_aritmentico numero
-Rule 215   expresion_operacion_aritmetica -> numero operador_aritmentico IDENTIFICADOR
-Rule 216   expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico numero
-Rule 217   expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico IDENTIFICADOR
-Rule 218   expresion_operacion_aritmetica -> termino
-Rule 219   expresion_condicional -> numero operador_condicional numero
-Rule 220   expresion_condicional -> IDENTIFICADOR operador_condicional IDENTIFICADOR
-Rule 221   expresion_condicional -> IDENTIFICADOR operador_condicional numero
-Rule 222   expresion_condicional -> numero operador_condicional IDENTIFICADOR
-Rule 223   salida_entrada -> salida_uno
-Rule 224   salida_entrada -> salida_dos
-Rule 225   salida_entrada -> salida_tres
-Rule 226   salida_uno -> CONSOLE_WRITELINE PAR_IZQ STRING PAR_DER
-Rule 227   salida_uno -> CONSOLE_WRITELINE PAR_IZQ operacion_string PAR_DER
-Rule 228   salida_uno -> CONSOLE_WRITELINE PAR_IZQ IDENTIFICADOR PAR_DER
-Rule 229   salida_dos -> CONSOLE_WRITELINE PAR_IZQ C_CADENA_INTERPOLADA STRING PAR_DER
-Rule 230   salida_tres -> CONSOLE_READLINE PAR_IZQ PAR_DER
-Rule 231   funcion -> funcion_tipo_uno
-Rule 232   funcion -> funcion_tipo_tres
-Rule 233   funcion_tipo_uno -> modificador_acceso VOID IDENTIFICADOR PAR_IZQ PAR_DER LLAVE_IZQ body LLAVE_DER
-Rule 234   funcion_tipo_tres -> modificador_acceso VOID IDENTIFICADOR PAR_IZQ parametrosF PAR_DER LLAVE_IZQ bodyF LLAVE_DER
-Rule 235   parametrosF -> declaracion
-Rule 236   parametrosF -> declaracion COMA parametrosF
-Rule 237   bodyF -> asignacion END_OF_LINE
-Rule 238   bodyF -> declaracion END_OF_LINE
-Rule 239   bodyF -> salida_entrada END_OF_LINE
-Rule 240   bodyF -> asignacion END_OF_LINE bodyF
-Rule 241   bodyF -> declaracion END_OF_LINE bodyF
-Rule 242   bodyF -> salida_entrada END_OF_LINE bodyF
-Rule 243   lambda_exp -> lambdaArg LAMBDA lambdaCuerpo
-Rule 244   lambdaArg -> PAR_IZQ PAR_DER
-Rule 245   lambdaArg -> PAR_IZQ lambdaParametrosUno PAR_DER
-Rule 246   lambdaArg -> PAR_IZQ lambdaParametrosDos PAR_DER
-Rule 247   lambdaArg -> IDENTIFICADOR
-Rule 248   lambdaParametrosUno -> valor_tipo IDENTIFICADOR
-Rule 249   lambdaParametrosUno -> valor_tipo IDENTIFICADOR COMA lambdaParametrosUno
-Rule 250   lambdaParametrosDos -> IDENTIFICADOR
-Rule 251   lambdaParametrosDos -> IDENTIFICADOR COMA lambdaParametrosDos
-Rule 252   lambdaCuerpo -> expresion
-Rule 253   lambdaCuerpo -> salida_uno
-Rule 254   lambdaCuerpo -> salida_dos
+Rule 6     body -> to_upper_case
+Rule 7     valor -> CHAR
+Rule 8     valor -> numero
+Rule 9     valor -> BOOL
+Rule 10    valor -> STRING
+Rule 11    valor -> IDENTIFICADOR
+Rule 12    add_queue -> asignacion_int_cola
+Rule 13    add_queue -> encolar_int
+Rule 14    add_queue -> asignacion_int_cola encolar_int
+Rule 15    add_queue -> asignacion_string_cola
+Rule 16    add_queue -> encolar_string
+Rule 17    add_queue -> asignacion_string_cola encolar_string
+Rule 18    numero -> FLOAT
+Rule 19    numero -> DOUBLE
+Rule 20    numero -> INT
+Rule 21    asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+Rule 22    encolar_int -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE
+Rule 23    ftipo -> valor_tipo
+Rule 24    ftipo -> VOID
+Rule 25    asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+Rule 26    valor_tipo -> CHAR_TYPE
+Rule 27    valor_tipo -> FLOAT_TYPE
+Rule 28    valor_tipo -> DOUBLE_TYPE
+Rule 29    valor_tipo -> INT_TYPE
+Rule 30    valor_tipo -> BOOL_TYPE
+Rule 31    valor_tipo -> STRING_TYPE
+Rule 32    encolar_string -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE
+Rule 33    to_upper_case -> asignacion_string
+Rule 34    to_upper_case -> str_to_upper_case
+Rule 35    to_upper_case -> asignacion_string str_to_upper_case
+Rule 36    to_upper_case -> asignacion_string str_to_upper_case to_upper_case
+Rule 37    valor_tipo_inicializador -> FLOAT_TYPE
+Rule 38    valor_tipo_inicializador -> DOUBLE_TYPE
+Rule 39    valor_tipo_inicializador -> STRING_TYPE
+Rule 40    valor_tipo_inicializador -> INT_TYPE
+Rule 41    valor_tipo_inicializador -> BOOL_TYPE
+Rule 42    valor_tipo_inicializador -> CHAR_TYPE
+Rule 43    valor_tipo_inicializador -> IDENTIFICADOR
+Rule 44    str_to_upper_case -> IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE
+Rule 45    asignacion_string -> STRING_TYPE IDENTIFICADOR IGUAL STRING END_OF_LINE
+Rule 46    modificador_acceso -> PRIVATE
+Rule 47    modificador_acceso -> PROTECTED
+Rule 48    modificador_acceso -> PUBLIC
+Rule 49    operador_realacional -> IGUAL_IGUAL
+Rule 50    operador_realacional -> NO_IGUAL
+Rule 51    operador_realacional -> MENOR_QUE
+Rule 52    operador_realacional -> MENOR_O_IGUAL_QUE
+Rule 53    operador_realacional -> MAYOR_QUE
+Rule 54    operador_realacional -> MAYOR_O_IGUAL_QUE
+Rule 55    semantica_stack -> operacionesStack
+Rule 56    add_stack -> stack_push
+Rule 57    operador_aritmentico -> SUMA
+Rule 58    operador_aritmentico -> RESTA
+Rule 59    operador_aritmentico -> MULTIPLICACION
+Rule 60    operador_aritmentico -> DIVISION
+Rule 61    operador_aritmentico -> MODULO
+Rule 62    pop_stack -> stack_pop
+Rule 63    operacionesStack -> add_stack END_OF_LINE pop_stack END_OF_LINE
+Rule 64    operacionesStack -> add_stack END_OF_LINE
+Rule 65    operacionesStack -> pop_stack END_OF_LINE
+Rule 66    operador_condicional -> IGUAL_IGUAL
+Rule 67    operador_condicional -> NO_IGUAL
+Rule 68    operador_condicional -> MENOR_QUE
+Rule 69    operador_condicional -> MENOR_O_IGUAL_QUE
+Rule 70    operador_condicional -> MAYOR_QUE
+Rule 71    operador_condicional -> MAYOR_O_IGUAL_QUE
+Rule 72    operacion_string -> STRING SUMA STRING
+Rule 73    operacion_string -> STRING SUMA IDENTIFICADOR
+Rule 74    operacion_string -> IDENTIFICADOR SUMA STRING
+Rule 75    operacion_string -> IDENTIFICADOR SUMA IDENTIFICADOR
+Rule 76    semantica_lista_add -> lista_add END_OF_LINE
+Rule 77    termino -> termino operador_aritmentico factor
+Rule 78    termino -> factor
+Rule 79    lista_add -> add_lista
+Rule 80    semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int
+Rule 81    factor -> numero
+Rule 82    factor -> PAR_IZQ expresion_operacion_aritmetica PAR_DER
+Rule 83    cast_float_int -> cast_float_to_int
+Rule 84    empty -> END_OF_LINE
+Rule 85    asignacion -> asignacionSimple
+Rule 86    asignacion -> asignacionCompuesta
+Rule 87    asignacion -> asignacionClase
+Rule 88    asignacion -> asignacionEstructuraD
+Rule 89    asignacion -> asignacionNull
+Rule 90    asignacion -> asignacionIndex
+Rule 91    asignacion -> asignacionRef
+Rule 92    asignacionSimple -> IDENTIFICADOR IGUAL valor
+Rule 93    asignacionSimple -> IDENTIFICADOR IGUAL expresion
+Rule 94    asignacionSimple -> IDENTIFICADOR IGUAL salida_tres
+Rule 95    asignacionSimple -> IDENTIFICADOR IGUAL index
+Rule 96    asignacionNull -> IDENTIFICADOR IGUAL NULL
+Rule 97    asignacionClase -> IDENTIFICADOR IGUAL NEW IDENTIFICADOR PAR_IZQ PAR_DER
+Rule 98    asignacionEstructuraD -> IDENTIFICADOR IGUAL asignacionPila
+Rule 99    asignacionEstructuraD -> IDENTIFICADOR IGUAL asignacionQueue
+Rule 100   asignacionEstructuraD -> IDENTIFICADOR IGUAL asignacionList
+Rule 101   asignacionPila -> NEW STACK tipoLista PAR_IZQ PAR_DER
+Rule 102   asignacionQueue -> NEW QUEUE tipoLista PAR_IZQ PAR_DER
+Rule 103   asignacionList -> NEW LIST tipoLista PAR_IZQ PAR_DER
+Rule 104   asignacionIndex -> index IGUAL index
+Rule 105   asignacionIndex -> index IGUAL valor
+Rule 106   index -> IDENTIFICADOR COR_IZQ INT COR_DER
+Rule 107   index -> IDENTIFICADOR COR_IZQ IDENTIFICADOR COR_DER
+Rule 108   asignacionRef -> IDENTIFICADOR IGUAL REF IDENTIFICADOR
+Rule 109   asignacionRef -> IDENTIFICADOR IGUAL REF index
+Rule 110   asignacionCompuesta -> asignacionCompuesta_Logic
+Rule 111   asignacionCompuesta -> asignacionCompuesta_Number
+Rule 112   asignacionCompuesta -> asignacionCompuesta_Null
+Rule 113   asignacionCompuesta -> asignacionCompuesta_Shift
+Rule 114   asignacionCompuesta_Logic -> IDENTIFICADOR operadoresCompuestosLogic BOOL
+Rule 115   asignacionCompuesta_Logic -> IDENTIFICADOR operadoresCompuestosLogic expresion_condicional
+Rule 116   asignacionCompuesta_Logic -> IDENTIFICADOR operadoresCompuestosLogic IDENTIFICADOR
+Rule 117   asignacionCompuesta_Logic -> IDENTIFICADOR operadoresCompuestosLogic INT
+Rule 118   asignacionCompuesta_Number -> IDENTIFICADOR operadoresCompuestosNumber numero
+Rule 119   asignacionCompuesta_Number -> IDENTIFICADOR operadoresCompuestosNumber expresion_operacion_aritmetica
+Rule 120   asignacionCompuesta_Number -> IDENTIFICADOR operadoresCompuestosNumber IDENTIFICADOR
+Rule 121   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL valor
+Rule 122   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL expresion
+Rule 123   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL asignacionPila
+Rule 124   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL asignacionQueue
+Rule 125   asignacionCompuesta_Null -> IDENTIFICADOR NULL_EQUAL asignacionList
+Rule 126   asignacionCompuesta_Shift -> IDENTIFICADOR operadoresCompuestosShift IDENTIFICADOR
+Rule 127   asignacionCompuesta_Shift -> IDENTIFICADOR operadoresCompuestosShift INT
+Rule 128   operadoresCompuestosNumber -> AUMENTADO
+Rule 129   operadoresCompuestosNumber -> DECREMENTADO
+Rule 130   operadoresCompuestosNumber -> MULTIPLICADO_POR
+Rule 131   operadoresCompuestosNumber -> DIVIDIDO_POR
+Rule 132   operadoresCompuestosNumber -> MODULO_DE
+Rule 133   operadoresCompuestosLogic -> AND_EQUAL
+Rule 134   operadoresCompuestosLogic -> OR_EQUAL
+Rule 135   operadoresCompuestosLogic -> EXC_OREQUAL
+Rule 136   operadoresCompuestosShift -> LEFTSHIFT_EQUAL
+Rule 137   operadoresCompuestosShift -> RIGHTSHIFT_EQUAL
+Rule 138   declaracion -> valor_tipo IDENTIFICADOR
+Rule 139   declaracion -> declaracionEstructuraD
+Rule 140   declaracion -> declaracionAsignacion
+Rule 141   declaracion -> declaracionClase
+Rule 142   declaracion -> declaracionNull
+Rule 143   declaracionNull -> valor_tipo OP_TERNARIO IDENTIFICADOR
+Rule 144   declaracionClase -> IDENTIFICADOR IDENTIFICADOR
+Rule 145   declaracionAsignacion -> valor_tipo asignacionSimple
+Rule 146   declaracionAsignacion -> declaracionClase IGUAL NEW IDENTIFICADOR PAR_IZQ PAR_DER
+Rule 147   declaracionAsignacion -> declaracionClase IGUAL NULL
+Rule 148   declaracionAsignacion -> declaracionClase IGUAL IDENTIFICADOR
+Rule 149   declaracionAsignacion -> declaracionNull IGUAL valor
+Rule 150   declaracionAsignacion -> declaracionNull IGUAL expresion
+Rule 151   declaracionAsignacion -> declaracionNull IGUAL NULL
+Rule 152   declaracionAsignacion -> declaracionEstructuraD IGUAL NULL
+Rule 153   declaracionAsignacion -> REF valor_tipo asignacionRef
+Rule 154   declaracionAsignacion -> REF IDENTIFICADOR asignacionRef
+Rule 155   declaracionAsignacion -> REF declaracionEstructuraD asignacionRef
+Rule 156   declaracionEstructuraD -> declaracionList
+Rule 157   declaracionEstructuraD -> declaracionQueue
+Rule 158   declaracionEstructuraD -> declaracionPila
+Rule 159   declaracionList -> LIST tipoLista IDENTIFICADOR
+Rule 160   declaracionQueue -> QUEUE tipoLista IDENTIFICADOR
+Rule 161   declaracionPila -> STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE IDENTIFICADOR
+Rule 162   comparacion -> valor operador_realacional valor
+Rule 163   estructura_control -> while
+Rule 164   estructura_control -> switch_case
+Rule 165   estructura_control -> for
+Rule 166   while -> while_normal
+Rule 167   while -> while_do
+Rule 168   while_normal -> WHILE PAR_IZQ expresion_condicional PAR_DER LLAVE_IZQ body_while LLAVE_DER
+Rule 169   while_do -> DO LLAVE_IZQ body_while LLAVE_DER WHILE PAR_IZQ expresion_condicional PAR_DER END_OF_LINE
+Rule 170   body_while -> asignacion END_OF_LINE
+Rule 171   body_while -> declaracion END_OF_LINE
+Rule 172   body_while -> salida_entrada END_OF_LINE
+Rule 173   body_while -> BREAK END_OF_LINE
+Rule 174   body_while -> CONTINUE END_OF_LINE
+Rule 175   body_while -> asignacion END_OF_LINE body_while
+Rule 176   body_while -> declaracion END_OF_LINE body_while
+Rule 177   body_while -> salida_entrada END_OF_LINE body_while
+Rule 178   body_while -> BREAK END_OF_LINE body_while
+Rule 179   body_while -> CONTINUE END_OF_LINE body_while
+Rule 180   switch_case -> SWITCH PAR_IZQ valor PAR_DER LLAVE_IZQ casos LLAVE_DER
+Rule 181   casos -> CASE valor DOS_PUNTOS body_case BREAK END_OF_LINE
+Rule 182   casos -> CASE valor DOS_PUNTOS BREAK END_OF_LINE
+Rule 183   casos -> CASE valor DOS_PUNTOS body_case BREAK END_OF_LINE casos
+Rule 184   casos -> CASE valor DOS_PUNTOS BREAK END_OF_LINE casos
+Rule 185   body_case -> asignacion END_OF_LINE
+Rule 186   body_case -> declaracion END_OF_LINE
+Rule 187   body_case -> comparacion END_OF_LINE
+Rule 188   body_case -> salida_entrada END_OF_LINE
+Rule 189   body_case -> asignacion END_OF_LINE body_case
+Rule 190   body_case -> declaracion END_OF_LINE body_case
+Rule 191   body_case -> salida_entrada END_OF_LINE body_case
+Rule 192   body_case -> comparacion END_OF_LINE body_case
+Rule 193   for -> FOR PAR_IZQ forInicializador END_OF_LINE forCondicion END_OF_LINE forIterador PAR_DER LLAVE_IZQ body LLAVE_DER
+Rule 194   forIterador -> IDENTIFICADOR operadorForIteracion
+Rule 195   operadorForIteracion -> INCREMENTO
+Rule 196   operadorForIteracion -> DECREMENTO
+Rule 197   forCondicion -> IDENTIFICADOR operador_condicional valorForCondicion
+Rule 198   valorForCondicion -> FLOAT
+Rule 199   valorForCondicion -> DOUBLE
+Rule 200   valorForCondicion -> INT
+Rule 201   valorForCondicion -> IDENTIFICADOR
+Rule 202   forInicializador -> tipoDatoForInicializador IDENTIFICADOR IGUAL valorForInicializador
+Rule 203   forInicializador -> IDENTIFICADOR IGUAL valorForInicializador
+Rule 204   tipoDatoForInicializador -> FLOAT_TYPE
+Rule 205   tipoDatoForInicializador -> DOUBLE_TYPE
+Rule 206   tipoDatoForInicializador -> INT_TYPE
+Rule 207   valorForInicializador -> FLOAT
+Rule 208   valorForInicializador -> DOUBLE
+Rule 209   valorForInicializador -> INT
+Rule 210   valorForInicializador -> IDENTIFICADOR
+Rule 211   estructura_datos -> lista
+Rule 212   estructura_datos -> pila
+Rule 213   lista -> LIST tipoLista IDENTIFICADOR IGUAL NEW LIST tipoLista PAR_IZQ PAR_DER END_OF_LINE
+Rule 214   tipoLista -> MENOR_QUE valor_tipo_inicializador MAYOR_QUE
+Rule 215   funciones_estructura_datos_lista -> add_lista
+Rule 216   add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER
+Rule 217   cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
+Rule 218   pila -> STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE IDENTIFICADOR IGUAL NEW STACK MENOR_QUE valor_tipo_inicializador MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+Rule 219   funciones_estructura_datos -> stack_push
+Rule 220   funciones_estructura_datos -> stack_pop
+Rule 221   stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER
+Rule 222   stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
+Rule 223   stack_pop -> IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER
+Rule 224   expresion -> expresion_operacion_aritmetica
+Rule 225   expresion -> expresion_condicional
+Rule 226   expresion_operacion_aritmetica -> expresion_operacion_aritmetica operador_aritmentico termino
+Rule 227   expresion_operacion_aritmetica -> numero operador_aritmentico expresion_operacion_aritmetica
+Rule 228   expresion_operacion_aritmetica -> numero operador_aritmentico numero
+Rule 229   expresion_operacion_aritmetica -> numero operador_aritmentico IDENTIFICADOR
+Rule 230   expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico numero
+Rule 231   expresion_operacion_aritmetica -> IDENTIFICADOR operador_aritmentico IDENTIFICADOR
+Rule 232   expresion_operacion_aritmetica -> termino
+Rule 233   expresion_condicional -> numero operador_condicional numero
+Rule 234   expresion_condicional -> IDENTIFICADOR operador_condicional IDENTIFICADOR
+Rule 235   expresion_condicional -> IDENTIFICADOR operador_condicional numero
+Rule 236   expresion_condicional -> numero operador_condicional IDENTIFICADOR
+Rule 237   salida_entrada -> salida_uno
+Rule 238   salida_entrada -> salida_dos
+Rule 239   salida_entrada -> salida_tres
+Rule 240   salida_uno -> CONSOLE_WRITELINE PAR_IZQ STRING PAR_DER
+Rule 241   salida_uno -> CONSOLE_WRITELINE PAR_IZQ operacion_string PAR_DER
+Rule 242   salida_uno -> CONSOLE_WRITELINE PAR_IZQ IDENTIFICADOR PAR_DER
+Rule 243   salida_dos -> CONSOLE_WRITELINE PAR_IZQ C_CADENA_INTERPOLADA STRING PAR_DER
+Rule 244   salida_tres -> CONSOLE_READLINE PAR_IZQ PAR_DER
+Rule 245   funcion -> funcion_tipo_uno
+Rule 246   funcion -> funcion_tipo_tres
+Rule 247   funcion_tipo_uno -> modificador_acceso VOID IDENTIFICADOR PAR_IZQ PAR_DER LLAVE_IZQ body LLAVE_DER
+Rule 248   funcion_tipo_tres -> modificador_acceso VOID IDENTIFICADOR PAR_IZQ parametrosF PAR_DER LLAVE_IZQ bodyF LLAVE_DER
+Rule 249   parametrosF -> declaracion
+Rule 250   parametrosF -> declaracion COMA parametrosF
+Rule 251   bodyF -> asignacion END_OF_LINE
+Rule 252   bodyF -> declaracion END_OF_LINE
+Rule 253   bodyF -> salida_entrada END_OF_LINE
+Rule 254   bodyF -> asignacion END_OF_LINE bodyF
+Rule 255   bodyF -> declaracion END_OF_LINE bodyF
+Rule 256   bodyF -> salida_entrada END_OF_LINE bodyF
+Rule 257   lambda_exp -> lambdaArg LAMBDA lambdaCuerpo
+Rule 258   lambdaArg -> PAR_IZQ PAR_DER
+Rule 259   lambdaArg -> PAR_IZQ lambdaParametrosUno PAR_DER
+Rule 260   lambdaArg -> PAR_IZQ lambdaParametrosDos PAR_DER
+Rule 261   lambdaArg -> IDENTIFICADOR
+Rule 262   lambdaParametrosUno -> valor_tipo IDENTIFICADOR
+Rule 263   lambdaParametrosUno -> valor_tipo IDENTIFICADOR COMA lambdaParametrosUno
+Rule 264   lambdaParametrosDos -> IDENTIFICADOR
+Rule 265   lambdaParametrosDos -> IDENTIFICADOR COMA lambdaParametrosDos
+Rule 266   lambdaCuerpo -> expresion
+Rule 267   lambdaCuerpo -> salida_uno
+Rule 268   lambdaCuerpo -> salida_dos
 
 Terminals, with rules where they appear
 
-ADD                  : 202
+ADD                  : 216
 AND                  : 
-AND_EQUAL            : 119
-AUMENTADO            : 114
-BOOL                 : 10 100
-BOOL_TYPE            : 23 32
-BREAK                : 159 164 167 168 169 170
+AND_EQUAL            : 133
+AUMENTADO            : 128
+BOOL                 : 9 114
+BOOL_TYPE            : 30 41
+BREAK                : 173 178 181 182 183 184
 BYTE                 : 
-CASE                 : 167 168 169 170
-CHAR                 : 8
-CHAR_TYPE            : 7 13 19 33
+CASE                 : 181 182 183 184
+CHAR                 : 7
+CHAR_TYPE            : 26 42
 CLASS                : 
-COMA                 : 236 249 251
+COMA                 : 250 263 265
 COMILLA_DOBLE        : 
 COMILLA_SIMPLE       : 
-CONSOLE_READLINE     : 230
-CONSOLE_WRITELINE    : 226 227 228 229
+CONSOLE_READLINE     : 244
+CONSOLE_WRITELINE    : 240 241 242 243
 CONST                : 
-CONTINUE             : 160 165
-COR_DER              : 92 93
-COR_IZQ              : 92 93
-C_CADENA_INTERPOLADA : 229
+CONTINUE             : 174 179
+COR_DER              : 106 107
+COR_IZQ              : 106 107
+C_CADENA_INTERPOLADA : 243
 C_IDENT_TEXTUAL      : 
-DECREMENTADO         : 115
-DECREMENTO           : 182
+DECREMENTADO         : 129
+DECREMENTO           : 196
 DEFAULT              : 
-DIVIDIDO_POR         : 117
-DIVISION             : 53
-DO                   : 155
-DOS_PUNTOS           : 167 168 169 170
-DOUBLE               : 15 185 194
-DOUBLE_TYPE          : 21 29 191
+DIVIDIDO_POR         : 131
+DIVISION             : 60
+DO                   : 169
+DOS_PUNTOS           : 181 182 183 184
+DOUBLE               : 19 199 208
+DOUBLE_TYPE          : 28 38 205
 ELSE                 : 
-END_OF_LINE          : 4 5 6 35 35 36 37 47 49 70 155 156 157 158 159 160 161 162 163 164 165 167 168 169 170 171 172 173 174 175 176 177 178 179 179 199 203 204 237 238 239 240 241 242
-EXC_OREQUAL          : 121
+END_OF_LINE          : 5 21 22 25 32 44 45 63 63 64 65 76 80 84 169 170 171 172 173 174 175 176 177 178 179 181 182 183 184 185 186 187 188 189 190 191 192 193 193 213 217 218 251 252 253 254 255 256
+ENQUEUE              : 22 32
+EXC_OREQUAL          : 135
 FINALLY              : 
-FLOAT                : 14 49 184 193
-FLOAT_TYPE           : 20 28 49 190
-FOR                  : 179
+FLOAT                : 18 80 198 207
+FLOAT_TYPE           : 27 37 80 204
+FOR                  : 193
 GLOBAL               : 
-IDENTIFICADOR        : 12 34 49 63 64 65 65 78 79 80 81 82 83 83 84 85 86 92 93 93 94 94 95 100 101 102 102 103 104 105 106 106 107 108 109 110 111 112 112 113 124 129 130 130 132 134 140 145 146 147 180 183 187 188 189 196 199 202 203 203 204 207 208 208 209 215 216 217 217 220 220 221 222 228 233 234 247 248 249 250 251
-IGUAL                : 49 78 79 80 81 82 83 84 85 86 90 91 94 95 132 133 134 135 136 137 138 188 189 199 203 204
-IGUAL_IGUAL          : 41 56
+IDENTIFICADOR        : 11 21 22 25 32 43 44 45 73 74 75 75 80 92 93 94 95 96 97 97 98 99 100 106 107 107 108 108 109 114 115 116 116 117 118 119 120 120 121 122 123 124 125 126 126 127 138 143 144 144 146 148 154 159 160 161 194 197 201 202 203 210 213 216 217 217 218 221 222 222 223 229 230 231 231 234 234 235 236 242 247 248 261 262 263 264 265
+IGUAL                : 21 25 45 80 92 93 94 95 96 97 98 99 100 104 105 108 109 146 147 148 149 150 151 152 202 203 213 217 218
+IGUAL_IGUAL          : 49 66
 IN                   : 
-INCREMENTO           : 181
-INT                  : 16 92 103 113 186 195
-INT_TYPE             : 22 31 192 203 203
+INCREMENTO           : 195
+INT                  : 20 22 106 117 127 200 209
+INT_TYPE             : 21 21 29 40 206 217 217
 IR                   : 
-LAMBDA               : 243
-LEFTSHIFT_EQUAL      : 122
+LAMBDA               : 257
+LEFTSHIFT_EQUAL      : 136
 LET                  : 
-LIST                 : 89 145 199 199
-LLAVE_DER            : 154 155 166 179 233 234
-LLAVE_IZQ            : 154 155 166 179 233 234
-MAYOR_O_IGUAL_QUE    : 46 61
-MAYOR_QUE            : 45 60 147 200 204 204
-MENOR_O_IGUAL_QUE    : 44 59
-MENOR_QUE            : 43 58 147 200 204 204
-MODULO               : 54
-MODULO_DE            : 118
-MULTIPLICACION       : 52
-MULTIPLICADO_POR     : 116
+LIST                 : 103 159 213 213
+LLAVE_DER            : 168 169 180 193 247 248
+LLAVE_IZQ            : 168 169 180 193 247 248
+MAYOR_O_IGUAL_QUE    : 54 71
+MAYOR_QUE            : 21 21 25 25 53 70 161 214 218 218
+MENOR_O_IGUAL_QUE    : 52 69
+MENOR_QUE            : 21 21 25 25 51 68 161 214 218 218
+MODULO               : 61
+MODULO_DE            : 132
+MULTIPLICACION       : 59
+MULTIPLICADO_POR     : 130
 NEGACION             : 
-NEW                  : 83 87 88 89 132 199 204 208
+NEW                  : 21 25 97 101 102 103 146 213 218 222
 NOR                  : 
-NO_IGUAL             : 42 57
-NULL                 : 82 133 137 138
-NULL_EQUAL           : 107 108 109 110 111
+NO_IGUAL             : 50 67
+NULL                 : 96 147 151 152
+NULL_EQUAL           : 121 122 123 124 125
 NULL_VAL             : 
 OBJECT               : 
 ON                   : 
-OP_TERNARIO          : 129
+OP_TERNARIO          : 143
 OR                   : 
 ORDERBY              : 
-OR_EQUAL             : 120
-PAR_DER              : 69 83 87 88 89 132 154 155 166 179 199 202 203 204 207 208 208 209 226 227 228 229 230 233 234 244 245 246
-PAR_IZQ              : 69 83 87 88 89 132 154 155 166 179 199 202 203 204 207 208 208 209 226 227 228 229 230 233 234 244 245 246
-POP                  : 209
-PRIVATE              : 38
-PROTECTED            : 39
-PUBLIC               : 40
-PUNTO                : 202 207 208 209
-PUSH                 : 207 208
-QUEUE                : 88 146
-REF                  : 94 95 139 140 141
-RESTA                : 51
+OR_EQUAL             : 134
+PAR_DER              : 21 22 25 32 44 82 97 101 102 103 146 168 169 180 193 213 216 217 218 221 222 222 223 240 241 242 243 244 247 248 258 259 260
+PAR_IZQ              : 21 22 25 32 44 82 97 101 102 103 146 168 169 180 193 213 216 217 218 221 222 222 223 240 241 242 243 244 247 248 258 259 260
+POP                  : 223
+PRIVATE              : 46
+PROTECTED            : 47
+PUBLIC               : 48
+PUNTO                : 22 32 44 216 221 222 223
+PUSH                 : 221 222
+QUEUE                : 21 21 25 25 102 160
+REF                  : 108 109 153 154 155
+RESTA                : 58
 RETURN               : 
-RIGHTSHIFT_EQUAL     : 123
+RIGHTSHIFT_EQUAL     : 137
 SHIFT_MAYOR          : 
 SHIFT_MENOR          : 
 SIMPLE_AND           : 
 SIMPLE_OR            : 
-STACK                : 87 147 204 204
-STRING               : 11 62 62 63 64 226 229
-STRING_TYPE          : 24 30
+STACK                : 101 161 218 218
+STRING               : 10 32 45 72 72 73 74 240 243
+STRING_TYPE          : 25 25 31 39 45
 STRUCT               : 
-SUMA                 : 50 62 63 64 65
-SWITCH               : 166
+SUMA                 : 57 72 73 74 75
+SWITCH               : 180
 THIS                 : 
-TO_UPPER             : 
+TO_UPPER             : 44
 TYPEOF               : 
 VAR                  : 
-VOID                 : 18 233 234
+VOID                 : 24 247 248
 WHEN                 : 
 WHERE                : 
-WHILE                : 154 155
+WHILE                : 168 169
 error                : 
 
 Nonterminals, with rules where they appear
 
-add_lista            : 48 201
+add_lista            : 79 215
 add_queue            : 4
-add_stack            : 35 36
-asignacion           : 156 161 171 175 237 240
-asignacionClase      : 73
-asignacionCompuesta  : 72
-asignacionCompuesta_Logic : 96
-asignacionCompuesta_Null : 98
-asignacionCompuesta_Number : 97
-asignacionCompuesta_Shift : 99
-asignacionEstructuraD : 74
-asignacionIndex      : 76
-asignacionList       : 86 111
-asignacionNull       : 75
-asignacionPila       : 84 109
-asignacionQueue      : 85 110
-asignacionRef        : 77 139 140 141
-asignacionSimple     : 71 131
-body                 : 179 233 0
-bodyF                : 234 240 241 242
-body_case            : 167 169 175 176 177 178
-body_while           : 154 155 161 162 163 164 165
-casos                : 166 169 170
-cast_float_int       : 49
-cast_float_to_int    : 5 55
-comparacion          : 173 178
-declaracion          : 157 162 172 176 235 236 238 241
-declaracionAsignacion : 126
-declaracionClase     : 127 132 133 134
-declaracionEstructuraD : 125 138 141
-declaracionList      : 142
-declaracionNull      : 128 135 136 137
-declaracionPila      : 144
-declaracionQueue     : 143
+add_stack            : 63 64
+asignacion           : 170 175 185 189 251 254
+asignacionClase      : 87
+asignacionCompuesta  : 86
+asignacionCompuesta_Logic : 110
+asignacionCompuesta_Null : 112
+asignacionCompuesta_Number : 111
+asignacionCompuesta_Shift : 113
+asignacionEstructuraD : 88
+asignacionIndex      : 90
+asignacionList       : 100 125
+asignacionNull       : 89
+asignacionPila       : 98 123
+asignacionQueue      : 99 124
+asignacionRef        : 91 153 154 155
+asignacionSimple     : 85 145
+asignacion_int_cola  : 12 14
+asignacion_string    : 33 35 36
+asignacion_string_cola : 15 17
+body                 : 193 247 0
+bodyF                : 248 254 255 256
+body_case            : 181 183 189 190 191 192
+body_while           : 168 169 175 176 177 178 179
+casos                : 180 183 184
+cast_float_int       : 80
+cast_float_to_int    : 5 83
+comparacion          : 187 192
+declaracion          : 171 176 186 190 249 250 252 255
+declaracionAsignacion : 140
+declaracionClase     : 141 146 147 148
+declaracionEstructuraD : 139 152 155
+declaracionList      : 156
+declaracionNull      : 142 149 150 151
+declaracionPila      : 158
+declaracionQueue     : 157
 empty                : 
+encolar_int          : 13 14
+encolar_string       : 16 17
 estructura_control   : 
 estructura_datos     : 
-expresion            : 79 108 136 252
-expresion_condicional : 101 154 155 211
-expresion_operacion_aritmetica : 69 105 210 212 213
-factor               : 66 67
-for                  : 151
-forCondicion         : 179
-forInicializador     : 179
-forIterador          : 179
+expresion            : 93 122 150 266
+expresion_condicional : 115 168 169 225
+expresion_operacion_aritmetica : 82 119 224 226 227
+factor               : 77 78
+for                  : 165
+forCondicion         : 193
+forInicializador     : 193
+forIterador          : 193
 ftipo                : 
 funcion              : 
-funcion_tipo_tres    : 232
-funcion_tipo_uno     : 231
+funcion_tipo_tres    : 246
+funcion_tipo_uno     : 245
 funciones_estructura_datos : 
 funciones_estructura_datos_lista : 
-index                : 81 90 90 91 95
-lambdaArg            : 243
-lambdaCuerpo         : 243
-lambdaParametrosDos  : 246 251
-lambdaParametrosUno  : 245 249
+index                : 95 104 104 105 109
+lambdaArg            : 257
+lambdaCuerpo         : 257
+lambdaParametrosDos  : 260 265
+lambdaParametrosUno  : 259 263
 lambda_exp           : 
-lista                : 197
-lista_add            : 47
-modificador_acceso   : 233 234
-numero               : 9 68 104 213 214 214 215 216 219 219 221 222
-operacion_string     : 227
-operacionesStack     : 25
-operadorForIteracion : 180
-operador_aritmentico : 66 212 213 214 215 216 217
-operador_condicional : 183 219 220 221 222
-operador_realacional : 148
-operadoresCompuestosLogic : 100 101 102 103
-operadoresCompuestosNumber : 104 105 106
-operadoresCompuestosShift : 112 113
-parametrosF          : 234 236
-pila                 : 198
-pop_stack            : 35 37
-salida_dos           : 224 254
-salida_entrada       : 158 163 174 177 239 242
-salida_tres          : 80 225
-salida_uno           : 223 253
+lista                : 211
+lista_add            : 76
+modificador_acceso   : 247 248
+numero               : 8 81 118 227 228 228 229 230 233 233 235 236
+operacion_string     : 241
+operacionesStack     : 55
+operadorForIteracion : 194
+operador_aritmentico : 77 226 227 228 229 230 231
+operador_condicional : 197 233 234 235 236
+operador_realacional : 162
+operadoresCompuestosLogic : 114 115 116 117
+operadoresCompuestosNumber : 118 119 120
+operadoresCompuestosShift : 126 127
+parametrosF          : 248 250
+pila                 : 212
+pop_stack            : 63 65
+salida_dos           : 238 268
+salida_entrada       : 172 177 188 191 253 256
+salida_tres          : 94 239
+salida_uno           : 237 267
 semantica_casting_float_to_int : 2
 semantica_lista_add  : 1
 semantica_stack      : 3
-stack_pop            : 27 206
-stack_push           : 26 205
-switch_case          : 150
-termino              : 66 212 218
-tipoDatoForInicializador : 188
-tipoLista            : 87 88 89 145 146 199 199
-to_upper_case        : 6
-valor                : 78 91 107 135 148 148 166 167 168 169 170 202 207
-valorForCondicion    : 183
-valorForInicializador : 188 189
-valor_tipo           : 17 124 129 131 139 248 249
-valor_tipo_inicializador : 147 200 204 204
-while                : 149
-while_do             : 153
-while_normal         : 152
+stack_pop            : 62 220
+stack_push           : 56 219
+str_to_upper_case    : 34 35 36
+switch_case          : 164
+termino              : 77 226 232
+tipoDatoForInicializador : 202
+tipoLista            : 101 102 103 159 160 213 213
+to_upper_case        : 6 36
+valor                : 92 105 121 149 162 162 180 181 182 183 184 216 221
+valorForCondicion    : 197
+valorForInicializador : 202 203
+valor_tipo           : 23 138 143 145 153 262 263
+valor_tipo_inicializador : 161 214 218 218
+while                : 163
+while_do             : 167
+while_normal         : 166
 
 Parsing method: LALR
 
@@ -510,30 +530,45 @@ state 0
     (1) body -> . semantica_lista_add
     (2) body -> . semantica_casting_float_to_int
     (3) body -> . semantica_stack
-    (4) body -> . add_queue END_OF_LINE
+    (4) body -> . add_queue
     (5) body -> . cast_float_to_int END_OF_LINE
-    (6) body -> . to_upper_case END_OF_LINE
-    (47) semantica_lista_add -> . lista_add END_OF_LINE
-    (49) semantica_casting_float_to_int -> . FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int
-    (25) semantica_stack -> . operacionesStack
-    (7) add_queue -> . CHAR_TYPE
-    (203) cast_float_to_int -> . INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
-    (13) to_upper_case -> . CHAR_TYPE
-    (48) lista_add -> . add_lista
-    (35) operacionesStack -> . add_stack END_OF_LINE pop_stack END_OF_LINE
-    (36) operacionesStack -> . add_stack END_OF_LINE
-    (37) operacionesStack -> . pop_stack END_OF_LINE
-    (202) add_lista -> . IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER
-    (26) add_stack -> . stack_push
-    (27) pop_stack -> . stack_pop
-    (207) stack_push -> . IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER
-    (208) stack_push -> . IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
-    (209) stack_pop -> . IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER
+    (6) body -> . to_upper_case
+    (76) semantica_lista_add -> . lista_add END_OF_LINE
+    (80) semantica_casting_float_to_int -> . FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int
+    (55) semantica_stack -> . operacionesStack
+    (12) add_queue -> . asignacion_int_cola
+    (13) add_queue -> . encolar_int
+    (14) add_queue -> . asignacion_int_cola encolar_int
+    (15) add_queue -> . asignacion_string_cola
+    (16) add_queue -> . encolar_string
+    (17) add_queue -> . asignacion_string_cola encolar_string
+    (217) cast_float_to_int -> . INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
+    (33) to_upper_case -> . asignacion_string
+    (34) to_upper_case -> . str_to_upper_case
+    (35) to_upper_case -> . asignacion_string str_to_upper_case
+    (36) to_upper_case -> . asignacion_string str_to_upper_case to_upper_case
+    (79) lista_add -> . add_lista
+    (63) operacionesStack -> . add_stack END_OF_LINE pop_stack END_OF_LINE
+    (64) operacionesStack -> . add_stack END_OF_LINE
+    (65) operacionesStack -> . pop_stack END_OF_LINE
+    (21) asignacion_int_cola -> . QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+    (22) encolar_int -> . IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE
+    (25) asignacion_string_cola -> . QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+    (32) encolar_string -> . IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE
+    (45) asignacion_string -> . STRING_TYPE IDENTIFICADOR IGUAL STRING END_OF_LINE
+    (44) str_to_upper_case -> . IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE
+    (216) add_lista -> . IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER
+    (56) add_stack -> . stack_push
+    (62) pop_stack -> . stack_pop
+    (221) stack_push -> . IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER
+    (222) stack_push -> . IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
+    (223) stack_pop -> . IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER
 
     FLOAT_TYPE      shift and go to state 9
-    CHAR_TYPE       shift and go to state 12
-    INT_TYPE        shift and go to state 13
+    INT_TYPE        shift and go to state 16
+    QUEUE           shift and go to state 22
     IDENTIFICADOR   shift and go to state 10
+    STRING_TYPE     shift and go to state 23
 
     body                           shift and go to state 1
     semantica_lista_add            shift and go to state 2
@@ -544,11 +579,17 @@ state 0
     to_upper_case                  shift and go to state 7
     lista_add                      shift and go to state 8
     operacionesStack               shift and go to state 11
-    add_lista                      shift and go to state 14
-    add_stack                      shift and go to state 15
-    pop_stack                      shift and go to state 16
-    stack_push                     shift and go to state 17
-    stack_pop                      shift and go to state 18
+    asignacion_int_cola            shift and go to state 12
+    encolar_int                    shift and go to state 13
+    asignacion_string_cola         shift and go to state 14
+    encolar_string                 shift and go to state 15
+    asignacion_string              shift and go to state 17
+    str_to_upper_case              shift and go to state 18
+    add_lista                      shift and go to state 19
+    add_stack                      shift and go to state 20
+    pop_stack                      shift and go to state 21
+    stack_push                     shift and go to state 24
+    stack_pop                      shift and go to state 25
 
 state 1
 
@@ -579,499 +620,953 @@ state 4
 
 state 5
 
-    (4) body -> add_queue . END_OF_LINE
+    (4) body -> add_queue .
 
-    END_OF_LINE     shift and go to state 19
+    $end            reduce using rule 4 (body -> add_queue .)
 
 
 state 6
 
     (5) body -> cast_float_to_int . END_OF_LINE
 
-    END_OF_LINE     shift and go to state 20
+    END_OF_LINE     shift and go to state 26
 
 
 state 7
 
-    (6) body -> to_upper_case . END_OF_LINE
+    (6) body -> to_upper_case .
 
-    END_OF_LINE     shift and go to state 21
+    $end            reduce using rule 6 (body -> to_upper_case .)
 
 
 state 8
 
-    (47) semantica_lista_add -> lista_add . END_OF_LINE
-
-    END_OF_LINE     shift and go to state 22
-
-
-state 9
-
-    (49) semantica_casting_float_to_int -> FLOAT_TYPE . IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int
-
-    IDENTIFICADOR   shift and go to state 23
-
-
-state 10
-
-    (202) add_lista -> IDENTIFICADOR . PUNTO ADD PAR_IZQ valor PAR_DER
-    (207) stack_push -> IDENTIFICADOR . PUNTO PUSH PAR_IZQ valor PAR_DER
-    (208) stack_push -> IDENTIFICADOR . PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
-    (209) stack_pop -> IDENTIFICADOR . PUNTO POP PAR_IZQ PAR_DER
-
-    PUNTO           shift and go to state 24
-
-
-state 11
-
-    (25) semantica_stack -> operacionesStack .
-
-    $end            reduce using rule 25 (semantica_stack -> operacionesStack .)
-
-
-state 12
-
-    (7) add_queue -> CHAR_TYPE .
-    (13) to_upper_case -> CHAR_TYPE .
-
-  ! reduce/reduce conflict for END_OF_LINE resolved using rule 7 (add_queue -> CHAR_TYPE .)
-    END_OF_LINE     reduce using rule 7 (add_queue -> CHAR_TYPE .)
-
-  ! END_OF_LINE     [ reduce using rule 13 (to_upper_case -> CHAR_TYPE .) ]
-
-
-state 13
-
-    (203) cast_float_to_int -> INT_TYPE . IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
-
-    IDENTIFICADOR   shift and go to state 25
-
-
-state 14
-
-    (48) lista_add -> add_lista .
-
-    END_OF_LINE     reduce using rule 48 (lista_add -> add_lista .)
-
-
-state 15
-
-    (35) operacionesStack -> add_stack . END_OF_LINE pop_stack END_OF_LINE
-    (36) operacionesStack -> add_stack . END_OF_LINE
-
-    END_OF_LINE     shift and go to state 26
-
-
-state 16
-
-    (37) operacionesStack -> pop_stack . END_OF_LINE
+    (76) semantica_lista_add -> lista_add . END_OF_LINE
 
     END_OF_LINE     shift and go to state 27
 
 
+state 9
+
+    (80) semantica_casting_float_to_int -> FLOAT_TYPE . IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int
+
+    IDENTIFICADOR   shift and go to state 28
+
+
+state 10
+
+    (22) encolar_int -> IDENTIFICADOR . PUNTO ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE
+    (32) encolar_string -> IDENTIFICADOR . PUNTO ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE
+    (44) str_to_upper_case -> IDENTIFICADOR . PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE
+    (216) add_lista -> IDENTIFICADOR . PUNTO ADD PAR_IZQ valor PAR_DER
+    (221) stack_push -> IDENTIFICADOR . PUNTO PUSH PAR_IZQ valor PAR_DER
+    (222) stack_push -> IDENTIFICADOR . PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
+    (223) stack_pop -> IDENTIFICADOR . PUNTO POP PAR_IZQ PAR_DER
+
+    PUNTO           shift and go to state 29
+
+
+state 11
+
+    (55) semantica_stack -> operacionesStack .
+
+    $end            reduce using rule 55 (semantica_stack -> operacionesStack .)
+
+
+state 12
+
+    (12) add_queue -> asignacion_int_cola .
+    (14) add_queue -> asignacion_int_cola . encolar_int
+    (22) encolar_int -> . IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE
+
+    $end            reduce using rule 12 (add_queue -> asignacion_int_cola .)
+    IDENTIFICADOR   shift and go to state 31
+
+    encolar_int                    shift and go to state 30
+
+state 13
+
+    (13) add_queue -> encolar_int .
+
+    $end            reduce using rule 13 (add_queue -> encolar_int .)
+
+
+state 14
+
+    (15) add_queue -> asignacion_string_cola .
+    (17) add_queue -> asignacion_string_cola . encolar_string
+    (32) encolar_string -> . IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE
+
+    $end            reduce using rule 15 (add_queue -> asignacion_string_cola .)
+    IDENTIFICADOR   shift and go to state 33
+
+    encolar_string                 shift and go to state 32
+
+state 15
+
+    (16) add_queue -> encolar_string .
+
+    $end            reduce using rule 16 (add_queue -> encolar_string .)
+
+
+state 16
+
+    (217) cast_float_to_int -> INT_TYPE . IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
+
+    IDENTIFICADOR   shift and go to state 34
+
+
 state 17
 
-    (26) add_stack -> stack_push .
+    (33) to_upper_case -> asignacion_string .
+    (35) to_upper_case -> asignacion_string . str_to_upper_case
+    (36) to_upper_case -> asignacion_string . str_to_upper_case to_upper_case
+    (44) str_to_upper_case -> . IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE
 
-    END_OF_LINE     reduce using rule 26 (add_stack -> stack_push .)
+    $end            reduce using rule 33 (to_upper_case -> asignacion_string .)
+    IDENTIFICADOR   shift and go to state 36
 
+    str_to_upper_case              shift and go to state 35
 
 state 18
 
-    (27) pop_stack -> stack_pop .
+    (34) to_upper_case -> str_to_upper_case .
 
-    END_OF_LINE     reduce using rule 27 (pop_stack -> stack_pop .)
+    $end            reduce using rule 34 (to_upper_case -> str_to_upper_case .)
 
 
 state 19
 
-    (4) body -> add_queue END_OF_LINE .
+    (79) lista_add -> add_lista .
 
-    $end            reduce using rule 4 (body -> add_queue END_OF_LINE .)
+    END_OF_LINE     reduce using rule 79 (lista_add -> add_lista .)
 
 
 state 20
+
+    (63) operacionesStack -> add_stack . END_OF_LINE pop_stack END_OF_LINE
+    (64) operacionesStack -> add_stack . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 37
+
+
+state 21
+
+    (65) operacionesStack -> pop_stack . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 38
+
+
+state 22
+
+    (21) asignacion_int_cola -> QUEUE . MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+    (25) asignacion_string_cola -> QUEUE . MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    MENOR_QUE       shift and go to state 39
+
+
+state 23
+
+    (45) asignacion_string -> STRING_TYPE . IDENTIFICADOR IGUAL STRING END_OF_LINE
+
+    IDENTIFICADOR   shift and go to state 40
+
+
+state 24
+
+    (56) add_stack -> stack_push .
+
+    END_OF_LINE     reduce using rule 56 (add_stack -> stack_push .)
+
+
+state 25
+
+    (62) pop_stack -> stack_pop .
+
+    END_OF_LINE     reduce using rule 62 (pop_stack -> stack_pop .)
+
+
+state 26
 
     (5) body -> cast_float_to_int END_OF_LINE .
 
     $end            reduce using rule 5 (body -> cast_float_to_int END_OF_LINE .)
 
 
-state 21
-
-    (6) body -> to_upper_case END_OF_LINE .
-
-    $end            reduce using rule 6 (body -> to_upper_case END_OF_LINE .)
-
-
-state 22
-
-    (47) semantica_lista_add -> lista_add END_OF_LINE .
-
-    $end            reduce using rule 47 (semantica_lista_add -> lista_add END_OF_LINE .)
-
-
-state 23
-
-    (49) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR . IGUAL FLOAT END_OF_LINE cast_float_int
-
-    IGUAL           shift and go to state 28
-
-
-state 24
-
-    (202) add_lista -> IDENTIFICADOR PUNTO . ADD PAR_IZQ valor PAR_DER
-    (207) stack_push -> IDENTIFICADOR PUNTO . PUSH PAR_IZQ valor PAR_DER
-    (208) stack_push -> IDENTIFICADOR PUNTO . PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
-    (209) stack_pop -> IDENTIFICADOR PUNTO . POP PAR_IZQ PAR_DER
-
-    ADD             shift and go to state 29
-    PUSH            shift and go to state 30
-    POP             shift and go to state 31
-
-
-state 25
-
-    (203) cast_float_to_int -> INT_TYPE IDENTIFICADOR . IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
-
-    IGUAL           shift and go to state 32
-
-
-state 26
-
-    (35) operacionesStack -> add_stack END_OF_LINE . pop_stack END_OF_LINE
-    (36) operacionesStack -> add_stack END_OF_LINE .
-    (27) pop_stack -> . stack_pop
-    (209) stack_pop -> . IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER
-
-    $end            reduce using rule 36 (operacionesStack -> add_stack END_OF_LINE .)
-    IDENTIFICADOR   shift and go to state 34
-
-    pop_stack                      shift and go to state 33
-    stack_pop                      shift and go to state 18
-
 state 27
 
-    (37) operacionesStack -> pop_stack END_OF_LINE .
+    (76) semantica_lista_add -> lista_add END_OF_LINE .
 
-    $end            reduce using rule 37 (operacionesStack -> pop_stack END_OF_LINE .)
+    $end            reduce using rule 76 (semantica_lista_add -> lista_add END_OF_LINE .)
 
 
 state 28
 
-    (49) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL . FLOAT END_OF_LINE cast_float_int
+    (80) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR . IGUAL FLOAT END_OF_LINE cast_float_int
 
-    FLOAT           shift and go to state 35
+    IGUAL           shift and go to state 41
 
 
 state 29
 
-    (202) add_lista -> IDENTIFICADOR PUNTO ADD . PAR_IZQ valor PAR_DER
+    (22) encolar_int -> IDENTIFICADOR PUNTO . ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE
+    (32) encolar_string -> IDENTIFICADOR PUNTO . ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE
+    (44) str_to_upper_case -> IDENTIFICADOR PUNTO . TO_UPPER PAR_IZQ PAR_DER END_OF_LINE
+    (216) add_lista -> IDENTIFICADOR PUNTO . ADD PAR_IZQ valor PAR_DER
+    (221) stack_push -> IDENTIFICADOR PUNTO . PUSH PAR_IZQ valor PAR_DER
+    (222) stack_push -> IDENTIFICADOR PUNTO . PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
+    (223) stack_pop -> IDENTIFICADOR PUNTO . POP PAR_IZQ PAR_DER
 
-    PAR_IZQ         shift and go to state 36
+    ENQUEUE         shift and go to state 42
+    TO_UPPER        shift and go to state 43
+    ADD             shift and go to state 44
+    PUSH            shift and go to state 45
+    POP             shift and go to state 46
 
 
 state 30
 
-    (207) stack_push -> IDENTIFICADOR PUNTO PUSH . PAR_IZQ valor PAR_DER
-    (208) stack_push -> IDENTIFICADOR PUNTO PUSH . PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
+    (14) add_queue -> asignacion_int_cola encolar_int .
 
-    PAR_IZQ         shift and go to state 37
+    $end            reduce using rule 14 (add_queue -> asignacion_int_cola encolar_int .)
 
 
 state 31
 
-    (209) stack_pop -> IDENTIFICADOR PUNTO POP . PAR_IZQ PAR_DER
+    (22) encolar_int -> IDENTIFICADOR . PUNTO ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE
 
-    PAR_IZQ         shift and go to state 38
+    PUNTO           shift and go to state 47
 
 
 state 32
 
-    (203) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL . PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
+    (17) add_queue -> asignacion_string_cola encolar_string .
 
-    PAR_IZQ         shift and go to state 39
+    $end            reduce using rule 17 (add_queue -> asignacion_string_cola encolar_string .)
 
 
 state 33
 
-    (35) operacionesStack -> add_stack END_OF_LINE pop_stack . END_OF_LINE
+    (32) encolar_string -> IDENTIFICADOR . PUNTO ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE
 
-    END_OF_LINE     shift and go to state 40
+    PUNTO           shift and go to state 48
 
 
 state 34
 
-    (209) stack_pop -> IDENTIFICADOR . PUNTO POP PAR_IZQ PAR_DER
+    (217) cast_float_to_int -> INT_TYPE IDENTIFICADOR . IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
 
-    PUNTO           shift and go to state 41
+    IGUAL           shift and go to state 49
 
 
 state 35
 
-    (49) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT . END_OF_LINE cast_float_int
+    (35) to_upper_case -> asignacion_string str_to_upper_case .
+    (36) to_upper_case -> asignacion_string str_to_upper_case . to_upper_case
+    (33) to_upper_case -> . asignacion_string
+    (34) to_upper_case -> . str_to_upper_case
+    (35) to_upper_case -> . asignacion_string str_to_upper_case
+    (36) to_upper_case -> . asignacion_string str_to_upper_case to_upper_case
+    (45) asignacion_string -> . STRING_TYPE IDENTIFICADOR IGUAL STRING END_OF_LINE
+    (44) str_to_upper_case -> . IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE
 
-    END_OF_LINE     shift and go to state 42
+    $end            reduce using rule 35 (to_upper_case -> asignacion_string str_to_upper_case .)
+    STRING_TYPE     shift and go to state 23
+    IDENTIFICADOR   shift and go to state 36
 
+    asignacion_string              shift and go to state 17
+    str_to_upper_case              shift and go to state 18
+    to_upper_case                  shift and go to state 50
 
 state 36
 
-    (202) add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ . valor PAR_DER
-    (8) valor -> . CHAR
-    (9) valor -> . numero
-    (10) valor -> . BOOL
-    (11) valor -> . STRING
-    (12) valor -> . IDENTIFICADOR
-    (14) numero -> . FLOAT
-    (15) numero -> . DOUBLE
-    (16) numero -> . INT
+    (44) str_to_upper_case -> IDENTIFICADOR . PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE
 
-    CHAR            shift and go to state 45
-    BOOL            shift and go to state 47
-    STRING          shift and go to state 48
-    IDENTIFICADOR   shift and go to state 43
-    FLOAT           shift and go to state 49
-    DOUBLE          shift and go to state 50
-    INT             shift and go to state 51
+    PUNTO           shift and go to state 51
 
-    valor                          shift and go to state 44
-    numero                         shift and go to state 46
 
 state 37
 
-    (207) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ . valor PAR_DER
-    (208) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ . NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
-    (8) valor -> . CHAR
-    (9) valor -> . numero
-    (10) valor -> . BOOL
-    (11) valor -> . STRING
-    (12) valor -> . IDENTIFICADOR
-    (14) numero -> . FLOAT
-    (15) numero -> . DOUBLE
-    (16) numero -> . INT
+    (63) operacionesStack -> add_stack END_OF_LINE . pop_stack END_OF_LINE
+    (64) operacionesStack -> add_stack END_OF_LINE .
+    (62) pop_stack -> . stack_pop
+    (223) stack_pop -> . IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER
 
-    NEW             shift and go to state 53
-    CHAR            shift and go to state 45
-    BOOL            shift and go to state 47
-    STRING          shift and go to state 48
-    IDENTIFICADOR   shift and go to state 43
-    FLOAT           shift and go to state 49
-    DOUBLE          shift and go to state 50
-    INT             shift and go to state 51
+    $end            reduce using rule 64 (operacionesStack -> add_stack END_OF_LINE .)
+    IDENTIFICADOR   shift and go to state 53
 
-    valor                          shift and go to state 52
-    numero                         shift and go to state 46
+    pop_stack                      shift and go to state 52
+    stack_pop                      shift and go to state 25
 
 state 38
 
-    (209) stack_pop -> IDENTIFICADOR PUNTO POP PAR_IZQ . PAR_DER
+    (65) operacionesStack -> pop_stack END_OF_LINE .
 
-    PAR_DER         shift and go to state 54
+    $end            reduce using rule 65 (operacionesStack -> pop_stack END_OF_LINE .)
 
 
 state 39
 
-    (203) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ . INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE . INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE . STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
 
-    INT_TYPE        shift and go to state 55
+    INT_TYPE        shift and go to state 54
+    STRING_TYPE     shift and go to state 55
 
 
 state 40
 
-    (35) operacionesStack -> add_stack END_OF_LINE pop_stack END_OF_LINE .
+    (45) asignacion_string -> STRING_TYPE IDENTIFICADOR . IGUAL STRING END_OF_LINE
 
-    $end            reduce using rule 35 (operacionesStack -> add_stack END_OF_LINE pop_stack END_OF_LINE .)
+    IGUAL           shift and go to state 56
 
 
 state 41
 
-    (209) stack_pop -> IDENTIFICADOR PUNTO . POP PAR_IZQ PAR_DER
+    (80) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL . FLOAT END_OF_LINE cast_float_int
 
-    POP             shift and go to state 31
+    FLOAT           shift and go to state 57
 
 
 state 42
 
-    (49) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE . cast_float_int
-    (55) cast_float_int -> . cast_float_to_int
-    (203) cast_float_to_int -> . INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
+    (22) encolar_int -> IDENTIFICADOR PUNTO ENQUEUE . PAR_IZQ INT PAR_DER END_OF_LINE
+    (32) encolar_string -> IDENTIFICADOR PUNTO ENQUEUE . PAR_IZQ STRING PAR_DER END_OF_LINE
 
-    INT_TYPE        shift and go to state 13
+    PAR_IZQ         shift and go to state 58
 
-    cast_float_int                 shift and go to state 56
-    cast_float_to_int              shift and go to state 57
 
 state 43
 
-    (12) valor -> IDENTIFICADOR .
+    (44) str_to_upper_case -> IDENTIFICADOR PUNTO TO_UPPER . PAR_IZQ PAR_DER END_OF_LINE
 
-    PAR_DER         reduce using rule 12 (valor -> IDENTIFICADOR .)
+    PAR_IZQ         shift and go to state 59
 
 
 state 44
 
-    (202) add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ valor . PAR_DER
+    (216) add_lista -> IDENTIFICADOR PUNTO ADD . PAR_IZQ valor PAR_DER
 
-    PAR_DER         shift and go to state 58
+    PAR_IZQ         shift and go to state 60
 
 
 state 45
 
-    (8) valor -> CHAR .
+    (221) stack_push -> IDENTIFICADOR PUNTO PUSH . PAR_IZQ valor PAR_DER
+    (222) stack_push -> IDENTIFICADOR PUNTO PUSH . PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
 
-    PAR_DER         reduce using rule 8 (valor -> CHAR .)
+    PAR_IZQ         shift and go to state 61
 
 
 state 46
 
-    (9) valor -> numero .
-
-    PAR_DER         reduce using rule 9 (valor -> numero .)
-
-
-state 47
-
-    (10) valor -> BOOL .
-
-    PAR_DER         reduce using rule 10 (valor -> BOOL .)
-
-
-state 48
-
-    (11) valor -> STRING .
-
-    PAR_DER         reduce using rule 11 (valor -> STRING .)
-
-
-state 49
-
-    (14) numero -> FLOAT .
-
-    PAR_DER         reduce using rule 14 (numero -> FLOAT .)
-
-
-state 50
-
-    (15) numero -> DOUBLE .
-
-    PAR_DER         reduce using rule 15 (numero -> DOUBLE .)
-
-
-state 51
-
-    (16) numero -> INT .
-
-    PAR_DER         reduce using rule 16 (numero -> INT .)
-
-
-state 52
-
-    (207) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ valor . PAR_DER
-
-    PAR_DER         shift and go to state 59
-
-
-state 53
-
-    (208) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW . IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
-
-    IDENTIFICADOR   shift and go to state 60
-
-
-state 54
-
-    (209) stack_pop -> IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER .
-
-    END_OF_LINE     reduce using rule 209 (stack_pop -> IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER .)
-
-
-state 55
-
-    (203) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE . PAR_DER IDENTIFICADOR END_OF_LINE
-
-    PAR_DER         shift and go to state 61
-
-
-state 56
-
-    (49) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int .
-
-    $end            reduce using rule 49 (semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int .)
-
-
-state 57
-
-    (55) cast_float_int -> cast_float_to_int .
-
-    $end            reduce using rule 55 (cast_float_int -> cast_float_to_int .)
-
-
-state 58
-
-    (202) add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER .
-
-    END_OF_LINE     reduce using rule 202 (add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER .)
-
-
-state 59
-
-    (207) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER .
-
-    END_OF_LINE     reduce using rule 207 (stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER .)
-
-
-state 60
-
-    (208) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR . PAR_IZQ PAR_DER PAR_DER
+    (223) stack_pop -> IDENTIFICADOR PUNTO POP . PAR_IZQ PAR_DER
 
     PAR_IZQ         shift and go to state 62
 
 
+state 47
+
+    (22) encolar_int -> IDENTIFICADOR PUNTO . ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE
+
+    ENQUEUE         shift and go to state 63
+
+
+state 48
+
+    (32) encolar_string -> IDENTIFICADOR PUNTO . ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE
+
+    ENQUEUE         shift and go to state 64
+
+
+state 49
+
+    (217) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL . PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
+
+    PAR_IZQ         shift and go to state 65
+
+
+state 50
+
+    (36) to_upper_case -> asignacion_string str_to_upper_case to_upper_case .
+
+    $end            reduce using rule 36 (to_upper_case -> asignacion_string str_to_upper_case to_upper_case .)
+
+
+state 51
+
+    (44) str_to_upper_case -> IDENTIFICADOR PUNTO . TO_UPPER PAR_IZQ PAR_DER END_OF_LINE
+
+    TO_UPPER        shift and go to state 43
+
+
+state 52
+
+    (63) operacionesStack -> add_stack END_OF_LINE pop_stack . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 66
+
+
+state 53
+
+    (223) stack_pop -> IDENTIFICADOR . PUNTO POP PAR_IZQ PAR_DER
+
+    PUNTO           shift and go to state 67
+
+
+state 54
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE . MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    MAYOR_QUE       shift and go to state 68
+
+
+state 55
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE . MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    MAYOR_QUE       shift and go to state 69
+
+
+state 56
+
+    (45) asignacion_string -> STRING_TYPE IDENTIFICADOR IGUAL . STRING END_OF_LINE
+
+    STRING          shift and go to state 70
+
+
+state 57
+
+    (80) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT . END_OF_LINE cast_float_int
+
+    END_OF_LINE     shift and go to state 71
+
+
+state 58
+
+    (22) encolar_int -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ . INT PAR_DER END_OF_LINE
+    (32) encolar_string -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ . STRING PAR_DER END_OF_LINE
+
+    INT             shift and go to state 72
+    STRING          shift and go to state 73
+
+
+state 59
+
+    (44) str_to_upper_case -> IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ . PAR_DER END_OF_LINE
+
+    PAR_DER         shift and go to state 74
+
+
+state 60
+
+    (216) add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ . valor PAR_DER
+    (7) valor -> . CHAR
+    (8) valor -> . numero
+    (9) valor -> . BOOL
+    (10) valor -> . STRING
+    (11) valor -> . IDENTIFICADOR
+    (18) numero -> . FLOAT
+    (19) numero -> . DOUBLE
+    (20) numero -> . INT
+
+    CHAR            shift and go to state 77
+    BOOL            shift and go to state 79
+    STRING          shift and go to state 80
+    IDENTIFICADOR   shift and go to state 75
+    FLOAT           shift and go to state 81
+    DOUBLE          shift and go to state 82
+    INT             shift and go to state 83
+
+    valor                          shift and go to state 76
+    numero                         shift and go to state 78
+
 state 61
 
-    (203) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER . IDENTIFICADOR END_OF_LINE
+    (221) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ . valor PAR_DER
+    (222) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ . NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
+    (7) valor -> . CHAR
+    (8) valor -> . numero
+    (9) valor -> . BOOL
+    (10) valor -> . STRING
+    (11) valor -> . IDENTIFICADOR
+    (18) numero -> . FLOAT
+    (19) numero -> . DOUBLE
+    (20) numero -> . INT
 
-    IDENTIFICADOR   shift and go to state 63
+    NEW             shift and go to state 85
+    CHAR            shift and go to state 77
+    BOOL            shift and go to state 79
+    STRING          shift and go to state 80
+    IDENTIFICADOR   shift and go to state 75
+    FLOAT           shift and go to state 81
+    DOUBLE          shift and go to state 82
+    INT             shift and go to state 83
 
+    valor                          shift and go to state 84
+    numero                         shift and go to state 78
 
 state 62
 
-    (208) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ . PAR_DER PAR_DER
+    (223) stack_pop -> IDENTIFICADOR PUNTO POP PAR_IZQ . PAR_DER
 
-    PAR_DER         shift and go to state 64
+    PAR_DER         shift and go to state 86
 
 
 state 63
 
-    (203) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR . END_OF_LINE
+    (22) encolar_int -> IDENTIFICADOR PUNTO ENQUEUE . PAR_IZQ INT PAR_DER END_OF_LINE
 
-    END_OF_LINE     shift and go to state 65
+    PAR_IZQ         shift and go to state 87
 
 
 state 64
 
-    (208) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER . PAR_DER
+    (32) encolar_string -> IDENTIFICADOR PUNTO ENQUEUE . PAR_IZQ STRING PAR_DER END_OF_LINE
 
-    PAR_DER         shift and go to state 66
+    PAR_IZQ         shift and go to state 88
 
 
 state 65
 
-    (203) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE .
+    (217) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ . INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
 
-    END_OF_LINE     reduce using rule 203 (cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE .)
-    $end            reduce using rule 203 (cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE .)
+    INT_TYPE        shift and go to state 89
 
 
 state 66
 
-    (208) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER .
+    (63) operacionesStack -> add_stack END_OF_LINE pop_stack END_OF_LINE .
 
-    END_OF_LINE     reduce using rule 208 (stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER .)
+    $end            reduce using rule 63 (operacionesStack -> add_stack END_OF_LINE pop_stack END_OF_LINE .)
 
-WARNING: 
-WARNING: Conflicts:
-WARNING: 
-WARNING: reduce/reduce conflict in state 12 resolved using rule (add_queue -> CHAR_TYPE)
-WARNING: rejected rule (to_upper_case -> CHAR_TYPE) in state 12
-WARNING: Rule (to_upper_case -> CHAR_TYPE) is never reduced
+
+state 67
+
+    (223) stack_pop -> IDENTIFICADOR PUNTO . POP PAR_IZQ PAR_DER
+
+    POP             shift and go to state 46
+
+
+state 68
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE . IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    IDENTIFICADOR   shift and go to state 90
+
+
+state 69
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE . IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    IDENTIFICADOR   shift and go to state 91
+
+
+state 70
+
+    (45) asignacion_string -> STRING_TYPE IDENTIFICADOR IGUAL STRING . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 92
+
+
+state 71
+
+    (80) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE . cast_float_int
+    (83) cast_float_int -> . cast_float_to_int
+    (217) cast_float_to_int -> . INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE
+
+    INT_TYPE        shift and go to state 16
+
+    cast_float_int                 shift and go to state 93
+    cast_float_to_int              shift and go to state 94
+
+state 72
+
+    (22) encolar_int -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ INT . PAR_DER END_OF_LINE
+
+    PAR_DER         shift and go to state 95
+
+
+state 73
+
+    (32) encolar_string -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ STRING . PAR_DER END_OF_LINE
+
+    PAR_DER         shift and go to state 96
+
+
+state 74
+
+    (44) str_to_upper_case -> IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 97
+
+
+state 75
+
+    (11) valor -> IDENTIFICADOR .
+
+    PAR_DER         reduce using rule 11 (valor -> IDENTIFICADOR .)
+
+
+state 76
+
+    (216) add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ valor . PAR_DER
+
+    PAR_DER         shift and go to state 98
+
+
+state 77
+
+    (7) valor -> CHAR .
+
+    PAR_DER         reduce using rule 7 (valor -> CHAR .)
+
+
+state 78
+
+    (8) valor -> numero .
+
+    PAR_DER         reduce using rule 8 (valor -> numero .)
+
+
+state 79
+
+    (9) valor -> BOOL .
+
+    PAR_DER         reduce using rule 9 (valor -> BOOL .)
+
+
+state 80
+
+    (10) valor -> STRING .
+
+    PAR_DER         reduce using rule 10 (valor -> STRING .)
+
+
+state 81
+
+    (18) numero -> FLOAT .
+
+    PAR_DER         reduce using rule 18 (numero -> FLOAT .)
+
+
+state 82
+
+    (19) numero -> DOUBLE .
+
+    PAR_DER         reduce using rule 19 (numero -> DOUBLE .)
+
+
+state 83
+
+    (20) numero -> INT .
+
+    PAR_DER         reduce using rule 20 (numero -> INT .)
+
+
+state 84
+
+    (221) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ valor . PAR_DER
+
+    PAR_DER         shift and go to state 99
+
+
+state 85
+
+    (222) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW . IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER
+
+    IDENTIFICADOR   shift and go to state 100
+
+
+state 86
+
+    (223) stack_pop -> IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER .
+
+    END_OF_LINE     reduce using rule 223 (stack_pop -> IDENTIFICADOR PUNTO POP PAR_IZQ PAR_DER .)
+
+
+state 87
+
+    (22) encolar_int -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ . INT PAR_DER END_OF_LINE
+
+    INT             shift and go to state 72
+
+
+state 88
+
+    (32) encolar_string -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ . STRING PAR_DER END_OF_LINE
+
+    STRING          shift and go to state 73
+
+
+state 89
+
+    (217) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE . PAR_DER IDENTIFICADOR END_OF_LINE
+
+    PAR_DER         shift and go to state 101
+
+
+state 90
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR . IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    IGUAL           shift and go to state 102
+
+
+state 91
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR . IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    IGUAL           shift and go to state 103
+
+
+state 92
+
+    (45) asignacion_string -> STRING_TYPE IDENTIFICADOR IGUAL STRING END_OF_LINE .
+
+    IDENTIFICADOR   reduce using rule 45 (asignacion_string -> STRING_TYPE IDENTIFICADOR IGUAL STRING END_OF_LINE .)
+    $end            reduce using rule 45 (asignacion_string -> STRING_TYPE IDENTIFICADOR IGUAL STRING END_OF_LINE .)
+
+
+state 93
+
+    (80) semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int .
+
+    $end            reduce using rule 80 (semantica_casting_float_to_int -> FLOAT_TYPE IDENTIFICADOR IGUAL FLOAT END_OF_LINE cast_float_int .)
+
+
+state 94
+
+    (83) cast_float_int -> cast_float_to_int .
+
+    $end            reduce using rule 83 (cast_float_int -> cast_float_to_int .)
+
+
+state 95
+
+    (22) encolar_int -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ INT PAR_DER . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 104
+
+
+state 96
+
+    (32) encolar_string -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ STRING PAR_DER . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 105
+
+
+state 97
+
+    (44) str_to_upper_case -> IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE .
+
+    $end            reduce using rule 44 (str_to_upper_case -> IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE .)
+    STRING_TYPE     reduce using rule 44 (str_to_upper_case -> IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE .)
+    IDENTIFICADOR   reduce using rule 44 (str_to_upper_case -> IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE .)
+
+
+state 98
+
+    (216) add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER .
+
+    END_OF_LINE     reduce using rule 216 (add_lista -> IDENTIFICADOR PUNTO ADD PAR_IZQ valor PAR_DER .)
+
+
+state 99
+
+    (221) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER .
+
+    END_OF_LINE     reduce using rule 221 (stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ valor PAR_DER .)
+
+
+state 100
+
+    (222) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR . PAR_IZQ PAR_DER PAR_DER
+
+    PAR_IZQ         shift and go to state 106
+
+
+state 101
+
+    (217) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER . IDENTIFICADOR END_OF_LINE
+
+    IDENTIFICADOR   shift and go to state 107
+
+
+state 102
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL . NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    NEW             shift and go to state 108
+
+
+state 103
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL . NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    NEW             shift and go to state 109
+
+
+state 104
+
+    (22) encolar_int -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE .
+
+    $end            reduce using rule 22 (encolar_int -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE .)
+
+
+state 105
+
+    (32) encolar_string -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE .
+
+    $end            reduce using rule 32 (encolar_string -> IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE .)
+
+
+state 106
+
+    (222) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ . PAR_DER PAR_DER
+
+    PAR_DER         shift and go to state 110
+
+
+state 107
+
+    (217) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 111
+
+
+state 108
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW . QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    QUEUE           shift and go to state 112
+
+
+state 109
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW . QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    QUEUE           shift and go to state 113
+
+
+state 110
+
+    (222) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER . PAR_DER
+
+    PAR_DER         shift and go to state 114
+
+
+state 111
+
+    (217) cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE .
+
+    END_OF_LINE     reduce using rule 217 (cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE .)
+    $end            reduce using rule 217 (cast_float_to_int -> INT_TYPE IDENTIFICADOR IGUAL PAR_IZQ INT_TYPE PAR_DER IDENTIFICADOR END_OF_LINE .)
+
+
+state 112
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE . MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    MENOR_QUE       shift and go to state 115
+
+
+state 113
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE . MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    MENOR_QUE       shift and go to state 116
+
+
+state 114
+
+    (222) stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER .
+
+    END_OF_LINE     reduce using rule 222 (stack_push -> IDENTIFICADOR PUNTO PUSH PAR_IZQ NEW IDENTIFICADOR PAR_IZQ PAR_DER PAR_DER .)
+
+
+state 115
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE . INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    INT_TYPE        shift and go to state 117
+
+
+state 116
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE . STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    STRING_TYPE     shift and go to state 118
+
+
+state 117
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE . MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    MAYOR_QUE       shift and go to state 119
+
+
+state 118
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE . MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE
+
+    MAYOR_QUE       shift and go to state 120
+
+
+state 119
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE . PAR_IZQ PAR_DER END_OF_LINE
+
+    PAR_IZQ         shift and go to state 121
+
+
+state 120
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE . PAR_IZQ PAR_DER END_OF_LINE
+
+    PAR_IZQ         shift and go to state 122
+
+
+state 121
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ . PAR_DER END_OF_LINE
+
+    PAR_DER         shift and go to state 123
+
+
+state 122
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ . PAR_DER END_OF_LINE
+
+    PAR_DER         shift and go to state 124
+
+
+state 123
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 125
+
+
+state 124
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER . END_OF_LINE
+
+    END_OF_LINE     shift and go to state 126
+
+
+state 125
+
+    (21) asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE .
+
+    IDENTIFICADOR   reduce using rule 21 (asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE .)
+    $end            reduce using rule 21 (asignacion_int_cola -> QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE .)
+
+
+state 126
+
+    (25) asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE .
+
+    IDENTIFICADOR   reduce using rule 25 (asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE .)
+    $end            reduce using rule 25 (asignacion_string_cola -> QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE .)
+

@@ -1,4 +1,5 @@
 from analizadores.sintactico import *
+from analizadores.lexico import tokens
 
 # String de errores
 errores_semantico = []
@@ -8,9 +9,9 @@ def p_body(p):
     """body : semantica_lista_add
     | semantica_casting_float_to_int
     | semantica_stack
-    | add_queue END_OF_LINE
+    | add_queue
     | cast_float_to_int END_OF_LINE
-    | to_upper_case END_OF_LINE
+    | to_upper_case
     """
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -29,10 +30,37 @@ p_valor
 # -------------------------------------------- CHEVEZ ----------------------------------------------
 # Ecribir sus reglas semanticas
 def p_add_queue(p):
-  'add_queue : CHAR_TYPE'
+  '''add_queue : asignacion_int_cola
+    | encolar_int
+    | asignacion_int_cola encolar_int
+    | asignacion_string_cola
+    | encolar_string
+    | asignacion_string_cola encolar_string
+  '''
+
+def p_asignacion_int_cola(p):
+  'asignacion_int_cola : QUEUE MENOR_QUE INT_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE INT_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'
+
+def p_encolar_int(p):
+  'encolar_int : IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ INT PAR_DER END_OF_LINE'
+
+def p_asignacion_string_cola(p):
+  'asignacion_string_cola : QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE IDENTIFICADOR IGUAL NEW QUEUE MENOR_QUE STRING_TYPE MAYOR_QUE PAR_IZQ PAR_DER END_OF_LINE'
+
+def p_encolar_string(p):
+  'encolar_string : IDENTIFICADOR PUNTO ENQUEUE PAR_IZQ STRING PAR_DER END_OF_LINE'
 
 def p_to_upper_case(p):
-  'to_upper_case : CHAR_TYPE'
+  '''to_upper_case : asignacion_string
+    | str_to_upper_case
+    | asignacion_string str_to_upper_case
+    | asignacion_string str_to_upper_case to_upper_case
+  '''
+def p_str_to_upper_case(p):
+  'str_to_upper_case : IDENTIFICADOR PUNTO TO_UPPER PAR_IZQ PAR_DER END_OF_LINE'
+
+def p_asignacion_string(p):
+  'asignacion_string : STRING_TYPE IDENTIFICADOR IGUAL STRING END_OF_LINE'
 # --------------------------------------------------------------------------------------------------
 
 

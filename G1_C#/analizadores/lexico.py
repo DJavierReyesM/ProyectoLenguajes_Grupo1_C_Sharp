@@ -21,8 +21,8 @@ reserved = {
     "break" : "BREAK",      "float": "FLOAT_TYPE",      "double": "DOUBLE_TYPE",    "int" : "INT_TYPE",
     "char" : "CHAR_TYPE",   "bool" : "BOOL_TYPE",       "string": "STRING_TYPE",    "ref" : "REF",
     #Palabras Reservadas para las funciones (para su uso en reglas semánticas)
-    "Stack": "STACK",        "ToUpper":"TO_UPPER",       "Push": "PUSH",             "Add" : "ADD",
-    "List":"LIST",          "Pop":"POP",                "Queue": "QUEUE"
+    "Stack": "STACK",        "ToUpper":"TO_UPPER",       "Push": "PUSH",            "Add" : "ADD",
+    "List":"LIST",          "Pop":"POP",                "Queue": "QUEUE",           "Enqueue" : "ENQUEUE"
 
 }
 # --------------------------------------------------------------------------------------------------

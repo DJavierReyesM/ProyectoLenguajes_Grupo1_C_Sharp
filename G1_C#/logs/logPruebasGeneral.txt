@@ -1,3 +1,415 @@
+-------------Analisis Lexico - Timestamp:11/29/2022, 20:54:26
+Entrada
+Analisis Lexico para: int a = ;
+LexToken(INT_TYPE,'int',1,0)
+LexToken(IDENTIFICADOR,'a',1,4)
+LexToken(IGUAL,'=',1,6)
+LexToken(END_OF_LINE,';',1,8)
+-------------Analisis Sintactico - Timestamp:11/29/2022, 20:54:28
+Entrada
+Analisis Sintactico para: int a = ;
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 1, Col: 8
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 20:54:44
+Entrada
+Analisis Semantico para: int a = ;
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 1, Col: 8
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 20:54:54
+Entrada
+Analisis Sintactico para: int a = 2;
+Error de sintaxis - Token: INT, Lï¿½nea: 1, Col: 8
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 1, Col: 9
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 20:55:04
+Entrada
+Analisis Lexico para: int a = 2;
+LexToken(INT_TYPE,'int',1,0)
+LexToken(IDENTIFICADOR,'a',1,4)
+LexToken(IGUAL,'=',1,6)
+LexToken(INT,2,1,8)
+LexToken(END_OF_LINE,';',1,9)
+-------------Analisis Sintactico - Timestamp:11/29/2022, 20:55:06
+Entrada
+Analisis Sintactico para: int a = 2;
+Error de sintaxis - Token: INT, Lï¿½nea: 1, Col: 8
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 1, Col: 9
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 20:55:33
+Entrada
+Analisis Sintactico para: int a = 2;
+
+Error de sintaxis - Token: INT, Lï¿½nea: 2, Col: 8
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 2, Col: 9
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 20:58:00
+Entrada
+Analisis Sintactico para: int a = 3;
+Error de sintaxis - Token: INT, Lï¿½nea: 1, Col: 8
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 1, Col: 9
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 21:10:58
+Entrada
+Analisis Sintactico para: string txt = "Hello World";
+Linea:  | Info: No hay errores!
+-------------Analisis Lexico - Timestamp:11/29/2022, 21:11:01
+Entrada
+Analisis Lexico para: string txt = "Hello World";
+LexToken(STRING_TYPE,'string',1,0)
+LexToken(IDENTIFICADOR,'txt',1,7)
+LexToken(IGUAL,'=',1,11)
+LexToken(STRING,'"Hello World"',1,13)
+LexToken(END_OF_LINE,';',1,26)
+-------------Analisis Semantico - Timestamp:11/29/2022, 21:11:04
+Entrada
+Analisis Semantico para: string txt = "Hello World";
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:06:40
+Entrada
+Analisis Semantico para: txt.ToUpper()
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:06:54
+Entrada
+Analisis Semantico para: string txt = "Hello World";
+txt.ToUpper()
+Error de sintaxis - Token: IDENTIFICADOR, Lï¿½nea: 3, Col: 28
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 3, Col: 31
+Error de sintaxis - Token: TO_UPPER, Lï¿½nea: 3, Col: 32
+Error de sintaxis - Token: PAR_IZQ, Lï¿½nea: 3, Col: 39
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 3, Col: 40
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:08:56
+Entrada
+Analisis Lexico para: string txt = "Hello World";
+txt.ToUpper()
+LexToken(STRING_TYPE,'string',1,0)
+LexToken(IDENTIFICADOR,'txt',1,7)
+LexToken(IGUAL,'=',1,11)
+LexToken(STRING,'"Hello World"',1,13)
+LexToken(END_OF_LINE,';',1,26)
+LexToken(IDENTIFICADOR,'txt',2,28)
+LexToken(PUNTO,'.',2,31)
+LexToken(TO_UPPER,'ToUpper',2,32)
+LexToken(PAR_IZQ,'(',2,39)
+LexToken(PAR_DER,')',2,40)
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:08:58
+Entrada
+Analisis Semantico para: string txt = "Hello World";
+txt.ToUpper()
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:09:18
+Entrada
+Analisis Semantico para: string txt = "Hello World"; txt.ToUpper()
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:09:34
+Entrada
+Analisis Semantico para: string txt = "Hello World"; txt.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:09:40
+Entrada
+Analisis Lexico para: string txt = "Hello World"; txt.ToUpper();
+LexToken(STRING_TYPE,'string',4,0)
+LexToken(IDENTIFICADOR,'txt',4,7)
+LexToken(IGUAL,'=',4,11)
+LexToken(STRING,'"Hello World"',4,13)
+LexToken(END_OF_LINE,';',4,26)
+LexToken(IDENTIFICADOR,'txt',4,28)
+LexToken(PUNTO,'.',4,31)
+LexToken(TO_UPPER,'ToUpper',4,32)
+LexToken(PAR_IZQ,'(',4,39)
+LexToken(PAR_DER,')',4,40)
+LexToken(END_OF_LINE,';',4,41)
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:09:41
+Entrada
+Analisis Semantico para: string txt = "Hello World"; txt.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:09:47
+Entrada
+Analisis Semantico para: string txt = "Hello World";
+txt.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:10:38
+Entrada
+Analisis Semantico para: txt.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:11:06
+Entrada
+Analisis Semantico para: txt.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:11:07
+Entrada
+Analisis Semantico para: txt.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:11:07
+Entrada
+Analisis Semantico para: txt.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:16:22
+Entrada
+Analisis Lexico para: txt.ToUpper()
+LexToken(IDENTIFICADOR,'txt',1,0)
+LexToken(PUNTO,'.',1,3)
+LexToken(TO_UPPER,'ToUpper',1,4)
+LexToken(PAR_IZQ,'(',1,11)
+LexToken(PAR_DER,')',1,12)
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:16:28
+Entrada
+Analisis Lexico para: txt.ToUpper();
+LexToken(IDENTIFICADOR,'txt',1,0)
+LexToken(PUNTO,'.',1,3)
+LexToken(TO_UPPER,'ToUpper',1,4)
+LexToken(PAR_IZQ,'(',1,11)
+LexToken(PAR_DER,')',1,12)
+LexToken(END_OF_LINE,';',1,13)
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:16:32
+Entrada
+Analisis Semantico para: txt.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:16:39
+Entrada
+Analisis Semantico para: txt . ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:17:47
+Entrada
+Analisis Lexico para: txte.ToUpper();
+LexToken(IDENTIFICADOR,'txte',1,0)
+LexToken(PUNTO,'.',1,4)
+LexToken(TO_UPPER,'ToUpper',1,5)
+LexToken(PAR_IZQ,'(',1,12)
+LexToken(PAR_DER,')',1,13)
+LexToken(END_OF_LINE,';',1,14)
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:17:50
+Entrada
+Analisis Semantico para: txte.ToUpper();
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:18:53
+Entrada
+Analisis Lexico para: txt.ToUpper();
+LexToken(IDENTIFICADOR,'txt',1,0)
+LexToken(PUNTO,'.',1,3)
+LexToken(TO_UPPER,'ToUpper',1,4)
+LexToken(PAR_IZQ,'(',1,11)
+LexToken(PAR_DER,')',1,12)
+LexToken(END_OF_LINE,';',1,13)
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:18:55
+Entrada
+Analisis Semantico para: txt.ToUpper();
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:19:06
+Entrada
+Analisis Semantico para: string txt = "Hello World";
+txt.ToUpper();
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:19:10
+Entrada
+Analisis Sintactico para: string txt = "Hello World";
+txt.ToUpper();
+Error de sintaxis - Token: TO_UPPER, Lï¿½nea: 5, Col: 32
+Error de sintaxis - Token: PAR_IZQ, Lï¿½nea: 5, Col: 39
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 5, Col: 40
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 5, Col: 41
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:19:11
+Entrada
+Analisis Lexico para: string txt = "Hello World";
+txt.ToUpper();
+LexToken(STRING_TYPE,'string',5,0)
+LexToken(IDENTIFICADOR,'txt',5,7)
+LexToken(IGUAL,'=',5,11)
+LexToken(STRING,'"Hello World"',5,13)
+LexToken(END_OF_LINE,';',5,26)
+LexToken(IDENTIFICADOR,'txt',6,28)
+LexToken(PUNTO,'.',6,31)
+LexToken(TO_UPPER,'ToUpper',6,32)
+LexToken(PAR_IZQ,'(',6,39)
+LexToken(PAR_DER,')',6,40)
+LexToken(END_OF_LINE,';',6,41)
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:19:13
+Entrada
+Analisis Semantico para: string txt = "Hello World";
+txt.ToUpper();
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:21:43
+Entrada
+Analisis Sintactico para: switch (day){case 1: Console.WriteLine("Monday"); break; case 2: Console.WriteLine("Tuesday"); break; case 3: Console.WriteLine("Wednesday"); break;}
+switch (3) {case variableA: break; case variableB: Console.WriteLine("Ingresa"); break;}
+switch(false){ case 2: 3==4; break; }
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:22:11
+Entrada
+Analisis Sintactico para: valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+Error de sintaxis - Token: STRING, Lï¿½nea: 17, Col: 17
+Error de sintaxis - Token: INT, Lï¿½nea: 18, Col: 40
+Error de sintaxis - Token: MAYOR_O_IGUAL_QUE, Lï¿½nea: 18, Col: 42
+Error de sintaxis - Token: INT, Lï¿½nea: 18, Col: 45
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 19, Col: 47
+Error de sintaxis - Token: MENOR_O_IGUAL_QUE, Lï¿½nea: 19, Col: 52
+Error de sintaxis - Token: FLOAT, Lï¿½nea: 19, Col: 55
+Error de sintaxis - Token: BOOL, Lï¿½nea: 20, Col: 60
+Error de sintaxis - Token: IGUAL_IGUAL, Lï¿½nea: 20, Col: 65
+Error de sintaxis - Token: BOOL, Lï¿½nea: 20, Col: 68
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:22:25
+Entrada
+Analisis Lexico para: valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+LexToken(IDENTIFICADOR,'valor1',20,0)
+LexToken(IGUAL_IGUAL,'==',20,7)
+LexToken(IDENTIFICADOR,'valor2',20,10)
+LexToken(STRING,'"cadena1" != "cadena2"',21,17)
+LexToken(INT,2,22,40)
+LexToken(MAYOR_O_IGUAL_QUE,'>=',22,42)
+LexToken(INT,2,22,45)
+LexToken(DOUBLE,4.5,23,47)
+LexToken(MENOR_O_IGUAL_QUE,'<=',23,52)
+LexToken(FLOAT,2.4,23,55)
+LexToken(BOOL,True,24,60)
+LexToken(IGUAL_IGUAL,'==',24,65)
+LexToken(BOOL,False,24,68)
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:22:36
+Entrada
+Analisis Sintactico para: valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+Error de sintaxis - Token: STRING, Lï¿½nea: 29, Col: 17
+Error de sintaxis - Token: INT, Lï¿½nea: 30, Col: 40
+Error de sintaxis - Token: MAYOR_O_IGUAL_QUE, Lï¿½nea: 30, Col: 42
+Error de sintaxis - Token: INT, Lï¿½nea: 30, Col: 45
+Error de sintaxis - Token: DOUBLE, Lï¿½nea: 31, Col: 47
+Error de sintaxis - Token: MENOR_O_IGUAL_QUE, Lï¿½nea: 31, Col: 52
+Error de sintaxis - Token: FLOAT, Lï¿½nea: 31, Col: 55
+Error de sintaxis - Token: BOOL, Lï¿½nea: 32, Col: 60
+Error de sintaxis - Token: IGUAL_IGUAL, Lï¿½nea: 32, Col: 65
+Error de sintaxis - Token: BOOL, Lï¿½nea: 32, Col: 68
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:24:11
+Entrada
+Analisis Sintactico para: valor1 == valor2
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:24:27
+Entrada
+Analisis Sintactico para: valor1 == valor2
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:24:48
+Entrada
+Analisis Sintactico para: "cadena1" != "cadena2"
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:25:50
+Entrada
+Analisis Sintactico para: "cadena1" != "cadena2"
+
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:25:56
+Entrada
+Analisis Sintactico para: "cadena1" != "cadena2
+Error de sintaxis - Token: IDENTIFICADOR, Lï¿½nea: 34, Col: 14
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:26:00
+Entrada
+Analisis Sintactico para: "cadena1" != "cadena2"
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:26:02
+Entrada
+Analisis Lexico para: "cadena1" != "cadena2"
+LexToken(STRING,'"cadena1" != "cadena2"',34,0)
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:26:12
+Entrada
+Analisis Sintactico para: "cadena1" != "cadena2"
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/29/2022, 22:26:22
+Entrada
+Analisis Sintactico para: "cadena1" != cadena2
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:40:51
+Entrada
+Analisis Semantico para: Queue<int> callerIds = new Queue<int>();
+Error de sintaxis - Token: INT_TYPE, Lï¿½nea: 1, Col: 6
+Error de sintaxis - Token: MAYOR_QUE, Lï¿½nea: 1, Col: 9
+Error de sintaxis - Token: IDENTIFICADOR, Lï¿½nea: 1, Col: 11
+Error de sintaxis - Token: IGUAL, Lï¿½nea: 1, Col: 21
+Error de sintaxis - Token: NEW, Lï¿½nea: 1, Col: 23
+Error de sintaxis - Token: QUEUE, Lï¿½nea: 1, Col: 27
+Error de sintaxis - Token: MENOR_QUE, Lï¿½nea: 1, Col: 32
+Error de sintaxis - Token: INT_TYPE, Lï¿½nea: 1, Col: 33
+Error de sintaxis - Token: MAYOR_QUE, Lï¿½nea: 1, Col: 36
+Error de sintaxis - Token: PAR_IZQ, Lï¿½nea: 1, Col: 37
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 1, Col: 38
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 1, Col: 39
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/29/2022, 22:41:00
+Entrada
+Analisis Lexico para: Queue<int> callerIds = new Queue<int>();
+LexToken(QUEUE,'Queue',1,0)
+LexToken(MENOR_QUE,'<',1,5)
+LexToken(INT_TYPE,'int',1,6)
+LexToken(MAYOR_QUE,'>',1,9)
+LexToken(IDENTIFICADOR,'callerIds',1,11)
+LexToken(IGUAL,'=',1,21)
+LexToken(NEW,'new',1,23)
+LexToken(QUEUE,'Queue',1,27)
+LexToken(MENOR_QUE,'<',1,32)
+LexToken(INT_TYPE,'int',1,33)
+LexToken(MAYOR_QUE,'>',1,36)
+LexToken(PAR_IZQ,'(',1,37)
+LexToken(PAR_DER,')',1,38)
+LexToken(END_OF_LINE,';',1,39)
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:41:47
+Entrada
+Analisis Semantico para: Queue<int> callerIds = new Queue<int>();
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:42:18
+Entrada
+Analisis Semantico para: callerIds.Enqueue(1);
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:42:29
+Entrada
+Analisis Semantico para: Queue<int> callerIds = new Queue<int>();
+callerIds.Enqueue(1);
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:44:54
+Entrada
+Analisis Semantico para: Queue<int> callerIds = new Queue<int>();
+callerIds.Enqueue(1);
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:45:04
+Entrada
+Analisis Semantico para: Queue<string> callerIds = new Queue<int>();
+callerIds.Enqueue(1);
+Error de sintaxis - Token: INT_TYPE, Lï¿½nea: 4, Col: 36
+Error de sintaxis - Token: MAYOR_QUE, Lï¿½nea: 4, Col: 39
+Error de sintaxis - Token: PAR_IZQ, Lï¿½nea: 4, Col: 40
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 4, Col: 41
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 4, Col: 42
+Error de sintaxis - Token: IDENTIFICADOR, Lï¿½nea: 5, Col: 44
+Error de sintaxis - Token: PUNTO, Lï¿½nea: 5, Col: 53
+Error de sintaxis - Token: ENQUEUE, Lï¿½nea: 5, Col: 54
+Error de sintaxis - Token: PAR_IZQ, Lï¿½nea: 5, Col: 61
+Error de sintaxis - Token: INT, Lï¿½nea: 5, Col: 62
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 5, Col: 63
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 5, Col: 64
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:45:11
+Entrada
+Analisis Semantico para: Queue<string> callerIds = new Queue<string>();
+callerIds.Enqueue(1);
+Error de sintaxis - Token: INT, Lï¿½nea: 7, Col: 65
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 7, Col: 66
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 7, Col: 67
+Error de sintaxis Fin de Linea
+-------------Analisis Semantico - Timestamp:11/29/2022, 22:45:18
+Entrada
+Analisis Semantico para: Queue<string> callerIds = new Queue<string>();
+callerIds.Enqueue("1");
+Linea:  | Info: No hay errores!
 -------------Analisis Sintactico - Timestamp:11/29/2022, 23:33:05
 Entrada
 Analisis Sintactico para: int a = 4;
@@ -261,7 +673,7 @@ Linea:  | Info: No hay errores!
 Entrada
 Analisis Semantico para: Stack<int> num = new Stack<int>();
 num.Push('A');
-Error de sintaxis - Token: CHAR, Línea: 5, Col: 44
-Error de sintaxis - Token: PAR_DER, Línea: 5, Col: 47
-Error de sintaxis - Token: END_OF_LINE, Línea: 5, Col: 48
+Error de sintaxis - Token: CHAR, Lï¿½nea: 5, Col: 44
+Error de sintaxis - Token: PAR_DER, Lï¿½nea: 5, Col: 47
+Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 5, Col: 48
 Error de sintaxis Fin de Linea

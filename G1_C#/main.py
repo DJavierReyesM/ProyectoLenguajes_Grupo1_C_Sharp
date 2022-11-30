@@ -4,6 +4,7 @@ from tkinter.scrolledtext import ScrolledText
 from analizadores.lexico import *
 from analizadores.sintactico import *
 from analizadores.semantico import *
+from datetime import datetime, timezone
 
 class App(tk.Tk):
     def __init__(self):
@@ -52,9 +53,20 @@ class App(tk.Tk):
         self.salida.delete('1.0', tk.END)
         codigo = self.code_entry.get(1.0, "end-1c")
         self.salida.insert(tk.INSERT, f'Analisis Léxico para: {codigo}\n')
+
+        now = datetime.now()
+        fecha = now.strftime("%m/%d/%Y, %H:%M:%S")
+        file = open('G1_C#/logs/logPruebasGeneral.txt', 'a')
+        file.write("-------------Analisis Lexico - Timestamp:" + fecha + "\nEntrada\n")
+
         lexer.input(codigo)
 
+        file.write(f"Analisis Lexico para: {codigo}\n")
+
         texto = getTokens(lexer)
+
+        file.write(texto)
+
         self.salida.insert(tk.INSERT, "\n")
 
         self.salida.insert(tk.INSERT, texto)
@@ -66,11 +78,21 @@ class App(tk.Tk):
         codigo = self.code_entry.get(1.0, "end-1c")
         self.salida.insert(tk.INSERT, f'Analisis Sintáctico para: {codigo}\n')
 
+        now = datetime.now()
+        fecha = now.strftime("%m/%d/%Y, %H:%M:%S")
+        file = open('G1_C#/logs/logPruebasGeneral.txt', 'a')
+        file.write("-------------Analisis Sintactico - Timestamp:" + fecha + "\nEntrada\n")
+
         self.salida.insert(tk.INSERT, validaReglaSintactica(codigo))
         self.salida.insert(tk.INSERT, "\n")
 
+        file.write(f"Analisis Sintactico para: {codigo}\n")
+        file.write(validaReglaSintactica(codigo))
+
         for str_err in errores_sintactico:
             self.salida.insert(tk.INSERT, str_err)
+            file.write(str_err)
+        file.close()
         self.salida.insert(tk.INSERT, "\n")
 
     def semantico(self):
@@ -78,11 +100,21 @@ class App(tk.Tk):
         codigo = self.code_entry.get(1.0, "end-1c")
         self.salida.insert(tk.INSERT, f'Analisis Semántico para: {codigo}\n')
 
+        now = datetime.now()
+        fecha = now.strftime("%m/%d/%Y, %H:%M:%S")
+        file = open('G1_C#/logs/logPruebasGeneral.txt', 'a')
+        file.write("-------------Analisis Semantico - Timestamp:" + fecha + "\nEntrada\n")
+
         self.salida.insert(tk.INSERT, validaReglaSemantica(codigo))
         self.salida.insert(tk.INSERT, "\n")
 
+        file.write(f"Analisis Semantico para: {codigo}\n")
+        file.write(validaReglaSemantica(codigo))
+
         for str_err in errores_semantico:
           self.salida.insert(tk.INSERT, str_err)
+          file.write(str_err)
+        file.close()
         self.salida.insert(tk.INSERT, "\n")
 
     def limpiar(self):

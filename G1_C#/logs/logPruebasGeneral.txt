@@ -677,3 +677,105 @@ Error de sintaxis - Token: CHAR, Lï¿½nea: 5, Col: 44
 Error de sintaxis - Token: PAR_DER, Lï¿½nea: 5, Col: 47
 Error de sintaxis - Token: END_OF_LINE, Lï¿½nea: 5, Col: 48
 Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/30/2022, 19:59:49
+Entrada
+Analisis Sintactico para: switch (day){
+	case 1:
+		Console.WriteLine("Monday"); 
+		break;
+	case 2: 
+		Console.WriteLine("Tuesday");
+		break; 
+	case 3: 
+		Console.WriteLine("Wednesday");
+		break;
+}
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/30/2022, 20:00:42
+Entrada
+Analisis Sintactico para: valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+Error de sintaxis - Token: STRING, Línea: 26, Col: 17
+Error de sintaxis - Token: INT, Línea: 27, Col: 40
+Error de sintaxis - Token: MAYOR_O_IGUAL_QUE, Línea: 27, Col: 42
+Error de sintaxis - Token: INT, Línea: 27, Col: 45
+Error de sintaxis - Token: DOUBLE, Línea: 28, Col: 47
+Error de sintaxis - Token: MENOR_O_IGUAL_QUE, Línea: 28, Col: 52
+Error de sintaxis - Token: FLOAT, Línea: 28, Col: 55
+Error de sintaxis - Token: BOOL, Línea: 29, Col: 60
+Error de sintaxis - Token: IGUAL_IGUAL, Línea: 29, Col: 65
+Error de sintaxis - Token: BOOL, Línea: 29, Col: 68
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/30/2022, 20:00:54
+Entrada
+Analisis Lexico para: "cadena1" != "cadena2"
+LexToken(STRING,'"cadena1" != "cadena2"',29,0)
+-------------Analisis Lexico - Timestamp:11/30/2022, 20:09:16
+Entrada
+Analisis Lexico para: "cadena1" != "cadena2"
+LexToken(STRING,'"cadena1" != "cadena2"',29,0)
+-------------Analisis Lexico - Timestamp:11/30/2022, 20:15:50
+Entrada
+Analisis Lexico para: "cadena1" != "cadena2"
+LexToken(STRING,'"cadena1"',1,0)
+LexToken(NO_IGUAL,'!=',1,10)
+LexToken(STRING,'"cadena2"',1,13)
+-------------Analisis Sintactico - Timestamp:11/30/2022, 20:15:52
+Entrada
+Analisis Sintactico para: "cadena1" != "cadena2"
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/30/2022, 20:16:11
+Entrada
+Analisis Sintactico para: valor1 == valor2
+"cadena1" != "cadena2"
+2 >= 2
+4.5d <= 2.4f
+true == false
+Error de sintaxis - Token: STRING, Línea: 6, Col: 17
+Error de sintaxis - Token: NO_IGUAL, Línea: 6, Col: 27
+Error de sintaxis - Token: STRING, Línea: 6, Col: 30
+Error de sintaxis - Token: INT, Línea: 7, Col: 40
+Error de sintaxis - Token: MAYOR_O_IGUAL_QUE, Línea: 7, Col: 42
+Error de sintaxis - Token: INT, Línea: 7, Col: 45
+Error de sintaxis - Token: DOUBLE, Línea: 8, Col: 47
+Error de sintaxis - Token: MENOR_O_IGUAL_QUE, Línea: 8, Col: 52
+Error de sintaxis - Token: FLOAT, Línea: 8, Col: 55
+Error de sintaxis - Token: BOOL, Línea: 9, Col: 60
+Error de sintaxis - Token: IGUAL_IGUAL, Línea: 9, Col: 65
+Error de sintaxis - Token: BOOL, Línea: 9, Col: 68
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/30/2022, 20:16:36
+Entrada
+Analisis Sintactico para: "cadena1" != "cadena2"
+Linea:  | Info: No hay errores!
+-------------Analisis Sintactico - Timestamp:11/30/2022, 20:16:49
+Entrada
+Analisis Sintactico para: valor1 == valor2
+"cadena1" != "cadena2"
+Error de sintaxis - Token: STRING, Línea: 11, Col: 17
+Error de sintaxis - Token: NO_IGUAL, Línea: 11, Col: 27
+Error de sintaxis - Token: STRING, Línea: 11, Col: 30
+Error de sintaxis Fin de Linea
+-------------Analisis Sintactico - Timestamp:11/30/2022, 20:17:11
+Entrada
+Analisis Sintactico para: valor1 == valor2
+Error de sintaxis Fin de Linea
+-------------Analisis Lexico - Timestamp:11/30/2022, 20:18:15
+Entrada
+Analisis Lexico para: "cadena1" != "cadena2"
+LexToken(STRING,'"cadena1"',1,0)
+LexToken(NO_IGUAL,'!=',1,10)
+LexToken(STRING,'"cadena2"',1,13)
+-------------Analisis Sintactico - Timestamp:11/30/2022, 20:18:16
+Entrada
+Analisis Sintactico para: "cadena1" != "cadena2"
+Linea:  | Info: No hay errores!
+-------------Analisis Semantico - Timestamp:11/30/2022, 20:27:07
+Entrada
+Analisis Semantico para: Queue<int> callerIds = new Queue<int>();
+callerIds.Enqueue(1);
+
+Linea:  | Info: No hay errores!
